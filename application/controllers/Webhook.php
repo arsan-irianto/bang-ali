@@ -91,10 +91,10 @@ class Webhook extends CI_Controller {
       $message  = "Assalamualaykum warahmatullahi wabarakatuh...\n";
       $message .= "Hai, " . $profile['displayName'] . "!\n";
       $message .= "Terima kasih sudah menambahkan aku sebagai teman :D \n";
-      $message .= "Insya Allah aku akan membantu kamu menemukan lokasi masjid terdekat, \n";
-      $message .= "info Buku-buku islami, artikel pilihan dan fitur-fitur menarik lainnya \n";
+      $message .= "Insya Allah aku akan membantu kamu menemukan lokasi masjid terdekat,";
+      $message .= "info buku-buku islami \n, artikel pilihan dan fitur-fitur menarik lainnya \n";
       $message .= "yang akan dikembangkan sesuai kebutuhan kamu sebagai seorang muslim. \n";
-      $message .= "Karena itu, sering-sering ya chat dengan aku :D";
+      $message .= "Karena itu sering-sering ya chat dengan aku :D";
       $textMessageBuilder = new TextMessageBuilder($message);
 
       // create sticker message
