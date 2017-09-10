@@ -122,11 +122,13 @@ class Webhook extends CI_Controller {
       if(strtolower($userMessage) == 'mulai')
       {
         // reset score
-        $this->webhook_m->setScore($this->user['user_id'], 0);
+        //$this->webhook_m->setScore($this->user['user_id'], 0);
         // update number progress
-        $this->webhook_m->setUserProgress($this->user['user_id'], 1);
+        //$this->webhook_m->setUserProgress($this->user['user_id'], 1);
         // send question no.1
-        $this->sendQuestion($event['replyToken'], 1);
+        //$this->sendQuestion($event['replyToken'], 1);
+        $location = new LocationMessageBuilder('tes', 'bontobila', '-33.8670522', '151.1957362');
+        $this->bot->replyMessage($event['replyToken'], $location);
       } else {
         $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis.';
         $textMessageBuilder = new TextMessageBuilder($message);
@@ -152,11 +154,8 @@ class Webhook extends CI_Controller {
     $multiMessageBuilder = new MultiMessageBuilder();
     $multiMessageBuilder->add($stickerMessageBuilder);
     $multiMessageBuilder->add($textMessageBuilder);
-
-    $location = new LocationMessageBuilder('tes', 'bontobila', '-33.8670522', '151.1957362');
-
     // send message
-    $this->bot->replyMessage($event['replyToken'], $location);
+    $this->bot->replyMessage($event['replyToken'], $multiMessageBuilder);
   }
 
   public function sendQuestion($replyToken, $questionNum=1)
