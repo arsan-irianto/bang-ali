@@ -142,7 +142,7 @@ class Webhook extends CI_Controller {
   }
 
   private function locationMessage($event){
-    $userMessage = $event['message']['location'];
+    $userMessage = $event['message']['text'];
     //if($this->user['number'] == 0)
     //{
         //$location = new LocationMessageBuilder('tes', 'bontobila', '-33.8670522', '151.1957362');
