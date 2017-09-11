@@ -116,9 +116,7 @@ class Webhook extends CI_Controller {
 
   private function textMessage($event)
   {
-
     $userMessage = $event['message']['text'];
-    $userLocation = $event['message']['location'];//['title'];
     if($this->user['number'] == 0)
     {
       if(strtolower($userMessage) == 'mulai')
@@ -134,8 +132,7 @@ class Webhook extends CI_Controller {
       } else {
         $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis.';
         $textMessageBuilder = new TextMessageBuilder($message);
-        $location = new LocationMessageBuilder($userLocation, 'bontobila', '-33.8670522', '151.1957362');
-        $this->bot->replyMessage($event['replyToken'], $location);
+        $this->bot->replyMessage($event['replyToken'], $this>$this->bot->replyText());
       }
 
       // if user already begin test
