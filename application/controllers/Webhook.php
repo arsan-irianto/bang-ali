@@ -116,6 +116,8 @@ class Webhook extends CI_Controller {
 
   private function textMessage($event)
   {
+    $this->bot->replyMessage($event['replyToken'], "LAtitude : ".$event['message']['latitude']);
+    /*
     $userMessage = $event['message']['text'];
     if($this->user['number'] == 0)
     {
@@ -139,6 +141,7 @@ class Webhook extends CI_Controller {
     } else {
       $this->checkAnswer($userMessage, $event['replyToken']);
     }
+    */
   }
 
   private function stickerMessage($event)
