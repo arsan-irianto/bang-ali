@@ -132,7 +132,7 @@ class Webhook extends CI_Controller {
       } else {
         $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis.';
         $textMessageBuilder = new TextMessageBuilder($message);
-        $this->bot->replyMessage($event['replyToken'], $this>$this->bot->replyText());
+        $this->bot->replyMessage($event['replyToken'], $this->bot->replyText());
       }
 
       // if user already begin test
