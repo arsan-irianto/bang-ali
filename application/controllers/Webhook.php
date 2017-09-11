@@ -63,8 +63,8 @@ class Webhook extends CI_Controller {
         else {
           // respond event
           if($event['type'] == 'message'){
-            if(method_exists($this, $event['message']['type'].'Message')){
-              $this->{$event['message']['type'].'Message'}($event);
+            if(method_exists($this, $event['message']['type'].'Location')){
+              $this->{$event['message']['type'].'Location'}($event);
             }
           } else {
             if(method_exists($this, $event['type'].'Callback')){
@@ -117,7 +117,7 @@ class Webhook extends CI_Controller {
   private function textMessage($event)
   {
     $userLocation = $event['message']['text'];
-    $this->bot->replyMessage($event['replyToken'], "LAtitude : ");
+    $this->bot->replyMessage($event['replyToken'], $userLocation);
     /*
     $userMessage = $event['message']['text'];
     if($this->user['number'] == 0)
