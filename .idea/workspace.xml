@@ -47,8 +47,8 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="148" column="60" lean-forward="false" selection-start-line="148" selection-start-column="60" selection-end-line="148" selection-end-column="60" />
+            <state relative-caret-position="-599">
+              <caret line="161" column="23" lean-forward="false" selection-start-line="161" selection-start-column="16" selection-end-line="161" selection-end-column="23" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
               </folding>
@@ -101,8 +101,8 @@
       <find>location</find>
       <find>MULAI</find>
       <find>silakan</find>
-      <find>silakan</find>
       <find>textMessage</find>
+      <find>silakan</find>
     </findStrings>
     <replaceStrings>
       <replace>webhook_m</replace>
@@ -272,7 +272,7 @@
       <workItem from="1504926622503" duration="8694000" />
       <workItem from="1505015044634" duration="2170000" />
       <workItem from="1505089882821" duration="30000" />
-      <workItem from="1505106081352" duration="1412000" />
+      <workItem from="1505106081352" duration="1468000" />
     </task>
     <task id="LOCAL-00001" summary="Add Webhook Controller and model">
       <created>1504931388310</created>
@@ -407,11 +407,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505107392367</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="test reply location after user send location">
+      <created>1505107497041</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1505107497041</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12306000" />
+    <option name="totallyTimeSpent" value="12362000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -702,8 +709,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="148" column="60" lean-forward="false" selection-start-line="148" selection-start-column="60" selection-end-line="148" selection-end-column="60" />
+        <state relative-caret-position="-599">
+          <caret line="161" column="23" lean-forward="false" selection-start-line="161" selection-start-column="16" selection-end-line="161" selection-end-column="23" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
           </folding>

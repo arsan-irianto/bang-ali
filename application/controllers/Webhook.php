@@ -130,7 +130,7 @@ class Webhook extends CI_Controller {
         $location = new LocationMessageBuilder('tes', 'bontobila', '-33.8670522', '151.1957362');
         $this->bot->replyMessage($event['replyToken'], $location);
       } else {
-        $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis.';
+        $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis(textMessage)';
         $textMessageBuilder = new TextMessageBuilder($message);
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
       }
