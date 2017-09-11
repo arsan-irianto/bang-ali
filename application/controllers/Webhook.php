@@ -63,10 +63,16 @@ class Webhook extends CI_Controller {
         else {
           // respond event
           if($event['type'] == 'message'){
-            if(method_exists($this, $event['message']['type'].'Location')){
-              $this->{$event['message']['type'].'Location'}($event);
+            if(method_exists($this, $event['message']['type'].'Message')){
+              $this->{$event['message']['type'].'Message'}($event);
             }
-          } else {
+          }
+          elseif ($event['type'] == 'location'){
+            if(method_exists($this, $event['message']['type'].'Message')){
+              $this->{$event['message']['type'].'Message'}($event);
+            }
+          }
+          else {
             if(method_exists($this, $event['type'].'Callback')){
               $this->{$event['type'].'Callback'}($event);
             }
@@ -116,9 +122,6 @@ class Webhook extends CI_Controller {
 
   private function textMessage($event)
   {
-    $userLocation = $event['message']['text'];
-    $this->bot->replyMessage($event['replyToken'], $userLocation);
-    /*
     $userMessage = $event['message']['text'];
     if($this->user['number'] == 0)
     {
@@ -142,7 +145,14 @@ class Webhook extends CI_Controller {
     } else {
       $this->checkAnswer($userMessage, $event['replyToken']);
     }
-    */
+  }
+
+  private function locationMessage($event){
+    $userLocation = $event['message']['location'];
+    //$userLatitude = $event['message']['latitude'];
+
+    $location = new LocationMessageBuilder('Location Message', 'bontobila', '-33.8670522', '151.1957362');
+    $this->bot->replyMessage($event['replyToken'], $location);
   }
 
   private function stickerMessage($event)
