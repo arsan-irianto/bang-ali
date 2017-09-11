@@ -141,6 +141,11 @@ class Webhook extends CI_Controller {
     }
   }
 
+  private function locationMessage($event){
+    $location = new LocationMessageBuilder('tes', 'bontobila', '-33.8670522', '151.1957362');
+    $this->bot->replyMessage($event['replyToken'], $location);
+  }
+
   private function stickerMessage($event)
   {
     // create sticker message
