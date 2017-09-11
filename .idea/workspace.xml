@@ -268,7 +268,7 @@
       <workItem from="1504926622503" duration="8694000" />
       <workItem from="1505015044634" duration="2170000" />
       <workItem from="1505089882821" duration="30000" />
-      <workItem from="1505106081352" duration="11000" />
+      <workItem from="1505106081352" duration="49000" />
     </task>
     <task id="LOCAL-00001" summary="Add Webhook Controller and model">
       <created>1504931388310</created>
@@ -347,11 +347,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505016431690</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="test send location, edit bot">
+      <created>1505106117497</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1505106117497</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10905000" />
+    <option name="totallyTimeSpent" value="10943000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -386,7 +393,8 @@
     <MESSAGE value="Add Webhook Controller and model" />
     <MESSAGE value="Update Controller and model webhook" />
     <MESSAGE value="test send location" />
-    <option name="LAST_COMMIT_MESSAGE" value="test send location" />
+    <MESSAGE value="test send location, edit bot" />
+    <option name="LAST_COMMIT_MESSAGE" value="test send location, edit bot" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
