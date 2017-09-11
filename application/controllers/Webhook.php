@@ -134,7 +134,7 @@ class Webhook extends CI_Controller {
       } else {
         $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis(textMessage)';
         $textMessageBuilder = new TextMessageBuilder($message);
-        if($latitude!=''){
+        if($userLocation!=''){
           $this->bot->replyMessage($event['replyToken'], "Lokasi Latitude".$latitude);
         }
         else {
