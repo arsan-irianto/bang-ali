@@ -159,7 +159,7 @@ class Webhook extends CI_Controller {
     $stickerMessageBuilder = new StickerMessageBuilder(1, 106);
 
     // create text message
-    $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis.';
+    $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis(stickerMessage)';
     $textMessageBuilder = new TextMessageBuilder($message);
 
     // merge all message
