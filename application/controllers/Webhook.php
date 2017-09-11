@@ -116,9 +116,9 @@ class Webhook extends CI_Controller {
 
   private function textMessage($event)
   {
+
     $userMessage = $event['message']['text'];
-    $userLocation = $event['message']['location'];
-    $latitude = $event['message']['latitude'];
+    $userLocation = $event['message']['location']['title'];
     if($this->user['number'] == 0)
     {
       if(strtolower($userMessage) == 'mulai')
@@ -132,15 +132,9 @@ class Webhook extends CI_Controller {
         $location = new LocationMessageBuilder('tes', 'bontobila', '-33.8670522', '151.1957362');
         $this->bot->replyMessage($event['replyToken'], $location);
       } else {
-        $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis(textMessage)';
+        $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis.';
         $textMessageBuilder = new TextMessageBuilder($message);
-        if($userLocation!=''){
-          $this->bot->replyMessage($event['replyToken'], "Lokasi Latitude".$latitude);
-        }
-        else {
-          $this->bot->replyMessage($event['replyToken'], "Lokasi Latitude kosong");
-        }
-
+        $this->bot->replyMessage($event['replyToken'], $userLocation);
       }
 
       // if user already begin test
@@ -149,25 +143,13 @@ class Webhook extends CI_Controller {
     }
   }
 
-  private function locationMessage($event){
-    $userMessage = $event['message']['text'];
-    //if($this->user['number'] == 0)
-    //{
-        //$location = new LocationMessageBuilder('tes', 'bontobila', '-33.8670522', '151.1957362');
-        $this->bot->replyMessage($event['replyToken'], 'Halo');
-      // if user already begin test
-    //} else {
-      //$this->checkAnswer($userMessage, $event['replyToken']);
-    //}
-  }
-
   private function stickerMessage($event)
   {
     // create sticker message
     $stickerMessageBuilder = new StickerMessageBuilder(1, 106);
 
     // create text message
-    $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis(stickerMessage)';
+    $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis.';
     $textMessageBuilder = new TextMessageBuilder($message);
 
     // merge all message
