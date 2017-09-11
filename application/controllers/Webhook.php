@@ -146,7 +146,7 @@ class Webhook extends CI_Controller {
     //if($this->user['number'] == 0)
     //{
         //$location = new LocationMessageBuilder('tes', 'bontobila', '-33.8670522', '151.1957362');
-        $this->bot->replyMessage($event['replyToken'], $userMessage);
+        $this->bot->replyMessage($event['replyToken'], $event['message']['text']);
       // if user already begin test
     //} else {
       //$this->checkAnswer($userMessage, $event['replyToken']);
