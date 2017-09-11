@@ -51,7 +51,7 @@ class Webhook extends CI_Controller {
 
     if(is_array($this->events['events'])){
       foreach ($this->events['events'] as $event){
-        $this->textMessage($this->events['events']['message']['latitude']);
+
         // skip group and room event
         if(! isset($event['source']['userId'])) continue;
 
@@ -132,7 +132,7 @@ class Webhook extends CI_Controller {
       } else {
         $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis.';
         $textMessageBuilder = new TextMessageBuilder($message);
-        $this->bot->replyMessage($event['replyToken'], $event['message']['latitude']);
+        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
       }
 
       // if user already begin test
