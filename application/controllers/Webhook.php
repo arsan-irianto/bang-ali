@@ -62,9 +62,8 @@ class Webhook extends CI_Controller {
         if(!$this->user) $this->followCallback($event);
         else {
           // respond event
-          $this->{$event['message']['type'].'Message'}($event);
-          //$this->textMessage($event['message']['text']);
-/*          if($event['type'] == 'message'){
+          $this->textMessage($event['message']['text']);
+          if($event['type'] == 'message'){
             if(method_exists($this, $event['message']['type'].'Message')){
               $this->{$event['message']['type'].'Message'}($event);
             }
@@ -72,7 +71,7 @@ class Webhook extends CI_Controller {
             if(method_exists($this, $event['type'].'Callback')){
               $this->{$event['type'].'Callback'}($event);
             }
-          }*/
+          }
         }
 
       } // end of foreach
