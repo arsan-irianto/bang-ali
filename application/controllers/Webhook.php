@@ -118,6 +118,7 @@ class Webhook extends CI_Controller {
   {
     $userMessage = $event['message']['text'];
     $userLocation = $event['message']['location'];
+    $latitude = $event['message']['latitude'];
     if($this->user['number'] == 0)
     {
       if(strtolower($userMessage) == 'mulai')
@@ -133,7 +134,13 @@ class Webhook extends CI_Controller {
       } else {
         $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis(textMessage)';
         $textMessageBuilder = new TextMessageBuilder($message);
-        $this->bot->replyMessage($event['replyToken'], $userLocation);
+        if($userLocation['latitude']!=''){
+          $this->bot->replyMessage($event['replyToken'], "Lokasi Latitude".$latitude);
+        }
+        else {
+          $this->bot->replyMessage($event['replyToken'], "Lokasi Latitude kosong");
+        }
+
       }
 
       // if user already begin test
