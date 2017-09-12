@@ -70,7 +70,7 @@ class Webhook extends CI_Controller {
             {
               //$alamat = $event['message']['message']['address'];
               //$location = new LocationMessageBuilder('tes', 'Kirim Lokasi', '-33.8670522', '151.1957362');
-              $this->bot->replyMessage($event['replyToken'], "Lokasi : ".$event['message']['address']);
+              $this->bot->replyText($event['replyToken'], "Lokasi : ".$event['message']['address']);
 
             }
           } else {
