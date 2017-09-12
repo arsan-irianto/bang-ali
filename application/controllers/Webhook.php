@@ -124,34 +124,19 @@ class Webhook extends CI_Controller {
     }
   }
 
-  function get_data($url) {
-    $ch = curl_init();
-    $timeout = 5;
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  private function locationMessage($event){
+    $userLocation = $event['message']['type'];
+    if($userLocation == 'location'){
 
-    $data = curl_exec($ch);
-    curl_close($ch);
-    return $data;
-  }
-
-  public function location(){
-    //$userLocation = $event['message']['type'];
-    //if($userLocation == 'location'){
-      /*
       $urlMasjidTerdekat = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
       $urlMasjidTerdekat.= "key=".$_ENV['GMAPS_API_KEY'];
       $urlMasjidTerdekat.= "&location=".$event['message']['latitude'].",".$event['message']['longitude'];
       $urlMasjidTerdekat.= "&keyword=masjid&name=masjid&type=mosque&rankby=distance";
-      */
+
       //$this->bot->replyText($event['replyToken'], $urlMasjidTerdekat);
-      $dummyUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4&location=-5.15066,119.464902&keyword=masjid&name=masjid&type=mosque&rankby=distance";
-      //echo json_decode(file_get_contents($dummyUrl), true);
-    //}
-    $request = $this->get_data($dummyUrl);
-    return $json = json_decode($request, true);
+      echo json_decode(file_get_contents($urlMasjidTerdekat),true);
+    }
+
   }
   private function textMessage($event)
   {
