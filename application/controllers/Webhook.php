@@ -114,6 +114,18 @@ class Webhook extends CI_Controller {
     }
   }
 
+  private function locationMessage($event){
+    $userLocation = $event['message']['location'];
+    if( $userLocation != '' ){
+      $location = new LocationMessageBuilder('Tes Lokasi', 'Australia', '-33.8670522', '151.1957362');
+      $this->bot->replyMessage($event['replyToken'], $location);
+    }
+    else{
+      $messageGagal = "Gagal mengirim lokasi";
+      $this->bot->replyMessage($event['replyToken'], $messageGagal);
+    }
+  }
+
   private function textMessage($event)
   {
     $userMessage = $event['message']['text'];
