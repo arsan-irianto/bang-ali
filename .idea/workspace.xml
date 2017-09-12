@@ -267,14 +267,7 @@
       <workItem from="1505113653064" duration="3802000" />
       <workItem from="1505139107584" duration="2763000" />
       <workItem from="1505176483579" duration="768000" />
-      <workItem from="1505199672061" duration="3248000" />
-    </task>
-    <task id="LOCAL-00006" summary="Update Controller and model webhook">
-      <created>1504940565411</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1504940565411</updated>
+      <workItem from="1505199672061" duration="3254000" />
     </task>
     <task id="LOCAL-00007" summary="Update Controller and model webhook">
       <created>1504940700965</created>
@@ -612,11 +605,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505203921062</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Get User Location from user share location">
+      <created>1505203948871</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1505203948871</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24545000" />
+    <option name="totallyTimeSpent" value="24551000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
