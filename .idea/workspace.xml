@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Webhook.php" afterPath="$PROJECT_DIR$/application/controllers/Webhook.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/vendor/linecorp/line-bot-sdk/src/LINEBot/HTTPClient/Curl.php" afterPath="$PROJECT_DIR$/lib/vendor/linecorp/line-bot-sdk/src/LINEBot/HTTPClient/Curl.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -314,14 +312,7 @@
       <workItem from="1505113653064" duration="3802000" />
       <workItem from="1505139107584" duration="2763000" />
       <workItem from="1505176483579" duration="768000" />
-      <workItem from="1505199672061" duration="12412000" />
-    </task>
-    <task id="LOCAL-00022" summary="test reply location after user send location">
-      <created>1505107610048</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1505107610048</updated>
+      <workItem from="1505199672061" duration="12442000" />
     </task>
     <task id="LOCAL-00023" summary="test reply location after user send location">
       <created>1505107760764</created>
@@ -659,11 +650,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505206926218</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Set variable for testing">
+      <created>1505227767775</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1505227767775</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33709000" />
+    <option name="totallyTimeSpent" value="33739000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -703,7 +701,8 @@
     <MESSAGE value="send Location" />
     <MESSAGE value="send Latitude" />
     <MESSAGE value="Get User Location from user share location" />
-    <option name="LAST_COMMIT_MESSAGE" value="Get User Location from user share location" />
+    <MESSAGE value="Set variable for testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set variable for testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
