@@ -133,8 +133,8 @@ class Webhook extends CI_Controller {
       $urlMasjidTerdekat.= "&location=".$event['message']['latitude'].",".$event['message']['longitude'];
       $urlMasjidTerdekat.= "&keyword=masjid&name=masjid&type=mosque&rankby=distance";
 
-      //$this->bot->replyText($event['replyToken'], $urlMasjidTerdekat);
-      echo json_decode(file_get_contents($urlMasjidTerdekat),true);
+      $this->bot->replyText($event['replyToken'], json_decode(file_get_contents($urlMasjidTerdekat),true));
+      //echo json_decode(file_get_contents($urlMasjidTerdekat),true);
     }
 
   }
