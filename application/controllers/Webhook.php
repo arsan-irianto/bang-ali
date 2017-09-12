@@ -62,6 +62,11 @@ class Webhook extends CI_Controller {
         if(!$this->user) $this->followCallback($event);
         else {
           // respond event
+          if($event['message']['type'] == 'location'){
+            if(method_exists($this, $event['type']['location'].'Message')){
+              $this->{$event['type']['location'].'Message'}($event);
+            }
+          }
           if($event['type'] == 'message'){
             if(method_exists($this, $event['message']['type'].'Message')){
               $this->{$event['message']['type'].'Message'}($event);
