@@ -44,14 +44,14 @@ class Webhook extends CI_Controller {
 
     // get request
     $body = file_get_contents('php://input');
-    $this->signature = isset($_SERVER['HTTP_X_LINE_SIGNATURE']) ? $_SERVER['HTTP_X_LINE_SIGNATURE'] : "-";
+    //$this->signature = isset($_SERVER['HTTP_X_LINE_SIGNATURE']) ? $_SERVER['HTTP_X_LINE_SIGNATURE'] : "-";
     // For dummy Signature on Debug mode, remove block comment for testing
-    /*
+
     $channelSecret = $_ENV['CHANNEL_SECRET'];
     $httpRequestBody = $body;
     $hash = hash_hmac('sha256', $httpRequestBody, $channelSecret, true);
     $this->signature = base64_encode($hash);
-    */
+
 
     $this->events = json_decode($body, true);
 
