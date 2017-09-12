@@ -127,7 +127,13 @@ class Webhook extends CI_Controller {
   private function locationMessage($event){
     $userLocation = $event['message']['type'];
     if($userLocation == 'location'){
-      $this->bot->replyText($event['replyToken'], "Lokasi1 : ".$event['message']['address']);
+
+      $urlMasjidTerdekat = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
+      $urlMasjidTerdekat.= "key=".$_ENV['GMAPS_API_KEY'];
+      $urlMasjidTerdekat.= "&location=".$event['message']['latitude'].",".$event['message']['longitude'];
+      $urlMasjidTerdekat.= "&keyword=masjid&name=masjid&type=mosque&rankby=distance";
+
+      $this->bot->replyText($event['replyToken'], $urlMasjidTerdekat);
     }
 
   }
