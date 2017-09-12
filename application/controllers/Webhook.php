@@ -12,6 +12,8 @@ use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\StickerMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder;
+use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
+use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 use \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 use \LINE\LINEBot\MessageBuilder\LocationMessageBuilder;
 
@@ -34,7 +36,6 @@ class Webhook extends CI_Controller {
 
   public function index()
   {
-
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
       echo "Hello Coders!";
       header('HTTP/1.1 400 Only POST method allowed');
@@ -44,7 +45,16 @@ class Webhook extends CI_Controller {
     // get request
     $body = file_get_contents('php://input');
     $this->signature = isset($_SERVER['HTTP_X_LINE_SIGNATURE']) ? $_SERVER['HTTP_X_LINE_SIGNATURE'] : "-";
+    // For dummy Signature on Debug mode, remove block comment for testing
+    /*
+    $channelSecret = $_ENV['CHANNEL_SECRET'];
+    $httpRequestBody = $body;
+    $hash = hash_hmac('sha256', $httpRequestBody, $channelSecret, true);
+    $this->signature = base64_encode($hash);
+    */
+
     $this->events = json_decode($body, true);
+
 
     // save log every event requests
     $this->webhook_m->log_events($this->signature, $body);
@@ -124,7 +134,7 @@ class Webhook extends CI_Controller {
   private function textMessage($event)
   {
     $userMessage = $event['message']['text'];
-    if($this->user['number'] == 0)
+    if(isset($this->user['number']) == 0)
     {
       if(strtolower($userMessage) == 'mulai')
       {
