@@ -63,10 +63,10 @@ class Webhook extends CI_Controller {
         else {
           // respond event
           if($event['message']['type'] == 'location'){
-            if(method_exists($this, $event['type']['location'].'Message')){
-              $this->{$event['type']['location'].'Message'}($event);
-            }
+            $location = new LocationMessageBuilder('Lokasi', 'Tes Lokasi', '-33.8670522', '151.1957362');
+            $this->bot->replyMessage($event['replyToken'], $location);
           }
+
           if($event['type'] == 'message'){
             if(method_exists($this, $event['message']['type'].'Message')){
               $this->{$event['message']['type'].'Message'}($event);
@@ -116,18 +116,6 @@ class Webhook extends CI_Controller {
 
       // save user data
       $this->webhook_m->saveUser($profile);
-    }
-  }
-
-  private function locationMessage($event){
-    $userLocation = $event['message']['location'];
-    if( $userLocation != '' ){
-      $location = new LocationMessageBuilder('Tes Lokasi', 'Australia', '-33.8670522', '151.1957362');
-      $this->bot->replyMessage($event['replyToken'], $location);
-    }
-    else{
-      $messageGagal = "Gagal mengirim lokasi";
-      $this->bot->replyMessage($event['replyToken'], $messageGagal);
     }
   }
 
