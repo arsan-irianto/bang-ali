@@ -44,17 +44,16 @@ class Webhook extends CI_Controller {
 
     // get request
     $body = file_get_contents('php://input');
-    //$this->signature = isset($_SERVER['HTTP_X_LINE_SIGNATURE']) ? $_SERVER['HTTP_X_LINE_SIGNATURE'] : "-";
+    $this->signature = isset($_SERVER['HTTP_X_LINE_SIGNATURE']) ? $_SERVER['HTTP_X_LINE_SIGNATURE'] : "-";
     // For dummy Signature on Debug mode, remove block comment for testing
 
+    /*
     $channelSecret = $_ENV['CHANNEL_SECRET'];
     $httpRequestBody = $body;
     $hash = hash_hmac('sha256', $httpRequestBody, $channelSecret, true);
-    $this->signature = base64_encode($hash);
-
+    $this->signature = base64_encode($hash);*/
 
     $this->events = json_decode($body, true);
-
 
     // save log every event requests
     $this->webhook_m->log_events($this->signature, $body);
@@ -76,13 +75,7 @@ class Webhook extends CI_Controller {
             if(method_exists($this, $event['message']['type'].'Message')){
               $this->{$event['message']['type'].'Message'}($event);
             }
-            if($event['message']['type'] == 'location')
-            {
-              //$alamat = $event['message']['message']['address'];
-              //$location = new LocationMessageBuilder('tes', 'Kirim Lokasi', '-33.8670522', '151.1957362');
-              $this->bot->replyText($event['replyToken'], "Lokasi : ".$event['message']['address']);
 
-            }
           } else {
             if(method_exists($this, $event['type'].'Callback')){
               $this->{$event['type'].'Callback'}($event);
@@ -131,19 +124,18 @@ class Webhook extends CI_Controller {
     }
   }
 
+  private function locationMessage($event){
+    $userLocation = $event['message']['type'];
+    if($userLocation == 'location'){
+      $this->bot->replyText($event['replyToken'], "Lokasi1 : ".$event['message']['address']);
+    }
+
+  }
   private function textMessage($event)
   {
     $userMessage = $event['message']['text'];
-    if(isset($this->user['number']) == 0)
-    {
       if(strtolower($userMessage) == 'mulai')
       {
-        // reset score
-        //$this->webhook_m->setScore($this->user['user_id'], 0);
-        // update number progress
-        //$this->webhook_m->setUserProgress($this->user['user_id'], 1);
-        // send question no.1
-        //$this->sendQuestion($event['replyToken'], 1);
         $location = new LocationMessageBuilder('tes', 'bontobila', '-33.8670522', '151.1957362');
         $this->bot->replyMessage($event['replyToken'], $location);
       } else {
@@ -151,11 +143,6 @@ class Webhook extends CI_Controller {
         $textMessageBuilder = new TextMessageBuilder($message);
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
       }
-
-      // if user already begin test
-    } else {
-      $this->checkAnswer($userMessage, $event['replyToken']);
-    }
   }
 
   private function stickerMessage($event)
@@ -173,70 +160,6 @@ class Webhook extends CI_Controller {
     $multiMessageBuilder->add($textMessageBuilder);
     // send message
     $this->bot->replyMessage($event['replyToken'], $multiMessageBuilder);
-  }
-
-  public function sendQuestion($replyToken, $questionNum=1)
-  {
-    // get question from database
-    $question = $this->webhook_m->getQuestion($questionNum);
-
-    // prepare answer options
-    for($opsi = "a"; $opsi <= "d"; $opsi++) {
-      if(!empty($question['option_'.$opsi]))
-        $options[] = new MessageTemplateActionBuilder($question['option_'.$opsi], $question['option_'.$opsi]);
-    }
-
-    // prepare button template
-    $buttonTemplate = new ButtonTemplateBuilder($question['number']."/10", $question['text'], $question['image'], $options);
-
-    // build message
-    $messageBuilder = new TemplateMessageBuilder("Gunakan mobile app untuk melihat soal", $buttonTemplate);
-
-    // send message
-    $response = $this->bot->replyMessage($replyToken, $messageBuilder);
-  }
-
-  private function checkAnswer($message, $replyToken)
-  {
-    // if answer is true, increment score
-    if($this->webhook_m->isAnswerEqual($this->user['number'], $message)){
-      $this->user['score']++;
-      $this->webhook_m->setScore($this->user['user_id'], $this->user['score']);
-    }
-
-    if($this->user['number'] < 10)
-    {
-      // update number progress
-      $this->webhook_m->setUserProgress($this->user['user_id'], $this->user['number'] + 1);
-
-      // send next question
-      $this->sendQuestion($replyToken, $this->user['number'] + 1);
-    }
-    else {
-      // create user score message
-      $message = 'Skormu '. $this->user['score'];
-      $textMessageBuilder1 = new TextMessageBuilder($message);
-
-      // create sticker message
-      $stickerId = ($this->user['score'] < 8) ? 100 : 114;
-      $stickerMessageBuilder = new StickerMessageBuilder(1, $stickerId);
-
-      // create play again message
-      $message = ($this->user['score'] < 8) ?
-        'Wkwkwk! Nyerah? Ketik "MULAI" untuk bermain lagi!':
-        'Great! Mantap bro! Ketik "MULAI" untuk bermain lagi!';
-      $textMessageBuilder2 = new TextMessageBuilder($message);
-
-      // merge all message
-      $multiMessageBuilder = new MultiMessageBuilder();
-      $multiMessageBuilder->add($textMessageBuilder1);
-      $multiMessageBuilder->add($stickerMessageBuilder);
-      $multiMessageBuilder->add($textMessageBuilder2);
-
-      // send reply message
-      $this->bot->replyMessage($replyToken, $multiMessageBuilder);
-      $this->webhook_m->setUserProgress($this->user['user_id'], 0);
-    }
   }
 
 }
