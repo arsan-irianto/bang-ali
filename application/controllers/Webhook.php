@@ -61,20 +61,20 @@ class Webhook extends CI_Controller {
         // if user not registered
         if(!$this->user) $this->followCallback($event);
         else {
+
+          // respond event type location
+          if($event['message']['type'] == 'location'){
+            $location = new LocationMessageBuilder($event['message']['title'],
+              $event['message']['address'], $event['message']['latitude'], $event['message']['longitude']);
+            $this->bot->replyMessage($event['replyToken'], $location);
+          }
+
           // respond event
 
           if($event['type'] == 'message'){
             if(method_exists($this, $event['message']['type'].'Message')){
               $this->{$event['message']['type'].'Message'}($event);
             }
-
-            // respond event type location
-            if($event['message']['type'] == 'location'){
-              $location = new LocationMessageBuilder($event['message']['title'],
-                $event['message']['address'], $event['message']['latitude'], $event['message']['longitude']);
-              $this->bot->replyMessage($event['replyToken'], $location);
-            }
-
           } else {
             if(method_exists($this, $event['type'].'Callback')){
               $this->{$event['type'].'Callback'}($event);
