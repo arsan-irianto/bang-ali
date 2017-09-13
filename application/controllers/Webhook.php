@@ -173,18 +173,18 @@ class Webhook extends CI_Controller {
       $returned_content = $this->get_data($urlMasjidTerdekat);
       $result = json_decode($returned_content,true);
 
-      $i=0;
-      foreach($result['results'] as $resultItem) if ($i < 5) {
-        $namaMasjid[]= $resultItem[$i]['name'];
-        $alamatMasjid[] = $resultItem[$i]['vicinity'];
-        $latMasjid[] = $resultItem[$i]['geometry']['location']['lat'];
-        $lngMasjid[] = $resultItem[$i]['geometry']['location']['lng'];
+      //$i=0;
+      foreach($result['results'] as $resultItem)  {
+        $namaMasjid[]= $resultItem['name'];
+        $alamatMasjid[] = $resultItem['vicinity'];
+        $latMasjid[] = $resultItem['geometry']['location']['lat'];
+        $lngMasjid[] = $resultItem['geometry']['location']['lng'];
 
         // Loop Photo Masjid
         $urlPhotoMasjidTerdekat[]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
-        $urlPhotoMasjidTerdekat[].="&photoreference=".$resultItem[$i]['photos'][0]['photo_reference'];
+        $urlPhotoMasjidTerdekat[].="&photoreference=".$resultItem['photos'][0]['photo_reference'];
         $urlPhotoMasjidTerdekat[].="&key=".$_ENV['GMAPS_API_KEY'];
-        $i++;
+        //$i++;
       }
 
 /*      $namaMasjid[0] = $result['results'][0]['name'];
