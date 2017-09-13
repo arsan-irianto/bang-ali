@@ -23,6 +23,7 @@ class Webhook extends CI_Controller {
   private $events;
   private $signature;
   private $user;
+  private $resultMapArray;
 
   function __construct()
   {
@@ -124,6 +125,32 @@ class Webhook extends CI_Controller {
     }
   }
 
+  /* gets the data from a URL */
+  private function get_data($url) {
+    $ch = curl_init();
+    $timeout = 5;
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+    $data = curl_exec($ch);
+    curl_close($ch);
+    return $data;
+  }
+
+  /*
+   * Function for debug mode & test script output
+   */
+  public function dummy(){
+    $url ="https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4&location=-5.15066,119.464902&keyword=masjid&name=masjid&type=mosque&rankby=distance";
+
+    $returned_content = $this->get_data($url);
+    $this->resultMapArray = json_decode($returned_content,true);
+    foreach ( $this->resultMapArray as $resultArray){
+      echo $resultArray."<br>";
+    }
+    //print_r(json_decode($returned_content,true));
+  }
+
   private function locationMessage($event){
     $userLocation = $event['message']['type'];
     if($userLocation == 'location'){
@@ -133,8 +160,24 @@ class Webhook extends CI_Controller {
       $urlMasjidTerdekat.= "&location=".$event['message']['latitude'].",".$event['message']['longitude'];
       $urlMasjidTerdekat.= "&keyword=masjid&name=masjid&type=mosque&rankby=distance";
 
-      $this->bot->replyText($event['replyToken'], json_decode(file_get_contents($urlMasjidTerdekat),true));
+      //$this->bot->replyText($event['replyToken'], $urlMasjidTerdekat);
       //echo json_decode(file_get_contents($urlMasjidTerdekat),true);
+
+      $returned_content = $this->get_data($urlMasjidTerdekat);
+      $result = json_decode($returned_content,true);
+
+      echo "Nama Masjid : ". $result['results'][$i]['name'].
+        " Alamat : ".$result['results'][$i]['vicinity'].
+        " Latitude : ". $result['results'][$i]['geometry']['location']['lat'].
+        ", Longitude : ". $result['results'][$i]['geometry']['location']['lng']. "\n";
+
+      $namaMasjid = $result['results'][0]['name'];
+      $alamatMasjid = $result['results'][0]['vicinity'];
+      $latMasjid = $result['results'][0]['geometry']['location']['lat'];
+      $lngMasjid = $result['results'][0]['geometry']['location']['lng'];
+
+      $location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
+      $this->bot->replyMessage($event['replyToken'], $location);
     }
 
   }

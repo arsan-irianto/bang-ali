@@ -27,8 +27,8 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="135" column="105" lean-forward="false" selection-start-line="135" selection-start-column="105" selection-end-line="135" selection-end-column="105" />
+            <state relative-caret-position="293">
+              <caret line="178" column="95" lean-forward="false" selection-start-line="178" selection-start-column="95" selection-end-line="178" selection-end-column="95" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
               </folding>
@@ -112,13 +112,11 @@
     <findStrings>
       <find>Webhook_m</find>
       <find>tebakkode_m</find>
-      <find>sticker</find>
       <find>stickermessage</find>
       <find>MULAI</find>
       <find>silakan</find>
       <find>textMessage</find>
       <find>messageContent</find>
-      <find>location</find>
       <find>$events</find>
       <find>stickerMessage</find>
       <find>Message</find>
@@ -128,6 +126,9 @@
       <find>ques</find>
       <find>signature</find>
       <find>webhook_m</find>
+      <find>$results</find>
+      <find>sticker</find>
+      <find>location</find>
     </findStrings>
     <replaceStrings>
       <replace>webhook_m</replace>
@@ -303,14 +304,7 @@
       <workItem from="1505113653064" duration="3802000" />
       <workItem from="1505139107584" duration="2763000" />
       <workItem from="1505176483579" duration="768000" />
-      <workItem from="1505199672061" duration="18316000" />
-    </task>
-    <task id="LOCAL-00029" summary="send Location">
-      <created>1505108875315</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1505108875315</updated>
+      <workItem from="1505199672061" duration="22079000" />
     </task>
     <task id="LOCAL-00030" summary="send Location">
       <created>1505108901494</created>
@@ -648,11 +642,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505233632929</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Add Location Function">
+      <created>1505233662639</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1505233662639</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39613000" />
+    <option name="totallyTimeSpent" value="43376000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1122,8 +1123,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="135" column="105" lean-forward="false" selection-start-line="135" selection-start-column="105" selection-end-line="135" selection-end-column="105" />
+        <state relative-caret-position="293">
+          <caret line="178" column="95" lean-forward="false" selection-start-line="178" selection-start-column="95" selection-end-line="178" selection-end-column="95" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
           </folding>
