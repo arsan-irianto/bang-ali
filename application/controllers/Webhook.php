@@ -163,20 +163,16 @@ class Webhook extends CI_Controller {
       //$this->bot->replyText($event['replyToken'], $urlMasjidTerdekat);
       //echo json_decode(file_get_contents($urlMasjidTerdekat),true);
 
-      // Decode Maps url Api from Gmaps
       $returned_content = $this->get_data($urlMasjidTerdekat);
       $result = json_decode($returned_content,true);
 
-      // Loop five nearest masjid from user share location
-      for($i=0; $i<=4; $i++){
-        $namaMasjid = $result['results'][$i]['name'];
-        $alamatMasjid = $result['results'][$i]['vicinity'];
-        $latMasjid = $result['results'][$i]['geometry']['location']['lat'];
-        $lngMasjid = $result['results'][$i]['geometry']['location']['lng'];
+      $namaMasjid = $result['results'][1]['name'];
+      $alamatMasjid = $result['results'][1]['vicinity'];
+      $latMasjid = $result['results'][1]['geometry']['location']['lat'];
+      $lngMasjid = $result['results'][1]['geometry']['location']['lng'];
 
-        $location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
-        $this->bot->replyMessage($event['replyToken'], $location);
-      }
+      $location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
+      $this->bot->replyMessage($event['replyToken'], $location);
     }
 
   }
