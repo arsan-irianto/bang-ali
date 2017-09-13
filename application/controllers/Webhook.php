@@ -166,13 +166,13 @@ class Webhook extends CI_Controller {
       $returned_content = $this->get_data($urlMasjidTerdekat);
       $result = json_decode($returned_content,true);
 
-      $namaMasjid = $result['results'][1]['name'];
-      $alamatMasjid = $result['results'][1]['vicinity'];
-      $latMasjid = $result['results'][1]['geometry']['location']['lat'];
-      $lngMasjid = $result['results'][1]['geometry']['location']['lng'];
+      $namaMasjid = $result['results'][0]['name'];
+      $alamatMasjid = $result['results'][0]['vicinity'];
+      $latMasjid = $result['results'][0]['geometry']['location']['lat'];
+      $lngMasjid = $result['results'][0]['geometry']['location']['lng'];
 
       $urlPhotoMasjidTerdekat="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
-      $urlPhotoMasjidTerdekat.="&photoreference=".$result['results'][1]['photos'][0]['photo_reference'];
+      $urlPhotoMasjidTerdekat.="&photoreference=".$result['results'][0]['photos'][0]['photo_reference'];
       $urlPhotoMasjidTerdekat.="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";
 
       //$location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
