@@ -154,11 +154,16 @@ class Webhook extends CI_Controller {
   private function locationMessage($event){
     $userLocation = $event['message']['type'];
     if($userLocation == 'location'){
-
+/*
       $urlMasjidTerdekat = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
       $urlMasjidTerdekat.= "key=".$_ENV['GMAPS_API_KEY'];
       $urlMasjidTerdekat.= "&location=".$event['message']['latitude'].",".$event['message']['longitude'];
-      $urlMasjidTerdekat.= "&keyword=masjid&name=masjid&type=mosque&rankby=distance";
+      $urlMasjidTerdekat.= "&keyword=masjid&name=masjid&type=mosque&rankby=distance";*/
+
+      $urlMasjidTerdekat ="https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
+      $urlMasjidTerdekat .="location=". $event['message']['latitude'] . "," . $event['message']['longitude'];
+      $urlMasjidTerdekat .="&radius=500&type=mosque&keyword=masjid";
+      $urlMasjidTerdekat .="&key=".$_ENV['GMAPS_API_KEY'];
 
       //$this->bot->replyText($event['replyToken'], $urlMasjidTerdekat);
       //echo json_decode(file_get_contents($urlMasjidTerdekat),true);
