@@ -232,15 +232,6 @@ class Webhook extends CI_Controller {
         new CarouselColumnTemplateBuilder($namaMasjid[1], $alamatMasjid[1], $urlPhotoMasjidTerdekat[1], [
           new UriTemplateActionBuilder('Detail Lokasi', 'https://line.me'),
         ]),
-        new CarouselColumnTemplateBuilder($namaMasjid[2], $alamatMasjid[2], $urlPhotoMasjidTerdekat[2], [
-          new UriTemplateActionBuilder('Detail Lokasi', 'https://line.me'),
-        ]),
-        new CarouselColumnTemplateBuilder($namaMasjid[3], $alamatMasjid[3], $urlPhotoMasjidTerdekat[3], [
-          new UriTemplateActionBuilder('Detail Lokasi', 'https://line.me'),
-        ]),
-        new CarouselColumnTemplateBuilder($namaMasjid[4], $alamatMasjid[4], $urlPhotoMasjidTerdekat[4], [
-          new UriTemplateActionBuilder('Detail Lokasi', 'https://line.me'),
-        ]),
       ]);
 
       $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
