@@ -38,8 +38,8 @@ class Curl
         $this->ch = curl_init($url);
         // Remove Block Comment below for debug to your localhost
 
-        curl_setopt($this->ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($this->ch, CURLOPT_SSL_VERIFYHOST, false);
+        //curl_setopt($this->ch, CURLOPT_SSL_VERIFYPEER, false);
+       //curl_setopt($this->ch, CURLOPT_SSL_VERIFYHOST, false);
 
     }
 
