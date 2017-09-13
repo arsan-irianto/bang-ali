@@ -175,10 +175,10 @@ class Webhook extends CI_Controller {
 
       $i=0;
       foreach($result['results'] as $resultItem) if ($i < 5) {
-        $namaMasjid[]= $resultItem['name'];
-        $alamatMasjid[] = $resultItem['vicinity'];
-        $latMasjid[] = $resultItem['geometry']['location']['lat'];
-        $lngMasjid[] = $resultItem['geometry']['location']['lng'];
+        $namaMasjid[]= $resultItem[$i]['name'];
+        $alamatMasjid[] = $resultItem[$i]['vicinity'];
+        $latMasjid[] = $resultItem[$i]['geometry']['location']['lat'];
+        $lngMasjid[] = $resultItem[$i]['geometry']['location']['lng'];
 
         // Loop Photo Masjid
         $urlPhotoMasjidTerdekat[]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
