@@ -221,14 +221,14 @@ class Webhook extends CI_Controller {
       // send message
       //$this->bot->replyMessage($event['replyToken'], $messageBuilder);
 
-      //$carouselArray= array();
+      $carouselArray= array();
       for($j=0; $j<=$i; $j++){
-        $carouselArray[$j] = new CarouselColumnTemplateBuilder(
-          $namaMasjid[$j],
-          $alamatMasjid[$j],
-          $urlPhotoMasjidTerdekat[$j],
-          [new UriTemplateActionBuilder('Detail Lokasi', 'https://line.me')]);
-        //array_push($carouselArray,
+        array_push($carouselArray, new CarouselColumnTemplateBuilder(
+            $namaMasjid[$i],
+            $alamatMasjid[$i],
+            $urlPhotoMasjidTerdekat[$i],
+            [new UriTemplateActionBuilder('Detail Lokasi',
+              'https://line.me')]));
       }
 
       $carouselTemplateBuilder = new CarouselTemplateBuilder($carouselArray);
