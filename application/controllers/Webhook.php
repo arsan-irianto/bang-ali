@@ -173,14 +173,23 @@ class Webhook extends CI_Controller {
       $returned_content = $this->get_data($urlMasjidTerdekat);
       $result = json_decode($returned_content,true);
 
-      $namaMasjid = $result['results'][0]['name'];
-      $alamatMasjid = $result['results'][0]['vicinity'];
-      $latMasjid = $result['results'][0]['geometry']['location']['lat'];
-      $lngMasjid = $result['results'][0]['geometry']['location']['lng'];
+      $namaMasjid[0] = $result['results'][0]['name'];
+      $alamatMasjid[0] = $result['results'][0]['vicinity'];
+      $latMasjid[0] = $result['results'][0]['geometry']['location']['lat'];
+      $lngMasjid[0] = $result['results'][0]['geometry']['location']['lng'];
 
-      $urlPhotoMasjidTerdekat="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
-      $urlPhotoMasjidTerdekat.="&photoreference=".$result['results'][0]['photos'][0]['photo_reference'];
-      $urlPhotoMasjidTerdekat.="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";
+      $namaMasjid[1] = $result['results'][1]['name'];
+      $alamatMasjid[1] = $result['results'][1]['vicinity'];
+      $latMasjid[1] = $result['results'][1]['geometry']['location']['lat'];
+      $lngMasjid[1] = $result['results'][1]['geometry']['location']['lng'];
+
+      $urlPhotoMasjidTerdekat[0]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
+      $urlPhotoMasjidTerdekat[0].="&photoreference=".$result['results'][0]['photos'][0]['photo_reference'];
+      $urlPhotoMasjidTerdekat[0].="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";
+
+      $urlPhotoMasjidTerdekat[1]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
+      $urlPhotoMasjidTerdekat[1].="&photoreference=".$result['results'][1]['photos'][0]['photo_reference'];
+      $urlPhotoMasjidTerdekat[1].="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";
 
       //$location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
       //$this->bot->replyMessage($event['replyToken'], $location);
@@ -197,16 +206,15 @@ class Webhook extends CI_Controller {
       //$this->bot->replyMessage($event['replyToken'], $messageBuilder);
 
       $carouselTemplateBuilder = new CarouselTemplateBuilder([
-        new CarouselColumnTemplateBuilder('foo', 'bar', 'https://res.cloudinary.com/db9zavtws/image/upload/v1486219056/1_rgnadm.png', [
-          new UriTemplateActionBuilder('Go to line.me', 'https://line.me'),
-          new PostbackTemplateActionBuilder('Buy', 'action=buy&itemid=123'),
-        ]),
-        new CarouselColumnTemplateBuilder('buz', 'qux', 'https://res.cloudinary.com/db9zavtws/image/upload/v1486219057/2_f3d4tz.png', [
-          new PostbackTemplateActionBuilder('Add to cart', 'action=add&itemid=123'),
-          new MessageTemplateActionBuilder('Say message', 'hello hello'),
+        new CarouselColumnTemplateBuilder($namaMasjid[0], $alamatMasjid[0], $urlPhotoMasjidTerdekat[0], [
+          new UriTemplateActionBuilder('Detail Lokasi', 'https://line.me'),
+          ]),
+        new CarouselColumnTemplateBuilder($namaMasjid[1], $alamatMasjid[1], $urlPhotoMasjidTerdekat[1], [
+          new UriTemplateActionBuilder('Detail Lokasi', 'https://line.me'),
         ]),
       ]);
-      $templateMessage = new TemplateMessageBuilder('Button alt text', $carouselTemplateBuilder);
+
+      $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
       $this->bot->replyMessage($event['replyToken'], $templateMessage);
 
     }
