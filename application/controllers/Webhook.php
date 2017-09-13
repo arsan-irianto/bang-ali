@@ -182,7 +182,7 @@ class Webhook extends CI_Controller {
 
         // Loop Photo Masjid
         $urlPhotoMasjidTerdekat[]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
-        $urlPhotoMasjidTerdekat[].="&photoreference=".$resultItem['photos'][0]['photo_reference'];
+        $urlPhotoMasjidTerdekat[].="&photoreference=".$resultItem[$i]['photos'][0]['photo_reference'];
         $urlPhotoMasjidTerdekat[].="&key=".$_ENV['GMAPS_API_KEY'];
         $i++;
       }
