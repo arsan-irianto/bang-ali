@@ -171,8 +171,23 @@ class Webhook extends CI_Controller {
       $latMasjid = $result['results'][1]['geometry']['location']['lat'];
       $lngMasjid = $result['results'][1]['geometry']['location']['lng'];
 
-      $location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
-      $this->bot->replyMessage($event['replyToken'], $location);
+      $urlPhotoMasjidTerdekat="https://maps.googleapis.com/maps/api/place/photo?maxwidth=800";
+      $urlPhotoMasjidTerdekat.="&photoreference=".$result['results'][1]['photos'][0]['photo_reference'];
+      $urlPhotoMasjidTerdekat.="key=".$_ENV['GMAPS_API_KEY'];
+
+      //$location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
+      //$this->bot->replyMessage($event['replyToken'], $location);
+
+      //prepare options button
+      $options[0] = new MessageTemplateActionBuilder('Detail Lokasi', 'detail lokasi');
+      // prepare button template
+      $buttonTemplate = new ButtonTemplateBuilder($namaMasjid, $alamatMasjid, $urlPhotoMasjidTerdekat, $options);
+
+      // build message
+      $messageBuilder = new TemplateMessageBuilder("Gunakan mobile app untuk melihat soal", $buttonTemplate);
+
+      // send message
+      $this->bot->replyMessage($event['replyToken'], $messageBuilder);
     }
 
   }
