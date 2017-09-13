@@ -173,22 +173,22 @@ class Webhook extends CI_Controller {
       $returned_content = $this->get_data($urlMasjidTerdekat);
       $result = json_decode($returned_content,true);
 
-/*      $i=0;
+      $i=0;
       foreach($result['results'] as $resultItem) if ($i < 5) {
-        $namaMasjid[]= $resultItem['name'];
-        $alamatMasjid[] = $resultItem['vicinity'];
-        $latMasjid[] = $resultItem['geometry']['location']['lat'];
-        $lngMasjid[] = $resultItem['geometry']['location']['lng'];
+        $namaMasjid[$i]= $resultItem['name'];
+        $alamatMasjid[$i] = $resultItem['vicinity'];
+        $latMasjid[$i] = $resultItem['geometry']['location']['lat'];
+        $lngMasjid[$i] = $resultItem['geometry']['location']['lng'];
 
         // Loop Photo Masjid
-        $urlPhotoMasjidTerdekat[]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
-        $urlPhotoMasjidTerdekat[].="&photoreference=".$resultItem['photos'][0]['photo_reference'];
-        $urlPhotoMasjidTerdekat[].="&key=".$_ENV['GMAPS_API_KEY'];
+        $urlPhotoMasjidTerdekat[$i]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
+        $urlPhotoMasjidTerdekat[$i].="&photoreference=".$resultItem['photos'][0]['photo_reference'];
+        $urlPhotoMasjidTerdekat[$i].="&key=".$_ENV['GMAPS_API_KEY'];
         $i++;
-      }*/
+      }
 
 
-
+/*
       $namaMasjid[0] = $result['results'][0]['name'];
       $alamatMasjid[0] = $result['results'][0]['vicinity'];
       $latMasjid[0] = $result['results'][0]['geometry']['location']['lat'];
@@ -205,7 +205,7 @@ class Webhook extends CI_Controller {
 
       $urlPhotoMasjidTerdekat[1]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
       $urlPhotoMasjidTerdekat[1].="&photoreference=".$result['results'][1]['photos'][0]['photo_reference'];
-      $urlPhotoMasjidTerdekat[1].="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";
+      $urlPhotoMasjidTerdekat[1].="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";*/
 
       //$location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
       //$this->bot->replyMessage($event['replyToken'], $location);
