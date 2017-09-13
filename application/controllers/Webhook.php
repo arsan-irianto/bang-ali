@@ -182,17 +182,31 @@ class Webhook extends CI_Controller {
 
       //$location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
       //$this->bot->replyMessage($event['replyToken'], $location);
-      $dummyImage = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAAWtny1d7xbUw-CgOgeHGUZopUbSEPkpxD0aDyL5lIofUG_RULEtjbzX37IGNBc3O4En5-bO6Yr0kJRoIMTETFd_ty6lI6kLm2qKZJ5LhWawLqf0BlmkHiqf-8Xm3FNeT3EhB8pkJ04sPECNU6yJU3QBEoGhTXvdn51TawxFHoRWkQOcFWZqg8qg&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";
+
       //prepare options button
-      $options[0] = new MessageTemplateActionBuilder('Detail Lokasi', 'detail lokasi');
+      //$options[0] = new MessageTemplateActionBuilder('Detail Lokasi', 'detail lokasi');
       // prepare button template
-      $buttonTemplate = new ButtonTemplateBuilder($namaMasjid, $alamatMasjid, $urlPhotoMasjidTerdekat, $options);
+      //$buttonTemplate = new ButtonTemplateBuilder($namaMasjid, $alamatMasjid, $urlPhotoMasjidTerdekat, $options);
 
       // build message
-      $messageBuilder = new TemplateMessageBuilder("Gunakan mobile app untuk melihat soal", $buttonTemplate);
+      //$messageBuilder = new TemplateMessageBuilder("Gunakan mobile app untuk melihat soal", $buttonTemplate);
 
       // send message
-      $this->bot->replyMessage($event['replyToken'], $messageBuilder);
+      //$this->bot->replyMessage($event['replyToken'], $messageBuilder);
+
+      $carouselTemplateBuilder = new CarouselTemplateBuilder([
+        new CarouselColumnTemplateBuilder('foo', 'bar', 'https://res.cloudinary.com/db9zavtws/image/upload/v1486219056/1_rgnadm.png', [
+          new UriTemplateActionBuilder('Go to line.me', 'https://line.me'),
+          new PostbackTemplateActionBuilder('Buy', 'action=buy&itemid=123'),
+        ]),
+        new CarouselColumnTemplateBuilder('buz', 'qux', 'https://res.cloudinary.com/db9zavtws/image/upload/v1486219057/2_f3d4tz.png', [
+          new PostbackTemplateActionBuilder('Add to cart', 'action=add&itemid=123'),
+          new MessageTemplateActionBuilder('Say message', 'hello hello'),
+        ]),
+      ]);
+      $templateMessage = new TemplateMessageBuilder('Button alt text', $carouselTemplateBuilder);
+      $this->bot->replyMessage($event['replyToken'], $templateMessage);
+
     }
 
   }
