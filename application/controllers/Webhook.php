@@ -173,7 +173,7 @@ class Webhook extends CI_Controller {
 
       $urlPhotoMasjidTerdekat="https://maps.googleapis.com/maps/api/place/photo?maxwidth=800";
       $urlPhotoMasjidTerdekat.="&photoreference=".$result['results'][1]['photos'][0]['photo_reference'];
-      $urlPhotoMasjidTerdekat.="key=".$_ENV['GMAPS_API_KEY'];
+      $urlPhotoMasjidTerdekat.="&key=".$_ENV['GMAPS_API_KEY'];
 
       //$location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
       //$this->bot->replyMessage($event['replyToken'], $location);
