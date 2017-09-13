@@ -163,14 +163,11 @@ class Webhook extends CI_Controller {
       //$this->bot->replyText($event['replyToken'], $urlMasjidTerdekat);
       //echo json_decode(file_get_contents($urlMasjidTerdekat),true);
 
+      // Decode Maps url Api from Gmaps
       $returned_content = $this->get_data($urlMasjidTerdekat);
       $result = json_decode($returned_content,true);
 
-      echo "Nama Masjid : ". $result['results'][$i]['name'].
-        " Alamat : ".$result['results'][$i]['vicinity'].
-        " Latitude : ". $result['results'][$i]['geometry']['location']['lat'].
-        ", Longitude : ". $result['results'][$i]['geometry']['location']['lng']. "\n";
-
+      // Loop five nearest masjid from user share location
       for($i=0; $i<=4; $i++){
         $namaMasjid = $result['results'][$i]['name'];
         $alamatMasjid = $result['results'][$i]['vicinity'];
