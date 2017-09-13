@@ -173,6 +173,22 @@ class Webhook extends CI_Controller {
       $returned_content = $this->get_data($urlMasjidTerdekat);
       $result = json_decode($returned_content,true);
 
+      $i=0;
+      foreach($result['results'] as $resultItem) if ($i < 5) {
+        $namaMasjid[]= $resultItem['name'];
+        $alamatMasjid[] = $resultItem['vicinity'];
+        $latMasjid[] = $resultItem['geometry']['location']['lat'];
+        $lngMasjid[] = $resultItem['geometry']['location']['lng'];
+
+        // Loop Photo Masjid
+        $urlPhotoMasjidTerdekat[]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
+        $urlPhotoMasjidTerdekat[].="&photoreference=".$resultItem['photos'][0]['photo_reference'];
+        $urlPhotoMasjidTerdekat[].="&key=".$_ENV['GMAPS_API_KEY'];
+        $i++;
+      }
+
+
+      /*
       $namaMasjid[0] = $result['results'][0]['name'];
       $alamatMasjid[0] = $result['results'][0]['vicinity'];
       $latMasjid[0] = $result['results'][0]['geometry']['location']['lat'];
@@ -190,7 +206,7 @@ class Webhook extends CI_Controller {
       $urlPhotoMasjidTerdekat[1]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
       $urlPhotoMasjidTerdekat[1].="&photoreference=".$result['results'][1]['photos'][0]['photo_reference'];
       $urlPhotoMasjidTerdekat[1].="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";
-
+      */
       //$location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
       //$this->bot->replyMessage($event['replyToken'], $location);
 
@@ -205,6 +221,19 @@ class Webhook extends CI_Controller {
       // send message
       //$this->bot->replyMessage($event['replyToken'], $messageBuilder);
 
+      //$carouselArray= array();
+      for($j=0; $j<=$i; $j++){
+        $carouselArray[$j] = new CarouselColumnTemplateBuilder(
+          $namaMasjid[$j],
+          $alamatMasjid[$j],
+          $urlPhotoMasjidTerdekat[$j],
+          [new UriTemplateActionBuilder('Detail Lokasi', 'https://line.me')]);
+        //array_push($carouselArray,
+      }
+
+      $carouselTemplateBuilder = new CarouselTemplateBuilder($carouselArray);
+
+      /*
       $carouselTemplateBuilder = new CarouselTemplateBuilder([
         new CarouselColumnTemplateBuilder($namaMasjid[0], $alamatMasjid[0], $urlPhotoMasjidTerdekat[0], [
           new UriTemplateActionBuilder('Detail Lokasi', 'https://line.me'),
@@ -213,6 +242,7 @@ class Webhook extends CI_Controller {
           new UriTemplateActionBuilder('Detail Lokasi', 'https://line.me'),
         ]),
       ]);
+      */
 
       $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
       $this->bot->replyMessage($event['replyToken'], $templateMessage);
