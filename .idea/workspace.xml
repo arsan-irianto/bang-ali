@@ -27,7 +27,7 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="104">
               <caret line="166" column="37" lean-forward="false" selection-start-line="166" selection-start-column="37" selection-end-line="166" selection-end-column="37" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
@@ -256,14 +256,7 @@
       <workItem from="1505139107584" duration="2763000" />
       <workItem from="1505176483579" duration="768000" />
       <workItem from="1505199672061" duration="33890000" />
-      <workItem from="1505310175786" duration="6866000" />
-    </task>
-    <task id="LOCAL-00078" summary="Add Location Function">
-      <created>1505233662639</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1505233662639</updated>
+      <workItem from="1505310175786" duration="6937000" />
     </task>
     <task id="LOCAL-00079" summary="Responds Location from user share location">
       <created>1505278734687</created>
@@ -601,11 +594,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505316976226</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="Edit Radius nearby to 500">
+      <created>1505317085828</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1505317085828</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62053000" />
+    <option name="totallyTimeSpent" value="62124000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -656,7 +656,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Set variable for testing" />
     <MESSAGE value="Disable variable for testing" />
     <MESSAGE value="Test dummy signature hash" />
     <MESSAGE value="Test method exist" />
@@ -681,7 +680,8 @@
     <MESSAGE value="send 5 masjid without looping" />
     <MESSAGE value="Edit Radius nearby to 300" />
     <MESSAGE value="Edit Radius nearby to 200" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit Radius nearby to 200" />
+    <MESSAGE value="Edit Radius nearby to 500" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Radius nearby to 500" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1076,7 +1076,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="104">
           <caret line="166" column="37" lean-forward="false" selection-start-line="166" selection-start-column="37" selection-end-line="166" selection-end-column="37" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
