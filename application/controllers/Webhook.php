@@ -187,32 +187,23 @@ class Webhook extends CI_Controller {
         $i++;
       }*/
 
-      $namaMasjid[0] = $result['results'][0]['name'];
-      $alamatMasjid[0] = $result['results'][0]['vicinity'];
-      $latMasjid[0] = $result['results'][0]['geometry']['location']['lat'];
-      $lngMasjid[0] = $result['results'][0]['geometry']['location']['lng'];
+      $namaMasjid[3] = $result['results'][3]['name'];
+      $alamatMasjid[3] = $result['results'][3]['vicinity'];
+      $latMasjid[3] = $result['results'][3]['geometry']['location']['lat'];
+      $lngMasjid[3] = $result['results'][3]['geometry']['location']['lng'];
 
-      $namaMasjid[1] = $result['results'][1]['name'];
-      $alamatMasjid[1] = $result['results'][1]['vicinity'];
-      $latMasjid[1] = $result['results'][1]['geometry']['location']['lat'];
-      $lngMasjid[1] = $result['results'][1]['geometry']['location']['lng'];
+      $namaMasjid[4] = $result['results'][4]['name'];
+      $alamatMasjid[4] = $result['results'][4]['vicinity'];
+      $latMasjid[4] = $result['results'][4]['geometry']['location']['lat'];
+      $lngMasjid[4] = $result['results'][4]['geometry']['location']['lng'];
 
-      $namaMasjid[2] = $result['results'][2]['name'];
-      $alamatMasjid[2] = $result['results'][2]['vicinity'];
-      $latMasjid[2] = $result['results'][2]['geometry']['location']['lat'];
-      $lngMasjid[2] = $result['results'][2]['geometry']['location']['lng'];
+      $urlPhotoMasjidTerdekat[3]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
+      $urlPhotoMasjidTerdekat[3].="&photoreference=".$result['results'][3]['photos'][0]['photo_reference'];
+      $urlPhotoMasjidTerdekat[3].="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";
 
-      $urlPhotoMasjidTerdekat[0]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
-      $urlPhotoMasjidTerdekat[0].="&photoreference=".$result['results'][0]['photos'][0]['photo_reference'];
-      $urlPhotoMasjidTerdekat[0].="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";
-
-      $urlPhotoMasjidTerdekat[1]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
-      $urlPhotoMasjidTerdekat[1].="&photoreference=".$result['results'][1]['photos'][0]['photo_reference'];
-      $urlPhotoMasjidTerdekat[1].="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";
-
-      $urlPhotoMasjidTerdekat[2]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
-      $urlPhotoMasjidTerdekat[2].="&photoreference=".$result['results'][2]['photos'][0]['photo_reference'];
-      $urlPhotoMasjidTerdekat[2].="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";
+      $urlPhotoMasjidTerdekat[4]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
+      $urlPhotoMasjidTerdekat[4].="&photoreference=".$result['results'][4]['photos'][0]['photo_reference'];
+      $urlPhotoMasjidTerdekat[4].="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";
 
       //$location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
       //$this->bot->replyMessage($event['replyToken'], $location);
@@ -233,13 +224,10 @@ class Webhook extends CI_Controller {
       }*/
 
       $carouselTemplateBuilder = new CarouselTemplateBuilder([
-        new CarouselColumnTemplateBuilder($namaMasjid[0], $alamatMasjid[0], $urlPhotoMasjidTerdekat[0], [
+        new CarouselColumnTemplateBuilder($namaMasjid[3], $alamatMasjid[3], $urlPhotoMasjidTerdekat[3], [
           new UriTemplateActionBuilder('Detail Lokasi', 'https://line.me'),
           ]),
-        new CarouselColumnTemplateBuilder($namaMasjid[1], $alamatMasjid[1], $urlPhotoMasjidTerdekat[1], [
-          new UriTemplateActionBuilder('Detail Lokasi', 'https://line.me'),
-        ]),
-        new CarouselColumnTemplateBuilder($namaMasjid[2], $alamatMasjid[2], $urlPhotoMasjidTerdekat[2], [
+        new CarouselColumnTemplateBuilder($namaMasjid[4], $alamatMasjid[4], $urlPhotoMasjidTerdekat[4], [
           new UriTemplateActionBuilder('Detail Lokasi', 'https://line.me'),
         ]),
       ]);
