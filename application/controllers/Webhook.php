@@ -164,7 +164,7 @@ class Webhook extends CI_Controller {
 
       $urlMasjidTerdekat ="https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
       $urlMasjidTerdekat .="location=". $event['message']['latitude'] . "," . $event['message']['longitude'];
-      $urlMasjidTerdekat .="&radius=500&type=mosque&keyword=masjid";
+      $urlMasjidTerdekat .="&radius=300&type=mosque&keyword=masjid";
       $urlMasjidTerdekat .="&key=".$_ENV['GMAPS_API_KEY'];
 
       //$this->bot->replyText($event['replyToken'], $urlMasjidTerdekat);
