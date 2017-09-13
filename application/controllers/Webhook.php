@@ -171,13 +171,15 @@ class Webhook extends CI_Controller {
         " Latitude : ". $result['results'][$i]['geometry']['location']['lat'].
         ", Longitude : ". $result['results'][$i]['geometry']['location']['lng']. "\n";
 
-      $namaMasjid = $result['results'][0]['name'];
-      $alamatMasjid = $result['results'][0]['vicinity'];
-      $latMasjid = $result['results'][0]['geometry']['location']['lat'];
-      $lngMasjid = $result['results'][0]['geometry']['location']['lng'];
+      for($i=0; $i<=4; $i++){
+        $namaMasjid = $result['results'][$i]['name'];
+        $alamatMasjid = $result['results'][$i]['vicinity'];
+        $latMasjid = $result['results'][$i]['geometry']['location']['lat'];
+        $lngMasjid = $result['results'][$i]['geometry']['location']['lng'];
 
-      $location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
-      $this->bot->replyMessage($event['replyToken'], $location);
+        $location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
+        $this->bot->replyMessage($event['replyToken'], $location);
+      }
     }
 
   }
