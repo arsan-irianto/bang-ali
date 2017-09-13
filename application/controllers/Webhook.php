@@ -177,11 +177,11 @@ class Webhook extends CI_Controller {
 
       //$location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
       //$this->bot->replyMessage($event['replyToken'], $location);
-
+      $dummyImage = "https://lh3.googleusercontent.com/p/AF1QipMlZ-K8MWi-V2xHRD0035qtOwC8Jz7kcrpPGhjt=s1600-w400";
       //prepare options button
       $options[0] = new MessageTemplateActionBuilder('Detail Lokasi', 'detail lokasi');
       // prepare button template
-      $buttonTemplate = new ButtonTemplateBuilder($namaMasjid, $alamatMasjid, $urlPhotoMasjidTerdekat, $options);
+      $buttonTemplate = new ButtonTemplateBuilder($namaMasjid, $alamatMasjid, $dummyImage, $options);
 
       // build message
       $messageBuilder = new TemplateMessageBuilder("Gunakan mobile app untuk melihat soal", $buttonTemplate);
