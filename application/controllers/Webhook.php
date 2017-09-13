@@ -16,6 +16,8 @@ use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder;
 use \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder;
 use \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder;
 use \LINE\LINEBot\MessageBuilder\LocationMessageBuilder;
+use \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
+use \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
 
 class Webhook extends CI_Controller {
 
