@@ -248,8 +248,8 @@ class Webhook extends CI_Controller {
   }
 
   private function oneClickOneAyat($replyToken, $message){
-    $arabicAyat = "https://api.alquran.cloud/ayah/1:1";
-    $translationAyat = "https://api.alquran.cloud/ayah/1:1/id.indonesian";
+    $arabicAyat = "https://api.alquran.cloud/ayah/2:255";
+    $translationAyat = "https://api.alquran.cloud/ayah/2:255/id.indonesian";
 
     // get url arabic ayat and Decode $returnedAyat
     $returnedAyat = $this->get_data($arabicAyat);
@@ -263,7 +263,7 @@ class Webhook extends CI_Controller {
     $returnedTranslationAyat = $this->get_data($translationAyat);
     $resultTranslation = json_decode($returnedTranslationAyat,true);
 
-    $message = "( ".$surahName." [".$surahNumber."]" . " : " . $numberInSurah . " )\n";
+    $message = "( ".$surahName." [".$surahNumber."]" . " : " . $numberInSurah . " )\n\n";
     $message .= $resultAyat['data']['text']."\n\n".$resultTranslation['data']['text'];
     $textMessageBuilder = new TextMessageBuilder($message);
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
