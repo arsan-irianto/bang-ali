@@ -225,14 +225,14 @@ class Webhook extends CI_Controller {
         //prepare options button
         $options[0] = new MessageTemplateActionBuilder('tes', 'tes');
         // prepare button template
-        $buttonTemplate = new ButtonTemplateBuilder('QS : Al-Baqarah ayat 2 255 ', $dummyTranslation, $dummyImage, $options);
+        $buttonTemplate = new ButtonTemplateBuilder('QS : Al-Baqarah ayat 2 255 ', $dummyTranslation, $dummyImage, $options[0]);
 
         // build message
         $messageBuilder = new TemplateMessageBuilder("Gunakan mobile app untuk melihat soal", $buttonTemplate);
 
         // send message
         //$this->bot->replyMessage($event['replyToken'], $messageBuilder);
-        $textMessageBuilder = new TextMessageBuilder($dummyTranslation);
+        $textMessageBuilder = new TextMessageBuilder($messageBuilder);
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
       }
 /*      else {
