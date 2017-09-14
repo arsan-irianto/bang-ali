@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Webhook.php" afterPath="$PROJECT_DIR$/application/controllers/Webhook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/.env" afterPath="$PROJECT_DIR$/public/.env" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,21 +14,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="260">
+              <caret line="9" column="64" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="221" column="40" lean-forward="false" selection-start-line="221" selection-start-column="40" selection-end-line="221" selection-end-column="40" />
+            <state relative-caret-position="335">
+              <caret line="242" column="3" lean-forward="true" selection-start-line="242" selection-start-column="3" selection-end-line="242" selection-end-column="3" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
               </folding>
@@ -96,9 +96,9 @@
       <list>
         <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/models/Webhook_m.php" />
-        <option value="$PROJECT_DIR$/public/.env" />
         <option value="$PROJECT_DIR$/lib/vendor/linecorp/line-bot-sdk/src/LINEBot/HTTPClient/Curl.php" />
         <option value="$PROJECT_DIR$/application/controllers/Webhook.php" />
+        <option value="$PROJECT_DIR$/public/.env" />
       </list>
     </option>
   </component>
@@ -208,14 +208,7 @@
       <workItem from="1505176483579" duration="768000" />
       <workItem from="1505199672061" duration="33890000" />
       <workItem from="1505310175786" duration="7908000" />
-      <workItem from="1505349254472" duration="9434000" />
-    </task>
-    <task id="LOCAL-00103" summary="Test send 2 masjid">
-      <created>1505290359960</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1505290359961</updated>
+      <workItem from="1505349254472" duration="10653000" />
     </task>
     <task id="LOCAL-00104" summary="Send 5 masjid">
       <created>1505310722892</created>
@@ -553,11 +546,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505357624837</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="Respond if user share location after klik masjid terdekat">
+      <created>1505359304762</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1505359304762</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72529000" />
+    <option name="totallyTimeSpent" value="73748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1019,21 +1019,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="221" column="40" lean-forward="false" selection-start-line="221" selection-start-column="40" selection-end-line="221" selection-end-column="40" />
+        <state relative-caret-position="335">
+          <caret line="242" column="3" lean-forward="true" selection-start-line="242" selection-start-column="3" selection-end-line="242" selection-end-column="3" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="9" column="64" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>
