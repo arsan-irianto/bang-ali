@@ -253,14 +253,15 @@ class Webhook extends CI_Controller {
 
     // get url arabic ayat and Decode $returnedAyat
     $returnedAyat = $this->get_data($arabicAyat);
-    $resultAyat = json_decode($returnedAyat,true);
+    $resultAyat = utf8_decode(json_decode($returnedAyat,true));
 
     // get url translation ayat and Decode $translationAyat
     $returnedTranslationAyat = $this->get_data($translationAyat);
     $resultTranslation = json_decode($returnedTranslationAyat,true);
 
-    $message = $resultTranslation['data']['text'];
-    $textMessageBuilder = new TextMessageBuilder($message);
+    //$message = $resultAyat['data']['text'];
+    $arabicMessage = "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ";
+    $textMessageBuilder = new TextMessageBuilder($arabicMessage);
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
 
 /*
