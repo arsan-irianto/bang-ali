@@ -26,6 +26,7 @@ class Webhook extends CI_Controller {
   private $signature;
   private $user;
   private $resultMapArray;
+  const REPLY_MASJID_TERDEKAT = "'Silahkan share lokasi kamu ya dengan fitur share location (tombol +, dan pilih location dan klik share location)'";
 
   function __construct()
   {
@@ -105,8 +106,8 @@ class Webhook extends CI_Controller {
       $message  = "Assalamualaykum warahmatullahi wabarakatuh...\n";
       $message .= "Hai, " . $profile['displayName'] . "!\n";
       $message .= "Terima kasih sudah menambahkan aku sebagai teman :D \n";
-      $message .= "Insya Allah aku akan membantu kamu menemukan lokasi masjid terdekat, \n";
-      $message .= "info buku-buku islami, artikel pilihan dan fitur-fitur menarik lainnya \n";
+      $message .= "Insya Allah aku akan membantu kamu menemukan Masjid terdekat, \n";
+      $message .= "One Click One Ayat, Jadwal Shalat dan fitur-fitur menarik lainnya \n";
       $message .= "yang akan dikembangkan sesuai kebutuhan kamu sebagai seorang muslim. \n";
       $message .= "Karena itu sering-sering ya chat dengan aku :D";
       $textMessageBuilder = new TextMessageBuilder($message);
@@ -213,16 +214,25 @@ class Webhook extends CI_Controller {
   private function textMessage($event)
   {
     $userMessage = $event['message']['text'];
-      if(strtolower($userMessage) == 'masjid terdekat')
-      {
-        $message = 'Silahkan share lokasi kamu ya dengan fitur share location (tombol +, dan pilih location dan klik share location)';
-        $textMessageBuilder = new TextMessageBuilder($message);
-        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
-      } else {
-        $message = 'Under Development...';
-        $textMessageBuilder = new TextMessageBuilder($message);
-        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
-      }
+
+    switch (strtolower($userMessage)){
+      default:
+        $message = "Under Development";
+        break;
+      case 'masjid terdekat':
+        $message = REPLY_MASJID_TERDEKAT;
+        break;
+      case 'one click one ayat':
+        break;
+      case 'waktu shalat':
+        break;
+      case 'feedback':
+        break;
+    }
+
+    $textMessageBuilder = new TextMessageBuilder($message);
+    $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
+
   }
 
   private function stickerMessage($event)
