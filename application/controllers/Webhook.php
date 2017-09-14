@@ -199,13 +199,13 @@ class Webhook extends CI_Controller {
         }
       }
       else{
-        $this->bot->replyMessage($event['replyToken'], 'Tak bisa looping array');
+        $this->bot->replyMessage($replyToken, 'Tak bisa looping array');
       }
 
       // Carousel Template builder and send reply template message
       $carouselTemplateBuilder = new CarouselTemplateBuilder($columnTemplateBuilders);
       $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
-      $this->bot->replyMessage($event['replyToken'], $templateMessage);
+      $this->bot->replyMessage($replyToken, $templateMessage);
 
     }
   }
