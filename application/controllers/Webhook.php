@@ -192,8 +192,7 @@ class Webhook extends CI_Controller {
         $this->bot->replyMessage($event['replyToken'], 'Tak bisa looping array');
       }
 
-/*
-      $namaMasjid[0] = $result['results'][0]['name'];
+/*      $namaMasjid[0] = $result['results'][0]['name'];
       $alamatMasjid[0] = $result['results'][0]['vicinity'];
       $latMasjid[0] = $result['results'][0]['geometry']['location']['lat'];
       $lngMasjid[0] = $result['results'][0]['geometry']['location']['lng'];
@@ -216,7 +215,7 @@ class Webhook extends CI_Controller {
       $namaMasjid[4] = $result['results'][4]['name'];
       $alamatMasjid[4] = $result['results'][4]['vicinity'];
       $latMasjid[4] = $result['results'][4]['geometry']['location']['lat'];
-      $lngMasjid[4] = $result['results'][4]['geometry']['location']['lng'];
+      $lngMasjid[4] = $result['results'][4]['geometry']['location']['lng'];*/
 
       $urlPhotoMasjidTerdekat[0]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
       $urlPhotoMasjidTerdekat[0].="&photoreference=".$result['results'][0]['photos'][0]['photo_reference'];
@@ -236,7 +235,7 @@ class Webhook extends CI_Controller {
 
       $urlPhotoMasjidTerdekat[4]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
       $urlPhotoMasjidTerdekat[4].="&photoreference=".$result['results'][4]['photos'][0]['photo_reference'];
-      $urlPhotoMasjidTerdekat[4].="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";*/
+      $urlPhotoMasjidTerdekat[4].="&key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4";
 
       //$location = new LocationMessageBuilder($namaMasjid, $alamatMasjid, $latMasjid, $lngMasjid);
       //$this->bot->replyMessage($event['replyToken'], $location);
