@@ -26,7 +26,6 @@ class Webhook extends CI_Controller {
   private $signature;
   private $user;
   private $resultMapArray;
-  const REPLY_MASJID_TERDEKAT = "'Silahkan share lokasi kamu ya dengan fitur share location (tombol +, dan pilih location dan klik share location)'";
 
   function __construct()
   {
@@ -220,7 +219,7 @@ class Webhook extends CI_Controller {
         $message = "Under Development";
         break;
       case 'masjid terdekat':
-        $message = REPLY_MASJID_TERDEKAT;
+        $message = "'Silahkan share lokasi kamu ya dengan fitur share location (tombol +, dan pilih location dan klik share location)'";
         break;
       case 'one click one ayat':
         $this->oneClickOneAyat($event['replyToken']);
