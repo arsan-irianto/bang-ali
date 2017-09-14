@@ -173,21 +173,26 @@ class Webhook extends CI_Controller {
       $returned_content = $this->get_data($urlMasjidTerdekat);
       $result = json_decode($returned_content,true);
 
-/*      $i=0;
-      foreach($result['results'] as $resultItem) if ($i < 5) {
-        $namaMasjid[]= $resultItem['name'];
-        $alamatMasjid[] = $resultItem['vicinity'];
-        $latMasjid[] = $resultItem['geometry']['location']['lat'];
-        $lngMasjid[] = $resultItem['geometry']['location']['lng'];
+      if(is_array($result['results'])){
+        $i=0;
+        foreach($result['results'] as $resultItem) if ($i < 5) {
+          $namaMasjid[]= $resultItem['name'];
+          $alamatMasjid[] = $resultItem['vicinity'];
+          $latMasjid[] = $resultItem['geometry']['location']['lat'];
+          $lngMasjid[] = $resultItem['geometry']['location']['lng'];
 
-        // Loop Photo Masjid
-        $urlPhotoMasjidTerdekat[]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
-        $urlPhotoMasjidTerdekat[].="&photoreference=".$resultItem['photos'][0]['photo_reference'];
-        $urlPhotoMasjidTerdekat[].="&key=".$_ENV['GMAPS_API_KEY'];
-        $i++;
-      }*/
+          // Loop Photo Masjid
+          $urlPhotoMasjidTerdekat[]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
+          $urlPhotoMasjidTerdekat[].="&photoreference=".$resultItem['photos'][0]['photo_reference'];
+          $urlPhotoMasjidTerdekat[].="&key=".$_ENV['GMAPS_API_KEY'];
+          $i++;
+        }
+      }
+      else{
+        $this->bot->replyMessage($event['replyToken'], 'Tak bisa looping array');
+      }
 
-      $namaMasjid[0] = $result['results'][0]['name'];
+/*      $namaMasjid[0] = $result['results'][0]['name'];
       $alamatMasjid[0] = $result['results'][0]['vicinity'];
       $latMasjid[0] = $result['results'][0]['geometry']['location']['lat'];
       $lngMasjid[0] = $result['results'][0]['geometry']['location']['lng'];
@@ -210,7 +215,7 @@ class Webhook extends CI_Controller {
       $namaMasjid[4] = $result['results'][4]['name'];
       $alamatMasjid[4] = $result['results'][4]['vicinity'];
       $latMasjid[4] = $result['results'][4]['geometry']['location']['lat'];
-      $lngMasjid[4] = $result['results'][4]['geometry']['location']['lng'];
+      $lngMasjid[4] = $result['results'][4]['geometry']['location']['lng'];*/
 
       $urlPhotoMasjidTerdekat[0]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400";
       $urlPhotoMasjidTerdekat[0].="&photoreference=".$result['results'][0]['photos'][0]['photo_reference'];
