@@ -225,7 +225,7 @@ class Webhook extends CI_Controller {
         //prepare options button
         $options[0] = new MessageTemplateActionBuilder('tes', 'tes');
         // prepare button template
-        $buttonTemplate = new ButtonTemplateBuilder('Al Baqarah ', $dummyTranslation, 'https://lh3.googleusercontent.com/p/AF1QipMlZ-K8MWi-V2xHRD0035qtOwC8Jz7kcrpPGhjt=s1600-w400', $options[0]);
+        $buttonTemplate = new ButtonTemplateBuilder('Al Baqarah ', $dummyTranslation, 'https://lh3.googleusercontent.com/p/AF1QipMlZ-K8MWi-V2xHRD0035qtOwC8Jz7kcrpPGhjt=s1600-w400', $options);
 
         // build message
         $messageBuilder = new TemplateMessageBuilder("Gunakan mobile app untuk melihat soal", $buttonTemplate);
