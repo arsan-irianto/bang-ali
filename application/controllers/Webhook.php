@@ -213,26 +213,16 @@ class Webhook extends CI_Controller {
   private function textMessage($event)
   {
     $userMessage = $event['message']['text'];
-
-    switch (strtolower($userMessage)){
-      default:
-        $message = "Under Development";
-        break;
-      case 'masjid terdekat':
-        $message = "'Silahkan share lokasi kamu ya dengan fitur share location (tombol +, dan pilih location dan klik share location)'";
-        break;
-      case 'one click one ayat':
-        $this->oneClickOneAyat($event['replyToken']);
-        break;
-      case 'waktu shalat':
-        break;
-      case 'feedback':
-        break;
-    }
-
-    $textMessageBuilder = new TextMessageBuilder($message);
-    $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
-
+      if(strtolower($userMessage) == 'masjid terdekat')
+      {
+        $message = 'Silahkan share lokasi kamu ya dengan fitur share location (tombol +, dan pilih location dan klik share location)';
+        $textMessageBuilder = new TextMessageBuilder($message);
+        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
+      } else {
+        $message = 'Under Development...';
+        $textMessageBuilder = new TextMessageBuilder($message);
+        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
+      }
   }
 
   private function stickerMessage($event)
@@ -250,23 +240,6 @@ class Webhook extends CI_Controller {
     $multiMessageBuilder->add($textMessageBuilder);
     // send message
     $this->bot->replyMessage($event['replyToken'], $multiMessageBuilder);
-  }
-
-  private function oneClickOneAyat($replyToken){
-    //if(strtolower($message)=='one click one ayat'){
-      $dummyImage = "https://cdn.alquran.cloud/media/image/2/255";
-      $dummyTranslation = "Allah, tidak ada Tuhan (yang berhak disembah) melainkan Dia Yang Hidup kekal lagi terus menerus mengurus (makhluk-Nya); tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi. Tiada yang dapat memberi syafa'at di sisi Allah tanpa izin-Nya? Allah mengetahui apa-apa yang di hadapan mereka dan di belakang mereka, dan mereka tidak mengetahui apa-apa dari ilmu Allah melainkan apa yang dikehendaki-Nya. Kursi Allah meliputi langit dan bumi. Dan Allah tidak merasa berat memelihara keduanya, dan Allah Maha Tinggi lagi Maha Besar.";
-      //prepare options button
-      $options[0] = new MessageTemplateActionBuilder('tes', 'tes');
-      // prepare button template
-      $buttonTemplate = new ButtonTemplateBuilder('QS : Al-Baqarah[2]:255 ', $dummyTranslation, $dummyImage, $options);
-
-      // build message
-      $messageBuilder = new TemplateMessageBuilder("Gunakan mobile app untuk melihat soal", $buttonTemplate);
-
-      // send message
-      $this->bot->replyMessage($replyToken, $messageBuilder);
-   // }
   }
 
 }
