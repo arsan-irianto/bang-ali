@@ -263,7 +263,7 @@ class Webhook extends CI_Controller {
     $messageTranslation = $resultTranslation['data']['text'];
 
     $multiMessageBuilder = new MultiMessageBuilder();
-    $multiMessageBuilder->add($messageAyat);
+    //$multiMessageBuilder->add($messageAyat);
     $multiMessageBuilder->add($messageTranslation);
 
     // send reply message
