@@ -28,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="395">
-              <caret line="263" column="63" lean-forward="false" selection-start-line="263" selection-start-column="63" selection-end-line="263" selection-end-column="63" />
+              <caret line="263" column="57" lean-forward="false" selection-start-line="263" selection-start-column="57" selection-end-line="263" selection-end-column="57" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
               </folding>
@@ -235,14 +235,7 @@
       <workItem from="1505176483579" duration="768000" />
       <workItem from="1505199672061" duration="33890000" />
       <workItem from="1505310175786" duration="7908000" />
-      <workItem from="1505349254472" duration="25969000" />
-    </task>
-    <task id="LOCAL-00131" summary="Edit Radius nearby to 500">
-      <created>1505317475818</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1505317475818</updated>
+      <workItem from="1505349254472" duration="26052000" />
     </task>
     <task id="LOCAL-00132" summary="Edit Radius nearby to 500">
       <created>1505317509480</created>
@@ -580,11 +573,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505399067405</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="Test reply with arabic message">
+      <created>1505403634979</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1505403634979</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89064000" />
+    <option name="totallyTimeSpent" value="89147000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -635,7 +635,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Send 5 masjid with loop index 0 - 4" />
     <MESSAGE value="send masjid without limit 5 on foreach" />
     <MESSAGE value="send 5 masjid without looping" />
     <MESSAGE value="Edit Radius nearby to 300" />
@@ -660,7 +659,8 @@
     <MESSAGE value="Test Reply with Sticker Message" />
     <MESSAGE value="Test Reply with button template message" />
     <MESSAGE value="Test Reply one click one ayat with multiMessageBuilder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test Reply one click one ayat with multiMessageBuilder" />
+    <MESSAGE value="Test reply with arabic message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test reply with arabic message" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1064,7 +1064,7 @@
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
-          <caret line="263" column="63" lean-forward="false" selection-start-line="263" selection-start-column="63" selection-end-line="263" selection-end-column="63" />
+          <caret line="263" column="57" lean-forward="false" selection-start-line="263" selection-start-column="57" selection-end-line="263" selection-end-column="57" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
           </folding>
