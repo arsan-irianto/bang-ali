@@ -221,7 +221,7 @@ class Webhook extends CI_Controller {
       }
       else{
         //$this->stickerMessage($event['replyToken'], $userMessage);
-          $this->buttonTemplateMessage($event['replyToken'], $userMessage);
+          $this->oneClickOneAyat($event['replyToken'], $userMessage);
       }
 /*      else {
         $message = 'Under Development...';
@@ -247,10 +247,29 @@ class Webhook extends CI_Controller {
     $this->bot->replyMessage($replyToken, $multiMessageBuilder);
   }
 
-  private function buttonTemplateMessage($replyToken, $message){
-    $dummyImage = "https://cdn.alquran.cloud/media/image/2/255";
-    $dummyTranslation = "Allah, tidak ada Tuhan (yang berhak disembah) melainkan Dia Yang Hidup kekal lagi terus menerus mengurus (makhluk-Nya); tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi. Tiada yang dapat memberi syafa'at di sisi Allah tanpa izin-Nya? Allah mengetahui apa-apa yang di hadapan mereka dan di belakang mereka, dan mereka tidak mengetahui apa-apa dari ilmu Allah melainkan apa yang dikehendaki-Nya. Kursi Allah meliputi langit dan bumi. Dan Allah tidak merasa berat memelihara keduanya, dan Allah Maha Tinggi lagi Maha Besar.";
+  private function oneClickOneAyat($replyToken, $message){
+    $arabicAyat = "https://api.alquran.cloud/ayah/2:255";
+    $translationAyat = "https://api.alquran.cloud/ayah/2:255/id.indonesian";
 
+    // get url arabic ayat and Decode $returnedAyat
+    $returnedAyat = $this->get_data($arabicAyat);
+    $resultAyat = json_decode($returnedAyat,true);
+
+    // get url translation ayat and Decode $translationAyat
+    $returnedTranslationAyat = $this->get_data($translationAyat);
+    $resultTranslation = json_decode($returnedTranslationAyat,true);
+
+    $messageAyat = $resultAyat['data']['text'];
+    $messageTranslation = $resultTranslation['data']['text'];
+
+    $multiMessageBuilder = new MultiMessageBuilder();
+    $multiMessageBuilder->add($messageAyat);
+    $multiMessageBuilder->add($messageTranslation);
+
+    // send reply message
+    $this->bot->replyMessage($replyToken, $multiMessageBuilder);
+
+/*
     $imageUrl = "https://cdn.alquran.cloud/media/image/2/255";
     $buttonTemplateBuilder = new ButtonTemplateBuilder(
       'My button sample',
@@ -264,7 +283,7 @@ class Webhook extends CI_Controller {
       ]
     );
     $templateMessage = new TemplateMessageBuilder('Button alt text', $buttonTemplateBuilder);
-    $this->bot->replyMessage($replyToken, $templateMessage);
+    $this->bot->replyMessage($replyToken, $templateMessage);*/
   }
 
 }
