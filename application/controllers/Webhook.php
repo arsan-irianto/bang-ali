@@ -154,9 +154,10 @@ class Webhook extends CI_Controller {
   }
 
   private function locationMessage($event){
-    $urlRute = "https://www.google.co.id/maps/dir/-5.150653,119.460408/-5.1521172,119.4576207/@-5.1517963,119.4594102,17z";
     $userLocation = $event['message']['type'];
     if($userLocation == 'location'){
+
+      $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
 
       $urlMasjidTerdekat ="https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
       $urlMasjidTerdekat .="location=". $event['message']['latitude'] . "," . $event['message']['longitude'];
@@ -179,6 +180,8 @@ class Webhook extends CI_Controller {
           $latMasjid[] = $resultItem['geometry']['location']['lat'];
           $lngMasjid[] = $resultItem['geometry']['location']['lng'];
 
+          $urlDirection[] = "https://www.google.co.id/maps/dir/".$locationFromUserShared."/".$latMasjid.",".$lngMasjid."/@".$locationFromUserShared.",17z";
+
           // Array Photo Masjid
           $urlPhotoMasjidTerdekat[]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=".$resultItem['photos'][0]['photo_reference']."&key=".$_ENV['GMAPS_API_KEY'];
 
@@ -187,7 +190,7 @@ class Webhook extends CI_Controller {
             $namaMasjid[$i],
             $alamatMasjid[$i],
             $urlPhotoMasjidTerdekat[$i], [
-            new UriTemplateActionBuilder('Detail Rute', $urlRute),
+            new UriTemplateActionBuilder('Detail Rute', $urlDirection[$i]),
           ]);
           array_push($columnTemplateBuilders, $columnTemplateBuilder);
 
