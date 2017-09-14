@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="">
+    <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="Test Reply with">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Webhook.php" afterPath="$PROJECT_DIR$/application/controllers/Webhook.php" />
     </list>
@@ -27,8 +27,8 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="222" column="64" lean-forward="false" selection-start-line="222" selection-start-column="64" selection-end-line="222" selection-end-column="64" />
+            <state relative-caret-position="26">
+              <caret line="223" column="39" lean-forward="false" selection-start-line="223" selection-start-column="39" selection-end-line="223" selection-end-column="39" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
               </folding>
@@ -234,14 +234,7 @@
       <workItem from="1505176483579" duration="768000" />
       <workItem from="1505199672061" duration="33890000" />
       <workItem from="1505310175786" duration="7908000" />
-      <workItem from="1505349254472" duration="20108000" />
-    </task>
-    <task id="LOCAL-00122" summary="send masjid without limit 5 on foreach">
-      <created>1505315836032</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1505315836036</updated>
+      <workItem from="1505349254472" duration="20565000" />
     </task>
     <task id="LOCAL-00123" summary="send 5 masjid without looping">
       <created>1505315908505</created>
@@ -579,11 +572,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505381278795</updated>
     </task>
-    <option name="localTasksCounter" value="171" />
+    <task id="LOCAL-00171" summary="Test Reply with Sticker Message">
+      <created>1505395701525</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1505395701525</updated>
+    </task>
+    <option name="localTasksCounter" value="172" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83203000" />
+    <option name="totallyTimeSpent" value="83660000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -634,8 +634,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Send 2 masjid without loop index 3 and 4" />
-    <MESSAGE value="Send 2 masjid without loop index 2, 3 and 4" />
     <MESSAGE value="Send 2 masjid without loop index 0 - 4" />
     <MESSAGE value="Send 2 masjid with loop index 0 - 4" />
     <MESSAGE value="Send 5 masjid with loop index 0 - 4" />
@@ -659,7 +657,9 @@
     <MESSAGE value="Send Dummy One Click One Ayat" />
     <MESSAGE value="Revert To Share Location" />
     <MESSAGE value="Test Dummy One Click One Ayat" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test Dummy One Click One Ayat" />
+    <MESSAGE value="Test Sticker Message" />
+    <MESSAGE value="Test Reply with Sticker Message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test Reply with Sticker Message" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1062,8 +1062,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="222" column="64" lean-forward="false" selection-start-line="222" selection-start-column="64" selection-end-line="222" selection-end-column="64" />
+        <state relative-caret-position="26">
+          <caret line="223" column="39" lean-forward="false" selection-start-line="223" selection-start-column="39" selection-end-line="223" selection-end-column="39" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
           </folding>
