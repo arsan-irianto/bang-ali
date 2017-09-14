@@ -28,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
-              <caret line="269" column="19" lean-forward="false" selection-start-line="269" selection-start-column="19" selection-end-line="269" selection-end-column="19" />
+              <caret line="269" column="94" lean-forward="false" selection-start-line="269" selection-start-column="94" selection-end-line="269" selection-end-column="94" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
               </folding>
@@ -235,14 +235,7 @@
       <workItem from="1505176483579" duration="768000" />
       <workItem from="1505199672061" duration="33890000" />
       <workItem from="1505310175786" duration="7908000" />
-      <workItem from="1505349254472" duration="29969000" />
-    </task>
-    <task id="LOCAL-00145" summary="With Direction link">
-      <created>1505355777631</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1505355777631</updated>
+      <workItem from="1505349254472" duration="30300000" />
     </task>
     <task id="LOCAL-00146" summary="Respond if user share location after klik masjid terdekat">
       <created>1505355923949</created>
@@ -580,11 +573,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505407564678</updated>
     </task>
-    <option name="localTasksCounter" value="194" />
+    <task id="LOCAL-00194" summary="Test Dummy Surah with title surah name, number and ayat">
+      <created>1505407630293</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1505407630293</updated>
+    </task>
+    <option name="localTasksCounter" value="195" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93064000" />
+    <option name="totallyTimeSpent" value="93395000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1064,7 +1064,7 @@
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="269" column="19" lean-forward="false" selection-start-line="269" selection-start-column="19" selection-end-line="269" selection-end-column="19" />
+          <caret line="269" column="94" lean-forward="false" selection-start-line="269" selection-start-column="94" selection-end-line="269" selection-end-column="94" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
           </folding>
