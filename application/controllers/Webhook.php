@@ -220,7 +220,8 @@ class Webhook extends CI_Controller {
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
       }
       else{
-        $dummyImage = "https://cdn.alquran.cloud/media/image/2/255";
+        $this->stickerMessage($event['replyToken'], $userMessage);
+/*        $dummyImage = "https://cdn.alquran.cloud/media/image/2/255";
         $dummyTranslation = "Allah, tidak ada Tuhan (yang berhak disembah) melainkan Dia Yang Hidup kekal lagi terus menerus mengurus (makhluk-Nya); tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi. Tiada yang dapat memberi syafa'at di sisi Allah tanpa izin-Nya? Allah mengetahui apa-apa yang di hadapan mereka dan di belakang mereka, dan mereka tidak mengetahui apa-apa dari ilmu Allah melainkan apa yang dikehendaki-Nya. Kursi Allah meliputi langit dan bumi. Dan Allah tidak merasa berat memelihara keduanya, dan Allah Maha Tinggi lagi Maha Besar.";
         //prepare options button
         $options[0] = new MessageTemplateActionBuilder('tes', 'tes');
@@ -233,7 +234,7 @@ class Webhook extends CI_Controller {
         // send message
         //$this->bot->replyMessage($event['replyToken'], $messageBuilder);
         $textMessageBuilder = new TextMessageBuilder($messageBuilder);
-        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
+        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);*/
       }
 /*      else {
         $message = 'Under Development...';
@@ -242,13 +243,13 @@ class Webhook extends CI_Controller {
       }*/
   }
 
-  private function stickerMessage($event)
+  private function stickerMessage($replyToken, $message)
   {
     // create sticker message
     $stickerMessageBuilder = new StickerMessageBuilder(1, 106);
 
     // create text message
-    $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis.';
+    $message = 'Send From function stickerMessage.';
     $textMessageBuilder = new TextMessageBuilder($message);
 
     // merge all message
@@ -256,7 +257,7 @@ class Webhook extends CI_Controller {
     $multiMessageBuilder->add($stickerMessageBuilder);
     $multiMessageBuilder->add($textMessageBuilder);
     // send message
-    $this->bot->replyMessage($event['replyToken'], $multiMessageBuilder);
+    $this->bot->replyMessage($replyToken, $multiMessageBuilder);
   }
 
 }
