@@ -260,7 +260,11 @@ class Webhook extends CI_Controller {
 
     // send message
     //$this->bot->replyMessage($event['replyToken'], $messageBuilder);
-    $textMessageBuilder = new TextMessageBuilder($messageBuilder);
+
+    $message = 'Send From function buttonTemplateMessage.';
+    $textMessageBuilder = new TextMessageBuilder($message);
+
+    //$textMessageBuilder = new TextMessageBuilder($messageBuilder);
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
   }
 
