@@ -180,7 +180,8 @@ class Webhook extends CI_Controller {
           $latMasjid[] = $resultItem['geometry']['location']['lat'];
           $lngMasjid[] = $resultItem['geometry']['location']['lng'];
 
-          $urlDirection[] = "https://www.google.co.id/maps/dir/".$locationFromUserShared."/".$latMasjid.",".$lngMasjid."/@".$locationFromUserShared.",17z";
+          // Create link direction url
+          $urlDirection[] = "https://www.google.co.id/maps/dir/".$locationFromUserShared."/".$resultItem['geometry']['location']['lat'].",".$resultItem['geometry']['location']['lng']."/@".$locationFromUserShared.",17z";
 
           // Array Photo Masjid
           $urlPhotoMasjidTerdekat[]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=".$resultItem['photos'][0]['photo_reference']."&key=".$_ENV['GMAPS_API_KEY'];
