@@ -257,6 +257,7 @@ class Webhook extends CI_Controller {
 
     $surahNumber = $resultAyat['data']['surah']['number'];
     $surahName = $resultAyat['data']['surah']['name'];
+    $surahEnglishName = $resultAyat['data']['surah']['englishName'];
     $numberInSurah = $resultAyat['data']['numberInSurah'];
 
     // get url translation ayat and Decode $translationAyat
@@ -264,7 +265,9 @@ class Webhook extends CI_Controller {
     $resultTranslation = json_decode($returnedTranslationAyat,true);
 
     $message = "( ".$surahName." [".$surahNumber."]" . " : " . $numberInSurah . " )\n\n";
-    $message .= $resultAyat['data']['text']."\n\n".$resultTranslation['data']['text'];
+    $message .= $resultAyat['data']['text']."\n\n";
+    $message .= "(Surah ".$surahEnglishName. " [".$surahNumber."]" ." ayat ".$numberInSurah." )\n\n";
+    $message .= $resultTranslation['data']['text'];
     $textMessageBuilder = new TextMessageBuilder($message);
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
 
