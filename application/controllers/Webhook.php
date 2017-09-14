@@ -259,15 +259,9 @@ class Webhook extends CI_Controller {
     $returnedTranslationAyat = $this->get_data($translationAyat);
     $resultTranslation = json_decode($returnedTranslationAyat,true);
 
-    $messageAyat = $resultAyat['data']['text'];
-    $messageTranslation = $resultTranslation['data']['text'];
-
-    $multiMessageBuilder = new MultiMessageBuilder();
-    //$multiMessageBuilder->add($messageAyat);
-    $multiMessageBuilder->add($messageTranslation);
-
-    // send reply message
-    $this->bot->replyMessage($replyToken, $multiMessageBuilder);
+    $message = $resultTranslation['data']['text'];
+    $textMessageBuilder = new TextMessageBuilder($message);
+    $this->bot->replyMessage($replyToken, $textMessageBuilder);
 
 /*
     $imageUrl = "https://cdn.alquran.cloud/media/image/2/255";
