@@ -218,7 +218,7 @@ class Webhook extends CI_Controller {
         $textMessageBuilder = new TextMessageBuilder($message);
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
 
-        $this->locationMessage($event['replyToken'], $event['message']['type']);
+        $this->locationMessage($event['replyToken'], $userMessage);
 
       } else {
         $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis.';
