@@ -254,12 +254,16 @@ class Webhook extends CI_Controller {
     // get url arabic ayat and Decode $returnedAyat
     $returnedAyat = $this->get_data($arabicAyat);
     $resultAyat = json_decode($returnedAyat,true);
+    $nomorSurat = $resultAyat['data']['surah']['number'];
+    $namaSurat = $resultAyat['data']['surah']['englishName'];
+    $nomorAyat = $resultAyat['data']['surah']['numberInSurah'];
 
     // get url translation ayat and Decode $translationAyat
     $returnedTranslationAyat = $this->get_data($translationAyat);
     $resultTranslation = json_decode($returnedTranslationAyat,true);
 
-    $message = $resultAyat['data']['text']."\n\n".$resultTranslation['data']['text'];
+    $message = "Surah ". $namaSurat ."[".$nomorSurat."]". $nomorAyat ." : \n";
+    $message .= $resultAyat['data']['text']."\n\n".$resultTranslation['data']['text'];
     $textMessageBuilder = new TextMessageBuilder($message);
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
 
