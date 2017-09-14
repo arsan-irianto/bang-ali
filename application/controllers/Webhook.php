@@ -213,10 +213,11 @@ class Webhook extends CI_Controller {
   private function textMessage($event)
   {
     $userMessage = $event['message']['text'];
-      if(strtolower($userMessage) == 'mulai')
+      if(strtolower($userMessage) == 'masjid terdekat')
       {
-        $location = new LocationMessageBuilder('tes', 'bontobila', '-33.8670522', '151.1957362');
-        $this->bot->replyMessage($event['replyToken'], $location);
+        $message = 'Silahkan share lokasi kamu ya dengan fitur share location (tombol +, dan pilih location dan klik share location)';
+        $textMessageBuilder = new TextMessageBuilder($message);
+        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
       } else {
         $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis.';
         $textMessageBuilder = new TextMessageBuilder($message);
