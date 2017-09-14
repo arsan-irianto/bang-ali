@@ -223,7 +223,7 @@ class Webhook extends CI_Controller {
         $message = REPLY_MASJID_TERDEKAT;
         break;
       case 'one click one ayat':
-        $this->oneClickOneAyat($event['replyToken'], 'one click one ayat');
+        $this->oneClickOneAyat($event['replyToken']);
         break;
       case 'waktu shalat':
         break;
@@ -253,8 +253,8 @@ class Webhook extends CI_Controller {
     $this->bot->replyMessage($event['replyToken'], $multiMessageBuilder);
   }
 
-  private function oneClickOneAyat($replyToken, $message){
-    if(strtolower($message)=='one click one ayat'){
+  private function oneClickOneAyat($replyToken){
+    //if(strtolower($message)=='one click one ayat'){
       $dummyImage = "https://cdn.alquran.cloud/media/image/2/255";
       $dummyTranslation = "Allah, tidak ada Tuhan (yang berhak disembah) melainkan Dia Yang Hidup kekal lagi terus menerus mengurus (makhluk-Nya); tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi. Tiada yang dapat memberi syafa'at di sisi Allah tanpa izin-Nya? Allah mengetahui apa-apa yang di hadapan mereka dan di belakang mereka, dan mereka tidak mengetahui apa-apa dari ilmu Allah melainkan apa yang dikehendaki-Nya. Kursi Allah meliputi langit dan bumi. Dan Allah tidak merasa berat memelihara keduanya, dan Allah Maha Tinggi lagi Maha Besar.";
       //prepare options button
@@ -267,7 +267,7 @@ class Webhook extends CI_Controller {
 
       // send message
       $this->bot->replyMessage($replyToken, $messageBuilder);
-    }
+   // }
   }
 
 }
