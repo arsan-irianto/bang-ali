@@ -248,8 +248,8 @@ class Webhook extends CI_Controller {
   }
 
   private function oneClickOneAyat($replyToken, $message){
-    $arabicAyat = "https://api.alquran.cloud/ayah/2:255";
-    $translationAyat = "https://api.alquran.cloud/ayah/2:255/id.indonesian";
+    $arabicAyat = "https://api.alquran.cloud/ayah/1:1";
+    $translationAyat = "https://api.alquran.cloud/ayah/1:1/id.indonesian";
 
     // get url arabic ayat and Decode $returnedAyat
     $returnedAyat = $this->get_data($arabicAyat);
