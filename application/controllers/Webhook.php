@@ -154,6 +154,7 @@ class Webhook extends CI_Controller {
   }
 
   private function locationMessage($event){
+    $urlRute = "https://www.google.co.id/maps/dir/-5.150653,119.460408/-5.1521172,119.4576207/@-5.1517963,119.4594102,17z";
     $userLocation = $event['message']['type'];
     if($userLocation == 'location'){
 
@@ -186,7 +187,7 @@ class Webhook extends CI_Controller {
             $namaMasjid[$i],
             $alamatMasjid[$i],
             $urlPhotoMasjidTerdekat[$i], [
-            new UriTemplateActionBuilder('Detail Lokasi masjid', 'https://line.me'),
+            new UriTemplateActionBuilder('Detail Rute', $urlRute),
           ]);
           array_push($columnTemplateBuilders, $columnTemplateBuilder);
 
