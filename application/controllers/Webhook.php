@@ -154,8 +154,8 @@ class Webhook extends CI_Controller {
   }
 
   private function locationMessage($replyToken, $event){
-    $userLocation = $event['message']['type'];
-    if($userLocation == 'location'){
+    //$userLocation = $event['message']['type'];
+    //if($userLocation == 'location'){
 
       $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
 
@@ -207,18 +207,19 @@ class Webhook extends CI_Controller {
       $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
       $this->bot->replyMessage($replyToken, $templateMessage);
 
-    }
+   // }
   }
   private function textMessage($event)
   {
+    $userLocation = $event['message']['type'];
     $userMessage = $event['message']['text'];
-      if(strtolower($userMessage) == 'masjid terdekat')
-      {
+      if(strtolower($userMessage) == 'masjid terdekat') {
         $message = 'Silahkan share lokasi kamu ya dengan fitur share location (tombol +, dan pilih location dan klik share location)';
         $textMessageBuilder = new TextMessageBuilder($message);
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
-
-        $this->locationMessage($event['replyToken'], $userMessage);
+        if($userLocation == 'location')
+          $this->locationMessage($event['replyToken'], $userLocation['location']);
+        }
 
       } else {
         $message = 'Silakan kirim pesan "MULAI" untuk memulai kuis.';
