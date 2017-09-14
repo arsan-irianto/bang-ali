@@ -231,7 +231,9 @@ class Webhook extends CI_Controller {
         $messageBuilder = new TemplateMessageBuilder("Gunakan mobile app untuk melihat soal", $buttonTemplate);
 
         // send message
-        $this->bot->replyMessage($event['replyToken'], $messageBuilder);
+        //$this->bot->replyMessage($event['replyToken'], $messageBuilder);
+        $textMessageBuilder = new TextMessageBuilder($dummyTranslation);
+        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
       }
 /*      else {
         $message = 'Under Development...';
