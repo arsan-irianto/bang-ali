@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="">
+    <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="send masjid carousel with looping location and looping photo">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Webhook.php" afterPath="$PROJECT_DIR$/application/controllers/Webhook.php" />
     </list>
@@ -27,8 +27,8 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1643">
-              <caret line="235" column="83" lean-forward="false" selection-start-line="217" selection-start-column="0" selection-end-line="235" selection-end-column="83" />
+            <state relative-caret-position="421">
+              <caret line="225" column="84" lean-forward="false" selection-start-line="225" selection-start-column="61" selection-end-line="225" selection-end-column="84" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
               </folding>
@@ -207,14 +207,7 @@
       <workItem from="1505176483579" duration="768000" />
       <workItem from="1505199672061" duration="33890000" />
       <workItem from="1505310175786" duration="7908000" />
-      <workItem from="1505349254472" duration="1610000" />
-    </task>
-    <task id="LOCAL-00089" summary="Send Button Template Message Masjid Image">
-      <created>1505282623863</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1505282623863</updated>
+      <workItem from="1505349254472" duration="3000000" />
     </task>
     <task id="LOCAL-00090" summary="Send Button Template Message Masjid Image">
       <created>1505282733948</created>
@@ -552,11 +545,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505350307366</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="send masjid carousel with looping location and looping photo">
+      <created>1505350892200</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1505350892200</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64705000" />
+    <option name="totallyTimeSpent" value="66095000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -607,7 +607,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Send Button Template Message" />
     <MESSAGE value="Send Button Template Message with dummy image" />
     <MESSAGE value="Send Button Template Message Masjid Image" />
     <MESSAGE value="Test Dummy Carousel" />
@@ -632,7 +631,8 @@
     <MESSAGE value="send masjid carousel without looping" />
     <MESSAGE value="send masjid carousel with looping" />
     <MESSAGE value="send masjid carousel with looping location not looping photo" />
-    <option name="LAST_COMMIT_MESSAGE" value="send masjid carousel with looping location not looping photo" />
+    <MESSAGE value="send masjid carousel with looping location and looping photo" />
+    <option name="LAST_COMMIT_MESSAGE" value="send masjid carousel with looping location and looping photo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1016,8 +1016,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1643">
-          <caret line="235" column="83" lean-forward="false" selection-start-line="217" selection-start-column="0" selection-end-line="235" selection-end-column="83" />
+        <state relative-caret-position="421">
+          <caret line="225" column="84" lean-forward="false" selection-start-line="225" selection-start-column="61" selection-end-line="225" selection-end-column="84" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
           </folding>
