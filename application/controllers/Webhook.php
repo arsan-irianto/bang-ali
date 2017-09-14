@@ -256,7 +256,7 @@ class Webhook extends CI_Controller {
     $resultAyat = json_decode($returnedAyat,true);
     $nomorSurat = $resultAyat['data']['surah']['number'];
     $namaSurat = $resultAyat['data']['surah']['englishName'];
-    $nomorAyat = $resultAyat['data']['surah']['numberInSurah'];
+    $nomorAyat = $resultAyat['data']['numberInSurah'];
 
     // get url translation ayat and Decode $translationAyat
     $returnedTranslationAyat = $this->get_data($translationAyat);
