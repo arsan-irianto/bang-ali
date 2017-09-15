@@ -157,7 +157,7 @@ class Webhook extends CI_Controller {
 
   private function locationMessage($event)
   {
-    $lastMessage = getLastTextMessage($user_id);
+    $lastMessage = getLastTextMessage($this->user);
     if( strtolower($lastMessage) == 'masjid terdekat'){
       //$userLocation = $event['message']['type'];
   //    if($userLocation == 'location'){
