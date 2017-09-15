@@ -140,84 +140,59 @@ class Webhook extends CI_Controller {
     return $data;
   }
 
-  /*
-   * Function for debug mode & test script output
-   */
-  public function dummy(){
-    $url ="https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDk0ZDDDMCFiVZUxwLsNlUPJwSiTxQzub4&location=-5.15066,119.464902&keyword=masjid&name=masjid&type=mosque&rankby=distance";
-
-    $returned_content = $this->get_data($url);
-    $this->resultMapArray = json_decode($returned_content,true);
-    foreach ( $this->resultMapArray as $resultArray){
-      echo $resultArray."<br>";
-    }
-    //print_r(json_decode($returned_content,true));
-  }
-
-
   private function locationMessage($event)
   {
-    $lastMessage = getLastTextMessage($this->user);
-    if( strtolower($lastMessage) == 'masjid terdekat'){
-      //$userLocation = $event['message']['type'];
-  //    if($userLocation == 'location'){
+    $userLocation = $event['message']['type'];
+    if($userLocation == 'location')
+    {
+      $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
 
-        $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
+      $urlMasjidTerdekat ="https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
+      $urlMasjidTerdekat .="location=". $event['message']['latitude'] . "," . $event['message']['longitude'];
+      $urlMasjidTerdekat .="&radius=500&type=mosque&keyword=masjid";
+      $urlMasjidTerdekat .="&key=".$_ENV['GMAPS_API_KEY'];
 
-        $urlMasjidTerdekat ="https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
-        $urlMasjidTerdekat .="location=". $event['message']['latitude'] . "," . $event['message']['longitude'];
-        $urlMasjidTerdekat .="&radius=500&type=mosque&keyword=masjid";
-        $urlMasjidTerdekat .="&key=".$_ENV['GMAPS_API_KEY'];
+      // get url maps to parse json
+      $returned_content = $this->get_data($urlMasjidTerdekat);
+      // Decode google maps json
+      $result = json_decode($returned_content,true);
 
-        // get url maps to parse json
-        $returned_content = $this->get_data($urlMasjidTerdekat);
-        // Decode google maps json
-        $result = json_decode($returned_content,true);
+      $columnTemplateBuilders = array();
+      if(is_array($result['results']))
+      {
+        $i=0;
+        foreach($result['results'] as $resultItem) if ($i < 5) {
 
-        $columnTemplateBuilders = array();
-        if(is_array($result['results'])){
-          $i=0;
-          foreach($result['results'] as $resultItem) if ($i < 5) {
+          // Array Data Masjid
+          $namaMasjid[]= $resultItem['name'];
+          $alamatMasjid[] = $resultItem['vicinity'];
+          $latMasjid[] = $resultItem['geometry']['location']['lat'];
+          $lngMasjid[] = $resultItem['geometry']['location']['lng'];
 
-            // Array Data Masjid
-            $namaMasjid[]= $resultItem['name'];
-            $alamatMasjid[] = $resultItem['vicinity'];
-            $latMasjid[] = $resultItem['geometry']['location']['lat'];
-            $lngMasjid[] = $resultItem['geometry']['location']['lng'];
+          // Create link direction url
+          $urlDirection[] = "https://www.google.co.id/maps/dir/".$locationFromUserShared."/".$resultItem['geometry']['location']['lat'].",".$resultItem['geometry']['location']['lng']."/@".$locationFromUserShared.",17z";
 
-            // Create link direction url
-            $urlDirection[] = "https://www.google.co.id/maps/dir/".$locationFromUserShared."/".$resultItem['geometry']['location']['lat'].",".$resultItem['geometry']['location']['lng']."/@".$locationFromUserShared.",17z";
+          // Array Photo Masjid
+          $urlPhotoMasjidTerdekat[]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=".$resultItem['photos'][0]['photo_reference']."&key=".$_ENV['GMAPS_API_KEY'];
 
-            // Array Photo Masjid
-            $urlPhotoMasjidTerdekat[]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=".$resultItem['photos'][0]['photo_reference']."&key=".$_ENV['GMAPS_API_KEY'];
-
-            // Array Column Carousel for carousel Template Builder
-            $columnTemplateBuilder = new CarouselColumnTemplateBuilder(
-              $namaMasjid[$i],
-              $alamatMasjid[$i],
-              $urlPhotoMasjidTerdekat[$i], [
-              new UriTemplateActionBuilder('Detail Rute', $urlDirection[$i]),
-            ]);
-            array_push($columnTemplateBuilders, $columnTemplateBuilder);
-
-            $i++;
-          }
+          // Array Column Carousel for carousel Template Builder
+          $columnTemplateBuilder = new CarouselColumnTemplateBuilder(
+            $namaMasjid[$i],
+            $alamatMasjid[$i],
+            $urlPhotoMasjidTerdekat[$i], [
+            new UriTemplateActionBuilder('Detail Rute', $urlDirection[$i]),
+          ]);
+          array_push($columnTemplateBuilders, $columnTemplateBuilder);
+          $i++;
         }
-        else{
-          $this->bot->replyMessage($event['replyToken'], 'Tak bisa looping array');
-        }
-
-        // Carousel Template builder and send reply template message
-        $carouselTemplateBuilder = new CarouselTemplateBuilder($columnTemplateBuilders);
-        $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
-        $this->bot->replyMessage($event['replyToken'], $templateMessage);
-
-//      }
-    }
-    else{
-      $this->bot->replyMessage($event['replyToken'], 'Cek Lokasi untuk jadwal shalat');
+      }
+      // Carousel Template builder and send reply template message
+      $carouselTemplateBuilder = new CarouselTemplateBuilder($columnTemplateBuilders);
+      $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
+      $this->bot->replyMessage($event['replyToken'], $templateMessage);
     }
   }
+
   private function textMessage($event)
   {
     $userMessage = $event['message']['text'];
@@ -227,7 +202,8 @@ class Webhook extends CI_Controller {
         $textMessageBuilder = new TextMessageBuilder($message);
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
       }
-      else{
+      else
+      {
         $this->oneClickOneAyat($event['replyToken'], $userMessage);
         $this->jadwalShalat($event['replyToken'], $userMessage);
       }
@@ -294,16 +270,11 @@ class Webhook extends CI_Controller {
 
   private function jadwalShalat($replyToken, $message)
   {
-    if(strtolower($message)=='jadwal shalat'){
+    if(strtolower($message)=='jadwal shalat')
+    {
     $textMessageBuilder = new TextMessageBuilder('Share Lokasi kamu dulu ya supaya aku sesuaikan dengan zona waktu di tempat kamu');
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
     }
   }
 
-  // function to return last text message from user
-  public function getLastTextMessage($user_id){
-    $logData = $this->webhook_m->getLastEventText($user_id);
-    $logEvent = json_decode($logData['events'],true);
-    return $logEvent['events'][0]['message']['text'];
-  }
 }
