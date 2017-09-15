@@ -140,54 +140,55 @@ class Webhook extends CI_Controller {
       $userLocation = $event['message']['type'];
       if($userLocation == 'location')
       {
-        $strLastMessage = $this->getBeforeLastEvent("U875b9aaee72f033aa861bdfba3c8bc62");
+/*        $strLastMessage = $this->getBeforeLastEvent("U875b9aaee72f033aa861bdfba3c8bc62");
         if(strtolower($strLastMessage) == 'masjid terdekat'){
-          $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
 
-          $urlMasjidTerdekat ="https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
-          $urlMasjidTerdekat .="location=". $event['message']['latitude'] . "," . $event['message']['longitude'];
-          $urlMasjidTerdekat .="&radius=500&type=mosque&keyword=masjid";
-          $urlMasjidTerdekat .="&key=".$_ENV['GMAPS_API_KEY'];
+        }*/
+        $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
 
-          // get url maps to parse json
-          $returned_content = $this->get_data($urlMasjidTerdekat);
-          // Decode google maps json
-          $result = json_decode($returned_content,true);
+        $urlMasjidTerdekat ="https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
+        $urlMasjidTerdekat .="location=". $event['message']['latitude'] . "," . $event['message']['longitude'];
+        $urlMasjidTerdekat .="&radius=500&type=mosque&keyword=masjid";
+        $urlMasjidTerdekat .="&key=".$_ENV['GMAPS_API_KEY'];
 
-          $columnTemplateBuilders = array();
-          if(is_array($result['results']))
-          {
-            $i=0;
-            foreach($result['results'] as $resultItem) if ($i < 5) {
+        // get url maps to parse json
+        $returned_content = $this->get_data($urlMasjidTerdekat);
+        // Decode google maps json
+        $result = json_decode($returned_content,true);
 
-              // Array Data Masjid
-              $namaMasjid[]= $resultItem['name'];
-              $alamatMasjid[] = $resultItem['vicinity'];
-              $latMasjid[] = $resultItem['geometry']['location']['lat'];
-              $lngMasjid[] = $resultItem['geometry']['location']['lng'];
+        $columnTemplateBuilders = array();
+        if(is_array($result['results']))
+        {
+          $i=0;
+          foreach($result['results'] as $resultItem) if ($i < 5) {
 
-              // Create link direction url
-              $urlDirection[] = "https://www.google.co.id/maps/dir/".$locationFromUserShared."/".$resultItem['geometry']['location']['lat'].",".$resultItem['geometry']['location']['lng']."/@".$locationFromUserShared.",17z";
+            // Array Data Masjid
+            $namaMasjid[]= $resultItem['name'];
+            $alamatMasjid[] = $resultItem['vicinity'];
+            $latMasjid[] = $resultItem['geometry']['location']['lat'];
+            $lngMasjid[] = $resultItem['geometry']['location']['lng'];
 
-              // Array Photo Masjid
-              $urlPhotoMasjidTerdekat[]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=".$resultItem['photos'][0]['photo_reference']."&key=".$_ENV['GMAPS_API_KEY'];
+            // Create link direction url
+            $urlDirection[] = "https://www.google.co.id/maps/dir/".$locationFromUserShared."/".$resultItem['geometry']['location']['lat'].",".$resultItem['geometry']['location']['lng']."/@".$locationFromUserShared.",17z";
 
-              // Array Column Carousel for carousel Template Builder
-              $columnTemplateBuilder = new CarouselColumnTemplateBuilder(
-                $namaMasjid[$i],
-                $alamatMasjid[$i],
-                $urlPhotoMasjidTerdekat[$i], [
-                new UriTemplateActionBuilder('Detail Rute', $urlDirection[$i]),
-              ]);
-              array_push($columnTemplateBuilders, $columnTemplateBuilder);
-              $i++;
-            }
+            // Array Photo Masjid
+            $urlPhotoMasjidTerdekat[]="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=".$resultItem['photos'][0]['photo_reference']."&key=".$_ENV['GMAPS_API_KEY'];
+
+            // Array Column Carousel for carousel Template Builder
+            $columnTemplateBuilder = new CarouselColumnTemplateBuilder(
+              $namaMasjid[$i],
+              $alamatMasjid[$i],
+              $urlPhotoMasjidTerdekat[$i], [
+              new UriTemplateActionBuilder('Detail Rute', $urlDirection[$i]),
+            ]);
+            array_push($columnTemplateBuilders, $columnTemplateBuilder);
+            $i++;
           }
-          // Carousel Template builder and send reply template message
-          $carouselTemplateBuilder = new CarouselTemplateBuilder($columnTemplateBuilders);
-          $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
-          $this->bot->replyMessage($event['replyToken'], $templateMessage);
         }
+        // Carousel Template builder and send reply template message
+        $carouselTemplateBuilder = new CarouselTemplateBuilder($columnTemplateBuilders);
+        $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
+        $this->bot->replyMessage($event['replyToken'], $templateMessage);
       }
   }
 
