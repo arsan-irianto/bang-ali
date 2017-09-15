@@ -4,6 +4,7 @@
     <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Webhook.php" afterPath="$PROJECT_DIR$/application/controllers/Webhook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Webhook_m.php" afterPath="$PROJECT_DIR$/application/models/Webhook_m.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +18,8 @@
       <file leaf-file-name=".env" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="9" column="64" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+            <state relative-caret-position="130">
+              <caret line="5" column="72" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -27,11 +28,21 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="269" column="94" lean-forward="false" selection-start-line="269" selection-start-column="94" selection-end-line="269" selection-end-column="94" />
+            <state relative-caret-position="26">
+              <caret line="274" column="58" lean-forward="true" selection-start-line="274" selection-start-column="58" selection-end-line="274" selection-end-column="58" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Webhook_m.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Webhook_m.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="84" column="40" lean-forward="true" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,7 +106,6 @@
       <find>callBack</find>
       <find>ques</find>
       <find>signature</find>
-      <find>webhook_m</find>
       <find>$results</find>
       <find>location</find>
       <find>Template</find>
@@ -103,6 +113,8 @@
       <find>index</find>
       <find>sticker</find>
       <find>encode</find>
+      <find>webhook_m</find>
+      <find>webhook</find>
     </findStrings>
     <replaceStrings>
       <replace>webhook_m</replace>
@@ -116,9 +128,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/application/config/database.php" />
-        <option value="$PROJECT_DIR$/application/models/Webhook_m.php" />
         <option value="$PROJECT_DIR$/lib/vendor/linecorp/line-bot-sdk/src/LINEBot/HTTPClient/Curl.php" />
         <option value="$PROJECT_DIR$/public/.env" />
+        <option value="$PROJECT_DIR$/application/models/Surahquran_m.php" />
+        <option value="$PROJECT_DIR$/application/models/Webhook_m.php" />
         <option value="$PROJECT_DIR$/application/controllers/Webhook.php" />
       </list>
     </option>
@@ -235,14 +248,7 @@
       <workItem from="1505176483579" duration="768000" />
       <workItem from="1505199672061" duration="33890000" />
       <workItem from="1505310175786" duration="7908000" />
-      <workItem from="1505349254472" duration="30300000" />
-    </task>
-    <task id="LOCAL-00146" summary="Respond if user share location after klik masjid terdekat">
-      <created>1505355923949</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1505355923949</updated>
+      <workItem from="1505349254472" duration="34750000" />
     </task>
     <task id="LOCAL-00147" summary="Respond if user share location after klik masjid terdekat">
       <created>1505356443648</created>
@@ -580,11 +586,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505407630293</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="Test Dummy Surah with title surah name, number and ayat">
+      <created>1505407961381</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1505407961381</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93395000" />
+    <option name="totallyTimeSpent" value="97845000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -667,16 +680,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2132">
-          <caret line="90" column="31" lean-forward="true" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
-          <folding>
-            <element signature="e#141#159#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -926,14 +929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Webhook_m.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="66" column="3" lean-forward="true" selection-start-line="66" selection-start-column="3" selection-end-line="66" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -990,14 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="9" column="64" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
           <folding />
         </state>
       </provider>
@@ -1061,10 +1048,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="72" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Surahquran_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="11" column="2" lean-forward="false" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Webhook_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="84" column="40" lean-forward="true" selection-start-line="84" selection-start-column="11" selection-end-line="84" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="269" column="94" lean-forward="false" selection-start-line="269" selection-start-column="94" selection-end-line="269" selection-end-column="94" />
+        <state relative-caret-position="26">
+          <caret line="274" column="58" lean-forward="true" selection-start-line="274" selection-start-column="58" selection-end-line="274" selection-end-column="58" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
           </folding>

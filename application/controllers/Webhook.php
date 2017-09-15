@@ -128,7 +128,8 @@ class Webhook extends CI_Controller {
   }
 
   /* gets the data from a URL */
-  private function get_data($url) {
+  private function get_data($url)
+  {
     $ch = curl_init();
     $timeout = 5;
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -153,7 +154,8 @@ class Webhook extends CI_Controller {
     //print_r(json_decode($returned_content,true));
   }
 
-  private function locationMessage($event, $message){
+  private function locationMessage($event, $message)
+  {
     $userLocation = $event['message']['type'];
     if($userLocation == 'location'){
 
@@ -248,8 +250,9 @@ class Webhook extends CI_Controller {
   }
 
   private function oneClickOneAyat($replyToken, $message){
-    $arabicAyat = "https://api.alquran.cloud/ayah/2:255";
-    $translationAyat = "https://api.alquran.cloud/ayah/2:255/id.indonesian";
+    $getAyat = $this->getRandomAyatBySurah();
+    $arabicAyat = "https://api.alquran.cloud/ayah/".$getAyat;
+    $translationAyat = "https://api.alquran.cloud/ayah/".$getAyat."/id.indonesian";
 
     // get url arabic ayat and Decode $returnedAyat
     $returnedAyat = $this->get_data($arabicAyat);
@@ -271,7 +274,6 @@ class Webhook extends CI_Controller {
     $message .= $translationText;
     $textMessageBuilder = new TextMessageBuilder($message);
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
-
 /*
     $imageUrl = "https://cdn.alquran.cloud/media/image/2/255";
     $buttonTemplateBuilder = new ButtonTemplateBuilder(
@@ -287,6 +289,17 @@ class Webhook extends CI_Controller {
     );
     $templateMessage = new TemplateMessageBuilder('Button alt text', $buttonTemplateBuilder);
     $this->bot->replyMessage($replyToken, $templateMessage);*/
+  }
+
+  // Function to randomAyat
+  private function getRandomAyatBySurah()
+  {
+    $randomSurah = rand(1,114);
+    $detailSurah = $this->webhook_m->getSurahQuran($randomSurah);
+    $randomAyat = rand(1,$detailSurah['count_ayat']);
+
+    // return format [surah:ayat], example : 2:255
+    return $detailSurah['surah_number'].":".$randomAyat;
   }
 
 }

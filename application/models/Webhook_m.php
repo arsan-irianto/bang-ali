@@ -80,4 +80,16 @@ class Webhook_m extends CI_Model
 
     return $this->db->affected_rows();
   }
+
+  // get Surah quran by number of surah
+  function getSurahQuran($numberOfSurah)
+  {
+    $data = $this->db->where('surah_number', $numberOfSurah)
+      ->get('surah_quran')
+      ->row_array();
+
+    if(count($data)>0) return $data;
+    return false;
+  }
+
 }
