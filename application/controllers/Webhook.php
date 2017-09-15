@@ -135,15 +135,11 @@ class Webhook extends CI_Controller {
     return $data;
   }
 
-  private function masjidTerdekat($event)
+  private function locationMessage($event)
   {
       $userLocation = $event['message']['type'];
-      //if($userLocation == 'location')
-      //{
-/*        $strLastMessage = $this->getBeforeLastEvent("U875b9aaee72f033aa861bdfba3c8bc62");
-        if(strtolower($strLastMessage) == 'masjid terdekat'){
-
-        }*/
+      if($userLocation == 'location')
+      {
         $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
 
         $urlMasjidTerdekat ="https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
@@ -189,16 +185,13 @@ class Webhook extends CI_Controller {
         $carouselTemplateBuilder = new CarouselTemplateBuilder($columnTemplateBuilders);
         $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
         $this->bot->replyMessage($event['replyToken'], $templateMessage);
-      //}
+      }
   }
 
   private function textMessage($event)
   {
     $userMessage = $event['message']['text'];
 
-    if($event['message']['type']=='location'){
-      $this->masjidTerdekat($event);
-    }
     switch (strtolower($userMessage)){
       case 'masjid terdekat':
         $message = 'Silahkan share lokasi kamu ya dengan fitur share location (tombol +, dan pilih location dan klik share location)';
@@ -280,8 +273,8 @@ class Webhook extends CI_Controller {
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
   }
 
-  private function getBeforeLastEvent($user_id){
-    $lastEvents = json_decode($this->webhook_m->getBeforeLastEventText($user_id), true);
+  function getBeforeLastEvent(){
+    $lastEvents = json_decode($this->webhook_m->getBeforeLastEventText("U875b9aaee72f033aa861bdfba3c8bc62"), true);
     return $lastEvents['events'][0]['message']['text'];
   }
 
