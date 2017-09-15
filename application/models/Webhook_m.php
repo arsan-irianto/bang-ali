@@ -1,11 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-/**
- * Created by PhpStorm.
- * User: arsan-irianto
- * Date: 09/09/2017
- * Time: 12.25
- */
 
 class Webhook_m extends CI_Model
 {
@@ -101,6 +95,14 @@ class Webhook_m extends CI_Model
       ->row_array();
 
     if(count($data)>0) return $data;
+    return false;
+  }
+
+  function getBeforeLastEventText($user_id){
+    $data = $this->db->query("SELECT events FROM eventlog 
+        WHERE events like '%".$user_id."%' ORDER BY id DESC LIMIT 1 OFFSET 1")
+    ->row_array();
+    if(count($data)>0) return $data['events'];
     return false;
   }
 }
