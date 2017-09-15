@@ -157,7 +157,7 @@ class Webhook extends CI_Controller {
   private function masjidTerdekat($replyToken, $event)
   {
     $userLocation = $event['message']['type'];
-    if($userLocation == 'location'){
+    //if($userLocation == 'location'){
 
       $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
 
@@ -200,17 +200,10 @@ class Webhook extends CI_Controller {
           $i++;
         }
       }
-      else{
-        $this->bot->replyMessage($event['replyToken'], 'Tak bisa looping array');
-      }
-
       // Carousel Template builder and send reply template message
       $carouselTemplateBuilder = new CarouselTemplateBuilder($columnTemplateBuilders);
       $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
       $this->bot->replyMessage($replyToken, $templateMessage);
-
-    }
-
   }
   private function textMessage($event)
   {
@@ -220,7 +213,9 @@ class Webhook extends CI_Controller {
         $message = 'Silahkan share lokasi kamu ya dengan fitur share location (tombol +, dan pilih location dan klik share location)';
         $textMessageBuilder = new TextMessageBuilder($message);
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
-        $this->masjidTerdekat($event['replyToken'], $event);
+        if($event['message']['type']=='location'){
+          $this->masjidTerdekat($event['replyToken'], $event);
+        }
       }
       else{
         $this->oneClickOneAyat($event['replyToken'], $userMessage);
