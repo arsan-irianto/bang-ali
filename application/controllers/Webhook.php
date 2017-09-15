@@ -155,10 +155,10 @@ class Webhook extends CI_Controller {
   }
 
 
-  private function locationMessage($event)
+  private function locationMessage($event, $user_id)
   {
-    $checkLastEvent = $this->webhook_m->getLastEventText('U875b9aaee72f033aa861bdfba3c8bc62', 'Masjiddd Terdekat');
-    if($checkLastEvent == true){
+    $lastMessage = getLastTextMessage($user_id);
+    if( strtolower($lastMessage) == 'masjid terdekat'){
       //$userLocation = $event['message']['type'];
   //    if($userLocation == 'location'){
 
@@ -213,6 +213,9 @@ class Webhook extends CI_Controller {
         $this->bot->replyMessage($event['replyToken'], $templateMessage);
 
 //      }
+    }
+    else{
+      $this->bot->replyMessage($event['replyToken'], 'Cek Lokasi untuk jadwal shalat');
     }
   }
   private function textMessage($event)
@@ -297,7 +300,10 @@ class Webhook extends CI_Controller {
     }
   }
 
-  public function getLastEvent(){
-    print_r($this->webhook_m->getLastEventText('U875b9aaee72f033aa861bdfba3c8bc62'));
+  // function to return last text message from user
+  public function getLastTextMessage($user_id){
+    $logData = $this->webhook_m->getLastEventText($user_id);
+    $logEvent = json_decode($logData['events'],true);
+    return $logEvent['events'][0]['message']['text'];
   }
 }
