@@ -162,7 +162,7 @@ class Webhook extends CI_Controller {
       $textMessageBuilder = new TextMessageBuilder($message);
       $this->bot->replyMessage($replyToken, $textMessageBuilder);
 
-      $userLocation = $event['message']['type'];
+      $userLocation = $event;//$event['message']['type'];
       if($userLocation == 'location'){
 
         $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
@@ -217,7 +217,7 @@ class Webhook extends CI_Controller {
   private function textMessage($event)
   {
     $userMessage = $event['message']['text'];
-    $this->masjidTerdekat($event['replyToken'], $event, $userMessage);
+    $this->masjidTerdekat($event['replyToken'], $event['message']['type'], $userMessage);
     $this->oneClickOneAyat($event['replyToken'], $userMessage);
     $this->jadwalShalat($event['replyToken'], $userMessage);
   }
