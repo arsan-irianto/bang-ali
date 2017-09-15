@@ -155,7 +155,7 @@ class Webhook extends CI_Controller {
   }
 
 
-  private function locationMessage($event)
+  private function masjidTerdekat($event)
   {
     //$userLocation = $event['message']['type']['location'];
     //if($userLocation == 'location'){
@@ -222,7 +222,7 @@ class Webhook extends CI_Controller {
         $textMessageBuilder = new TextMessageBuilder($message);
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
         if($event['message']['type']=='location'){
-          $this->locationMessage($event);
+          $this->masjidTerdekat($event);
         }
       }
       else{
