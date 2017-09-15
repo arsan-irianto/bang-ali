@@ -155,7 +155,7 @@ class Webhook extends CI_Controller {
   }
 
 
-  private function locationMessage($event)
+  private function masjidTerdekat($event)
   {
     //$userLocation = $event['message']['type']['location'];
     //if($userLocation == 'location'){
@@ -222,12 +222,14 @@ class Webhook extends CI_Controller {
         $textMessageBuilder = new TextMessageBuilder($message);
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
         if($event['message']['type']=='location'){
-          $this->locationMessage($event);
+          $this->masjidTerdekat($event);
         }
       }
       else{
         $this->oneClickOneAyat($event['replyToken'], $userMessage);
-        $this->jadwalShalat($event['replyToken'], $userMessage);
+        if($event['message']['type']=='location'){
+          $this->jadwalShalat($event);
+        }
       }
   }
 
@@ -290,15 +292,8 @@ class Webhook extends CI_Controller {
     return $detailSurah['surah_number'].":".$randomAyat;
   }
 
-  private function jadwalShalat($replyToken, $message)
+  private function jadwalShalat($event)
   {
-    if(strtolower($message)=='jadwal shalat'){
-    $textMessageBuilder = new TextMessageBuilder('Share Lokasi kamu dulu ya supaya aku sesuaikan dengan zona waktu di tempat kamu');
-    $this->bot->replyMessage($replyToken, $textMessageBuilder);
-    }
-    else{
-      $textMessageBuilder = new TextMessageBuilder('else jadwal shalat');
-      $this->bot->replyMessage($replyToken, $textMessageBuilder);
-    }
+    $this->bot->replyMessage($event['replyToken'], 'read location from jadwal sholat');
   }
 }
