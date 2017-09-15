@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Webhook.php" afterPath="$PROJECT_DIR$/application/controllers/Webhook.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -249,14 +248,7 @@
       <workItem from="1505176483579" duration="768000" />
       <workItem from="1505199672061" duration="33890000" />
       <workItem from="1505310175786" duration="7908000" />
-      <workItem from="1505349254472" duration="35737000" />
-    </task>
-    <task id="LOCAL-00149" summary="Respond if user share location after klik masjid terdekat">
-      <created>1505356965506</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1505356965507</updated>
+      <workItem from="1505349254472" duration="35747000" />
     </task>
     <task id="LOCAL-00150" summary="Respond if user share location after klik masjid terdekat">
       <created>1505357477636</created>
@@ -594,11 +586,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505438201290</updated>
     </task>
-    <option name="localTasksCounter" value="198" />
+    <task id="LOCAL-00198" summary="Get Random Ayat By Random Surah Number">
+      <created>1505438570433</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1505438570433</updated>
+    </task>
+    <option name="localTasksCounter" value="199" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98832000" />
+    <option name="totallyTimeSpent" value="98842000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
