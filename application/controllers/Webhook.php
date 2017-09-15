@@ -154,7 +154,8 @@ class Webhook extends CI_Controller {
     //print_r(json_decode($returned_content,true));
   }
 
-  private function locationMessage($event, $message)
+
+  private function locationMessage($event)
   {
     $userLocation = $event['message']['type'];
     if($userLocation == 'location'){
@@ -225,11 +226,6 @@ class Webhook extends CI_Controller {
         $this->oneClickOneAyat($event['replyToken'], $userMessage);
         $this->jadwalShalat($event['replyToken'], $userMessage);
       }
-/*      else {
-        $message = 'Under Development...';
-        $textMessageBuilder = new TextMessageBuilder($message);
-        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
-      }*/
   }
 
   private function stickerMessage($replyToken, $message)
@@ -296,6 +292,10 @@ class Webhook extends CI_Controller {
     if(strtolower($message)=='jadwal shalat'){
     $textMessageBuilder = new TextMessageBuilder('Share Lokasi kamu dulu ya supaya aku sesuaikan dengan zona waktu di tempat kamu');
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
+    }
+    else{
+      $textMessageBuilder = new TextMessageBuilder('else jadwal shalat');
+      $this->bot->replyMessage($replyToken, $textMessageBuilder);
     }
   }
 }
