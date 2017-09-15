@@ -252,32 +252,35 @@ class Webhook extends CI_Controller {
     $this->bot->replyMessage($replyToken, $multiMessageBuilder);
   }
 
-  private function oneClickOneAyat($replyToken, $message){
-    $getAyat = $this->getRandomAyatBySurah();
-    $arabicAyat = "https://api.alquran.cloud/ayah/".$getAyat;
-    $translationAyat = "https://api.alquran.cloud/ayah/".$getAyat."/id.indonesian";
+  private function oneClickOneAyat($replyToken, $message)
+  {
+    if(strtolower($message) == 'one click one ayat')
+    {
+      $getAyat = $this->getRandomAyatBySurah();
+      $arabicAyat = "https://api.alquran.cloud/ayah/".$getAyat;
+      $translationAyat = "https://api.alquran.cloud/ayah/".$getAyat."/id.indonesian";
 
-    // get url arabic ayat and Decode $returnedAyat
-    $returnedAyat = $this->get_data($arabicAyat);
-    $resultAyat = json_decode($returnedAyat,true);
+      // get url arabic ayat and Decode $returnedAyat
+      $returnedAyat = $this->get_data($arabicAyat);
+      $resultAyat = json_decode($returnedAyat,true);
 
-    $surahNumber = $resultAyat['data']['surah']['number'];
-    $surahName = $resultAyat['data']['surah']['name'];
-    $surahEnglishName = $resultAyat['data']['surah']['englishName'];
-    $numberInSurah = $resultAyat['data']['numberInSurah'];
+      $surahNumber = $resultAyat['data']['surah']['number'];
+      $surahName = $resultAyat['data']['surah']['name'];
+      $surahEnglishName = $resultAyat['data']['surah']['englishName'];
+      $numberInSurah = $resultAyat['data']['numberInSurah'];
 
-    // get url translation ayat and Decode $translationAyat
-    $returnedTranslationAyat = $this->get_data($translationAyat);
-    $resultTranslation = json_decode($returnedTranslationAyat,true);
-    $translationText = '"'.$resultTranslation['data']['text'].'"';
+      // get url translation ayat and Decode $translationAyat
+      $returnedTranslationAyat = $this->get_data($translationAyat);
+      $resultTranslation = json_decode($returnedTranslationAyat,true);
+      $translationText = '"'.$resultTranslation['data']['text'].'"';
 
-    $message = "( ".$surahName." [".$surahNumber."]" . " " . $numberInSurah . " ) : \n\n";
-    $message .= $resultAyat['data']['text']."\n\n";
-    $message .= "( Surah ".$surahEnglishName. " [".$surahNumber."]" ." ".$numberInSurah." ) : \n";
-    $message .= $translationText;
-    $textMessageBuilder = new TextMessageBuilder($message);
-    $this->bot->replyMessage($replyToken, $textMessageBuilder);
-
+      $message = "( ".$surahName." [".$surahNumber."]" . " " . $numberInSurah . " ) : \n\n";
+      $message .= $resultAyat['data']['text']."\n\n";
+      $message .= "( Surah ".$surahEnglishName. " [".$surahNumber."]" ." ".$numberInSurah." ) : \n";
+      $message .= $translationText;
+      $textMessageBuilder = new TextMessageBuilder($message);
+      $this->bot->replyMessage($replyToken, $textMessageBuilder);
+    }
   }
 
   // Function to randomAyat
@@ -291,11 +294,12 @@ class Webhook extends CI_Controller {
     return $detailSurah['surah_number'].":".$randomAyat;
   }
 
-  private function jadwalShalat($replyToken, $message){
-    if(strtolower($message) == 'jadwal shalat'){
+  private function jadwalShalat($replyToken, $message)
+  {
+    if(strtolower($message) == 'jadwal shalat')
+    {
       $textMessageBuilder = new TextMessageBuilder('Share Lokasi kamu dulu ya supaya aku sesuaikan dengan zona waktu di tempat kamu');
       $this->bot->replyMessage($replyToken, $textMessageBuilder);
     }
-
   }
 }
