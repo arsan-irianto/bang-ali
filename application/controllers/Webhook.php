@@ -225,9 +225,8 @@ class Webhook extends CI_Controller {
         $this->oneClickOneAyat($event['replyToken'], $userMessage);
       }
       elseif(strtolower($userMessage) == 'jadwal sholat'){
-        $message = 'Ok, tolong share lokasi kamu dulu yah! Supaya waktu shalat yang aku infokan sesuai dengan zona waktu di tempat kamu ';
-        $textMessageBuilder = new TextMessageBuilder($message);
-        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
+        $replyMessage = 'Ok, tolong share lokasi kamu dulu yah! Supaya waktu shalat yang aku infokan sesuai dengan zona waktu di tempat kamu ';
+        $this->jadwalShalat($event['replyToken'], $replyMessage);
       }
       else{
         //$this->stickerMessage($event['replyToken'], $userMessage);
@@ -311,4 +310,8 @@ class Webhook extends CI_Controller {
     return $detailSurah['surah_number'].":".$randomAyat;
   }
 
+  private function jadwalShalat($replyToken, $message){
+    $textMessageBuilder = new TextMessageBuilder($message);
+    $this->bot->replyMessage($replyToken, $textMessageBuilder);
+  }
 }
