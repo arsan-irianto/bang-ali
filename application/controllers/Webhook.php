@@ -154,7 +154,7 @@ class Webhook extends CI_Controller {
     //print_r(json_decode($returned_content,true));
   }
 
-  private function locationMessage($replyToken, $event, $message)
+  private function locationMessage($event, $message)
   {
     $userLocation = $event['message']['type'];
     if($userLocation == 'location'){
