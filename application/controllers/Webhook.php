@@ -157,7 +157,7 @@ class Webhook extends CI_Controller {
 
   private function locationMessage($event)
   {
-    $checkLastEvent = $this->webhook_m->getLastEventText('U875b9aaee72f033aa861bdfba3c8bc62', 'Masjid Terdekat');
+    $checkLastEvent = $this->webhook_m->getLastEventText('U875b9aaee72f033aa861bdfba3c8bc62', 'Masjiddd Terdekat');
     if($checkLastEvent == true){
       //$userLocation = $event['message']['type'];
   //    if($userLocation == 'location'){
@@ -295,5 +295,9 @@ class Webhook extends CI_Controller {
     $textMessageBuilder = new TextMessageBuilder('Share Lokasi kamu dulu ya supaya aku sesuaikan dengan zona waktu di tempat kamu');
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
     }
+  }
+
+  public function getLastEvent(){
+    print_r($this->webhook_m->getLastEventText('U875b9aaee72f033aa861bdfba3c8bc62'));
   }
 }
