@@ -209,7 +209,7 @@ class Webhook extends CI_Controller {
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
         break;
       case 'one click one ayat':
-        $this->oneClickOneAyat($event['replyToken']
+        $this->oneClickOneAyat($event['replyToken']);
         break;
       case 'jadwal shalat':
         $this->jadwalShalat($event['replyToken']);

@@ -27,8 +27,8 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="144" column="41" lean-forward="false" selection-start-line="144" selection-start-column="41" selection-end-line="144" selection-end-column="41" />
+            <state relative-caret-position="208">
+              <caret line="190" column="53" lean-forward="false" selection-start-line="190" selection-start-column="53" selection-end-line="190" selection-end-column="53" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
               </folding>
@@ -252,14 +252,7 @@
       <workItem from="1505176483579" duration="768000" />
       <workItem from="1505199672061" duration="33890000" />
       <workItem from="1505310175786" duration="7908000" />
-      <workItem from="1505349254472" duration="51972000" />
-    </task>
-    <task id="LOCAL-00189" summary="Test Dummy Surah with title surah name, number and ayat">
-      <created>1505406480476</created>
-      <option name="number" value="00189" />
-      <option name="presentableId" value="LOCAL-00189" />
-      <option name="project" value="LOCAL" />
-      <updated>1505406480476</updated>
+      <workItem from="1505349254472" duration="52292000" />
     </task>
     <task id="LOCAL-00190" summary="Test Dummy Surah with title surah name, number and ayat">
       <created>1505406820884</created>
@@ -597,11 +590,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505458491980</updated>
     </task>
-    <option name="localTasksCounter" value="238" />
+    <task id="LOCAL-00238" summary="Check if user click masjid terdekat before share location">
+      <created>1505459501262</created>
+      <option name="number" value="00238" />
+      <option name="presentableId" value="LOCAL-00238" />
+      <option name="project" value="LOCAL" />
+      <updated>1505459501262</updated>
+    </task>
+    <option name="localTasksCounter" value="239" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115067000" />
+    <option name="totallyTimeSpent" value="115387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -652,7 +652,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="With Direction link" />
     <MESSAGE value="Respond if user share location after klik masjid terdekat" />
     <MESSAGE value="Send Dummy One Click One Ayat" />
     <MESSAGE value="Revert To Share Location" />
@@ -677,7 +676,8 @@
     <MESSAGE value="Revert to Message Location" />
     <MESSAGE value="Check last event message from user" />
     <MESSAGE value="SEnd Masjid Location" />
-    <option name="LAST_COMMIT_MESSAGE" value="SEnd Masjid Location" />
+    <MESSAGE value="Check if user click masjid terdekat before share location" />
+    <option name="LAST_COMMIT_MESSAGE" value="Check if user click masjid terdekat before share location" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -925,14 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1052,14 +1044,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" column="72" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Surahquran_m.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -1076,10 +1060,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="72" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="144" column="41" lean-forward="false" selection-start-line="144" selection-start-column="41" selection-end-line="144" selection-end-column="41" />
+        <state relative-caret-position="208">
+          <caret line="190" column="53" lean-forward="false" selection-start-line="190" selection-start-column="53" selection-end-line="190" selection-end-column="53" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
           </folding>
