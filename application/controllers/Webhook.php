@@ -221,17 +221,12 @@ class Webhook extends CI_Controller {
         $textMessageBuilder = new TextMessageBuilder($message);
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
       }
-      elseif(strtolower($userMessage) == 'one click one ayat'){
-        $this->oneClickOneAyat($event['replyToken'], $userMessage);
-      }
-      elseif(strtolower($userMessage) == 'jadwal sholat'){
-        $replyMessage = 'Ok, tolong share lokasi kamu dulu yah! Supaya waktu shalat yang aku infokan sesuai dengan zona waktu di tempat kamu ';
-        $this->jadwalShalat($event['replyToken'], $replyMessage);
-      }
       else{
         //$this->stickerMessage($event['replyToken'], $userMessage);
           //$this->oneClickOneAyat($event['replyToken'], $userMessage);
-        $this->bot->replyMessage($event['replyToken'], 'in else statement');
+        $this->oneClickOneAyat($event['replyToken'], $userMessage);
+        $this->jadwalShalat($event['replyToken'], $userMessage);
+        //$this->bot->replyMessage($event['replyToken'], 'in else statement');
       }
 /*      else {
         $message = 'Under Development...';
@@ -282,21 +277,7 @@ class Webhook extends CI_Controller {
     $message .= $translationText;
     $textMessageBuilder = new TextMessageBuilder($message);
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
-/*
-    $imageUrl = "https://cdn.alquran.cloud/media/image/2/255";
-    $buttonTemplateBuilder = new ButtonTemplateBuilder(
-      'My button sample',
-      'Hello my button',
-      $imageUrl,
-      [
-        new UriTemplateActionBuilder('Go to line.me', 'https://line.me'),
-        new PostbackTemplateActionBuilder('Buy', 'action=buy&itemid=123'),
-        new PostbackTemplateActionBuilder('Add to cart', 'action=add&itemid=123'),
-        new MessageTemplateActionBuilder('Say message', 'hello hello'),
-      ]
-    );
-    $templateMessage = new TemplateMessageBuilder('Button alt text', $buttonTemplateBuilder);
-    $this->bot->replyMessage($replyToken, $templateMessage);*/
+
   }
 
   // Function to randomAyat
@@ -311,7 +292,10 @@ class Webhook extends CI_Controller {
   }
 
   private function jadwalShalat($replyToken, $message){
-    $textMessageBuilder = new TextMessageBuilder($message);
-    $this->bot->replyMessage($replyToken, $textMessageBuilder);
+    if(strtolower($message) == 'jadwal shalat'){
+      $textMessageBuilder = new TextMessageBuilder('Share Lokasi kamu dulu ya supaya aku sesuaikan dengan zona waktu di tempat kamu');
+      $this->bot->replyMessage($replyToken, $textMessageBuilder);
+    }
+
   }
 }
