@@ -142,8 +142,8 @@ class Webhook extends CI_Controller {
 
   private function locationMessage($event)
   {
-    //if ( $this->isUserClickMasjidTerdekat == true)
-    //{
+    if ( $this->isUserClickMasjidTerdekat === true)
+    {
       $userLocation = $event['message']['type'];
       //if($userLocation == 'location')
       //{
@@ -193,9 +193,9 @@ class Webhook extends CI_Controller {
         $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
         $this->bot->replyMessage($event['replyToken'], $templateMessage);
 
-        //$this->isUserClickMasjidTerdekat = false;
+        $this->isUserClickMasjidTerdekat = false;
       //}
-    //}
+    }
   }
 
   private function textMessage($event)
