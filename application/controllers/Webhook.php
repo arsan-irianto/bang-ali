@@ -273,9 +273,10 @@ class Webhook extends CI_Controller {
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
   }
 
-  function getBeforeLastEvent(){
+  private function getBeforeLastEvent(){
     $lastEvents = json_decode($this->webhook_m->getBeforeLastEventText("U875b9aaee72f033aa861bdfba3c8bc62"), true);
     return $lastEvents['events'][0]['message']['text'];
+    //$lastEvents['events'][0]['message']['text'];
   }
 
 }
