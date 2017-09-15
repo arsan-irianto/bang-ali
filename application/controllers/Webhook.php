@@ -291,9 +291,9 @@ class Webhook extends CI_Controller {
     return $detailSurah['surah_number'].":".$randomAyat;
   }
 
-  private function jadwalShalat($replyToken, $event)
+  private function jadwalShalat($replyToken, $message)
   {
-    if(strtolower($event['message']['text'])=='jadwal shalat'){
+    if(strtolower($message)=='jadwal shalat'){
     $textMessageBuilder = new TextMessageBuilder('Share Lokasi kamu dulu ya supaya aku sesuaikan dengan zona waktu di tempat kamu');
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
     }
