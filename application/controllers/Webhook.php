@@ -293,11 +293,9 @@ class Webhook extends CI_Controller {
 
   private function jadwalShalat($replyToken, $event)
   {
-    if($event['message']['type']=='text'){
+    if(strtolower($event['message']['text'])=='jadwal shalat'){
     $textMessageBuilder = new TextMessageBuilder('Share Lokasi kamu dulu ya supaya aku sesuaikan dengan zona waktu di tempat kamu');
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
-    }else{
-      $this->bot->replyMessage($replyToken, 'Message Lokasi');
     }
   }
 }
