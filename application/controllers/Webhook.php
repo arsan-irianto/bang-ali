@@ -140,7 +140,7 @@ class Webhook extends CI_Controller {
       $userLocation = $event['message']['type'];
       if($userLocation == 'location')
       {
-        $strLastMessage = $this->getBeforeLastEvent($this->user);
+        $strLastMessage = $this->getBeforeLastEvent("U875b9aaee72f033aa861bdfba3c8bc62");
         if(strtolower($strLastMessage) == 'masjid terdekat'){
           $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
 
