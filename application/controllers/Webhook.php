@@ -162,8 +162,8 @@ class Webhook extends CI_Controller {
       $textMessageBuilder = new TextMessageBuilder($message);
       $this->bot->replyMessage($replyToken, $textMessageBuilder);
 
-      $userLocation = $event;//$event['message']['type'];
-      //if($userLocation == 'location'){
+      //$userLocation = $event;//$event['message']['type'];
+    //  if($userLocation == 'location'){
 
         $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
 
@@ -210,14 +210,14 @@ class Webhook extends CI_Controller {
         $carouselTemplateBuilder = new CarouselTemplateBuilder($columnTemplateBuilders);
         $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
         $this->bot->replyMessage($replyToken, $templateMessage);
-      //}
+    //  }
     }
   }
 
   private function textMessage($event)
   {
     $userMessage = $event['message']['text'];
-    $this->masjidTerdekat($event['replyToken'], $event['message']['type'], $userMessage);
+    $this->masjidTerdekat($event['replyToken'], $event['message']['type']['location'], $userMessage);
     $this->oneClickOneAyat($event['replyToken'], $userMessage);
     $this->jadwalShalat($event['replyToken'], $userMessage);
   }
