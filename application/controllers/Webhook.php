@@ -224,6 +224,11 @@ class Webhook extends CI_Controller {
       elseif(strtolower($userMessage) == 'one click one ayat'){
         $this->oneClickOneAyat($event['replyToken'], $userMessage);
       }
+      elseif(strtolower($userMessage) == 'jadwal sholat'){
+        $message = 'Ok, tolong share lokasi kamu dulu yah! Supaya waktu shalat yang aku infokan sesuai dengan zona waktu di tempat kamu ';
+        $textMessageBuilder = new TextMessageBuilder($message);
+        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
+      }
       else{
         //$this->stickerMessage($event['replyToken'], $userMessage);
           //$this->oneClickOneAyat($event['replyToken'], $userMessage);
