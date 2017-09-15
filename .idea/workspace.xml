@@ -4,7 +4,6 @@
     <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Webhook.php" afterPath="$PROJECT_DIR$/application/controllers/Webhook.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Webhook_m.php" afterPath="$PROJECT_DIR$/application/models/Webhook_m.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="158" column="11" lean-forward="true" selection-start-line="158" selection-start-column="11" selection-end-line="158" selection-end-column="11" />
+            <state relative-caret-position="187">
+              <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
               <folding>
                 <element signature="e#71#89#0#PHP" expanded="true" />
               </folding>
@@ -228,14 +227,7 @@
       <workItem from="1505199672061" duration="33890000" />
       <workItem from="1505310175786" duration="7908000" />
       <workItem from="1505349254472" duration="55925000" />
-      <workItem from="1505513048266" duration="2897000" />
-    </task>
-    <task id="LOCAL-00202" summary="Proses cek pesan jadwal shalat">
-      <created>1505439591372</created>
-      <option name="number" value="00202" />
-      <option name="presentableId" value="LOCAL-00202" />
-      <option name="project" value="LOCAL" />
-      <updated>1505439591372</updated>
+      <workItem from="1505513048266" duration="3085000" />
     </task>
     <task id="LOCAL-00203" summary="Proses cek pesan jadwal shalat">
       <created>1505440063807</created>
@@ -573,11 +565,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505463695623</updated>
     </task>
-    <option name="localTasksCounter" value="251" />
+    <task id="LOCAL-00251" summary="Check events from user if click masjid terdekat before share location">
+      <created>1505516014949</created>
+      <option name="number" value="00251" />
+      <option name="presentableId" value="LOCAL-00251" />
+      <option name="project" value="LOCAL" />
+      <updated>1505516014950</updated>
+    </task>
+    <option name="localTasksCounter" value="252" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121917000" />
+    <option name="totallyTimeSpent" value="122105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -628,7 +627,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Respond if user share location after klik masjid terdekat" />
     <MESSAGE value="Send Dummy One Click One Ayat" />
     <MESSAGE value="Revert To Share Location" />
     <MESSAGE value="Test Dummy One Click One Ayat" />
@@ -653,7 +651,8 @@
     <MESSAGE value="Check last event message from user" />
     <MESSAGE value="SEnd Masjid Location" />
     <MESSAGE value="Check if user click masjid terdekat before share location" />
-    <option name="LAST_COMMIT_MESSAGE" value="Check if user click masjid terdekat before share location" />
+    <MESSAGE value="Check events from user if click masjid terdekat before share location" />
+    <option name="LAST_COMMIT_MESSAGE" value="Check events from user if click masjid terdekat before share location" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1055,8 +1054,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="158" column="11" lean-forward="true" selection-start-line="158" selection-start-column="11" selection-end-line="158" selection-end-column="11" />
+        <state relative-caret-position="187">
+          <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
           <folding>
             <element signature="e#71#89#0#PHP" expanded="true" />
           </folding>
