@@ -145,8 +145,8 @@ class Webhook extends CI_Controller {
     if ( $this->isUserClickMasjidTerdekat == true)
     {
       $userLocation = $event['message']['type'];
-      if($userLocation == 'location')
-      {
+      //if($userLocation == 'location')
+      //{
         $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
 
         $urlMasjidTerdekat ="https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
@@ -194,7 +194,7 @@ class Webhook extends CI_Controller {
         $this->bot->replyMessage($event['replyToken'], $templateMessage);
 
         $this->isUserClickMasjidTerdekat = false;
-      }
+      //}
     }
   }
 
@@ -207,6 +207,7 @@ class Webhook extends CI_Controller {
         $message = 'Silahkan share lokasi kamu ya dengan fitur share location (tombol +, dan pilih location dan klik share location)';
         $textMessageBuilder = new TextMessageBuilder($message);
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
+        $this->isUserClickMasjidTerdekat = true;
         break;
       case 'one click one ayat':
         $this->oneClickOneAyat($event['replyToken']);
