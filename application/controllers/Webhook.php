@@ -142,7 +142,7 @@ class Webhook extends CI_Controller {
 
   private function locationMessage($event)
   {
-    if ( $this->isUserClickMasjidTerdekat === true)
+    if ( $this->isUserClickMasjidTerdekat == true)
     {
       $userLocation = $event['message']['type'];
       //if($userLocation == 'location')
