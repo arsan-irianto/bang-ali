@@ -27,8 +27,8 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="219" column="74" lean-forward="true" selection-start-line="219" selection-start-column="74" selection-end-line="219" selection-end-column="74" />
+            <state relative-caret-position="-1191">
+              <caret line="167" column="38" lean-forward="true" selection-start-line="167" selection-start-column="38" selection-end-line="167" selection-end-column="38" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
               </folding>
@@ -116,6 +116,7 @@
       <find>webhook</find>
       <find>share</find>
       <find>aku</find>
+      <find>$userLocation</find>
     </findStrings>
     <replaceStrings>
       <replace>webhook_m</replace>
@@ -249,14 +250,7 @@
       <workItem from="1505176483579" duration="768000" />
       <workItem from="1505199672061" duration="33890000" />
       <workItem from="1505310175786" duration="7908000" />
-      <workItem from="1505349254472" duration="37922000" />
-    </task>
-    <task id="LOCAL-00157" summary="Respond if user share location after klik masjid terdekat">
-      <created>1505364536428</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1505364536428</updated>
+      <workItem from="1505349254472" duration="38169000" />
     </task>
     <task id="LOCAL-00158" summary="Respond if user share location after klik masjid terdekat">
       <created>1505364738165</created>
@@ -594,11 +588,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505440368117</updated>
     </task>
-    <option name="localTasksCounter" value="206" />
+    <task id="LOCAL-00206" summary="Test Change Function locaationMessage to Function masjidTerdekat">
+      <created>1505440788684</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1505440788684</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101017000" />
+    <option name="totallyTimeSpent" value="101264000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -649,7 +650,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Edit Radius nearby to 350" />
     <MESSAGE value="Edit Radius nearby to 1000" />
     <MESSAGE value="Edit Radius nearby to 500" />
     <MESSAGE value="send masjid carousel without looping" />
@@ -674,7 +674,8 @@
     <MESSAGE value="Test Dummy Surah with title surah name, number and ayat" />
     <MESSAGE value="Get Random Ayat By Random Surah Number" />
     <MESSAGE value="Proses cek pesan jadwal shalat" />
-    <option name="LAST_COMMIT_MESSAGE" value="Proses cek pesan jadwal shalat" />
+    <MESSAGE value="Test Change Function locaationMessage to Function masjidTerdekat" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test Change Function locaationMessage to Function masjidTerdekat" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1075,8 +1076,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="219" column="74" lean-forward="true" selection-start-line="219" selection-start-column="74" selection-end-line="219" selection-end-column="74" />
+        <state relative-caret-position="-1191">
+          <caret line="167" column="38" lean-forward="true" selection-start-line="167" selection-start-column="38" selection-end-line="167" selection-end-column="38" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
           </folding>
