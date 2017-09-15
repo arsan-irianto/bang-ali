@@ -221,9 +221,13 @@ class Webhook extends CI_Controller {
         $textMessageBuilder = new TextMessageBuilder($message);
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
       }
+      elseif(strtolower($userMessage) == 'one click one ayat'){
+        $this->oneClickOneAyat($event['replyToken'], $userMessage);
+      }
       else{
         //$this->stickerMessage($event['replyToken'], $userMessage);
-          $this->oneClickOneAyat($event['replyToken'], $userMessage);
+          //$this->oneClickOneAyat($event['replyToken'], $userMessage);
+        $this->bot->replyMessage($event['replyToken'], 'in else statement');
       }
 /*      else {
         $message = 'Under Development...';

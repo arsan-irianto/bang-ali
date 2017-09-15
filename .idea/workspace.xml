@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="">
+    <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="Get Random Ayat By Random Surah Number">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Webhook.php" afterPath="$PROJECT_DIR$/application/controllers/Webhook.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Webhook_m.php" afterPath="$PROJECT_DIR$/application/models/Webhook_m.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="274" column="58" lean-forward="true" selection-start-line="274" selection-start-column="58" selection-end-line="274" selection-end-column="58" />
+            <state relative-caret-position="525">
+              <caret line="229" column="73" lean-forward="false" selection-start-line="229" selection-start-column="73" selection-end-line="229" selection-end-column="73" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
               </folding>
@@ -248,14 +247,7 @@
       <workItem from="1505176483579" duration="768000" />
       <workItem from="1505199672061" duration="33890000" />
       <workItem from="1505310175786" duration="7908000" />
-      <workItem from="1505349254472" duration="34750000" />
-    </task>
-    <task id="LOCAL-00147" summary="Respond if user share location after klik masjid terdekat">
-      <created>1505356443648</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1505356443648</updated>
+      <workItem from="1505349254472" duration="35368000" />
     </task>
     <task id="LOCAL-00148" summary="Respond if user share location after klik masjid terdekat">
       <created>1505356596535</created>
@@ -593,11 +585,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505407961381</updated>
     </task>
-    <option name="localTasksCounter" value="196" />
+    <task id="LOCAL-00196" summary="Get Random Ayat By Random Surah Number">
+      <created>1505437610442</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1505437610442</updated>
+    </task>
+    <option name="localTasksCounter" value="197" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97845000" />
+    <option name="totallyTimeSpent" value="98463000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -648,7 +647,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Edit Radius nearby to 200" />
     <MESSAGE value="Edit Radius nearby to 400" />
     <MESSAGE value="Edit Radius nearby to 350" />
     <MESSAGE value="Edit Radius nearby to 1000" />
@@ -673,7 +671,8 @@
     <MESSAGE value="Reply with dummy ayat and translation" />
     <MESSAGE value="Test Send Surah al-fatihah ayat 1" />
     <MESSAGE value="Test Dummy Surah with title surah name, number and ayat" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test Dummy Surah with title surah name, number and ayat" />
+    <MESSAGE value="Get Random Ayat By Random Surah Number" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get Random Ayat By Random Surah Number" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1074,8 +1073,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="274" column="58" lean-forward="true" selection-start-line="274" selection-start-column="58" selection-end-line="274" selection-end-column="58" />
+        <state relative-caret-position="525">
+          <caret line="229" column="73" lean-forward="false" selection-start-line="229" selection-start-column="73" selection-end-line="229" selection-end-column="73" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
           </folding>
