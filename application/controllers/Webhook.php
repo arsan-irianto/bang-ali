@@ -225,7 +225,7 @@ class Webhook extends CI_Controller {
       else{
         $this->oneClickOneAyat($event['replyToken'], $userMessage);
         $checkLastEvent = $this->webhook_m->getLastEventText('U875b9aaee72f033aa861bdfba3c8bc62', 'Masjid Terdekat');
-        if($checkLastEvent == true){
+        if($checkLastEvent == 1){
           $this->masjidTerdekat($event);
         }
         $this->jadwalShalat($event['replyToken'], $userMessage);
