@@ -216,6 +216,8 @@ class Webhook extends CI_Controller {
         $this->jadwalShalat($event['replyToken']);
         break;
       case 'feedback':
+        $feedBack = "kirim email ke arsan.irianto@gmail.com ya, untuk mengirim feedback kamu";
+        $this->bot->replyMessage($event['replyToken'], $feedBack);
         break;
     }
   }
