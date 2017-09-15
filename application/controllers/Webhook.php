@@ -140,7 +140,7 @@ class Webhook extends CI_Controller {
       $userLocation = $event['message']['type'];
       if($userLocation == 'location')
       {
-        $lastEventUser = $this->getBeforeLastEvent();
+        $lastEventUser = $this->getBeforeLastEvent($event['source']['userId']);
         if(strtolower($lastEventUser) == 'masjid terdekat'){
           $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
 
@@ -276,8 +276,8 @@ class Webhook extends CI_Controller {
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
   }
 
-  private function getBeforeLastEvent(){
-    $lastEvents = json_decode($this->webhook_m->getBeforeLastEventText("U875b9aaee72f033aa861bdfba3c8bc62"), true);
+  private function getBeforeLastEvent($user_id){
+    $lastEvents = json_decode($this->webhook_m->getBeforeLastEventText($user_id), true);
     return $lastEvents['events'][0]['message']['text'];
     //$lastEvents['events'][0]['message']['text'];
   }
