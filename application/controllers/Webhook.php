@@ -206,8 +206,8 @@ class Webhook extends CI_Controller {
       case 'masjid terdekat':
         $message = 'Silahkan share lokasi kamu ya dengan fitur share location (tombol +, dan pilih location dan klik share location)';
         $textMessageBuilder = new TextMessageBuilder($message);
-        $this->isUserClickMasjidTerdekat = true;
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
+        $this->isUserClickMasjidTerdekat = true;
         break;
       case 'one click one ayat':
         $this->oneClickOneAyat($event['replyToken']);
