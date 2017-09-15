@@ -227,9 +227,9 @@ class Webhook extends CI_Controller {
       }
       else{
         $this->oneClickOneAyat($event['replyToken'], $userMessage);
-        if($event['message']['type']=='location'){
+/*        if($event['message']['type']=='location'){
           $this->jadwalShalat($event);
-        }
+        }*/
       }
   }
 
