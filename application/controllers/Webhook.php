@@ -188,6 +188,10 @@ class Webhook extends CI_Controller {
           $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
           $this->bot->replyMessage($event['replyToken'], $templateMessage);
         }
+        else{
+          $jadwal = "Reply lokasi utk jadwal shalat"
+          $this->bot->replyMessage($event['replyToken'], $jadwal);
+        }
       }
   }
 
