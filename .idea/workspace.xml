@@ -27,8 +27,8 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="230" column="7" lean-forward="true" selection-start-line="230" selection-start-column="7" selection-end-line="230" selection-end-column="7" />
+            <state relative-caret-position="343">
+              <caret line="227" column="7" lean-forward="true" selection-start-line="227" selection-start-column="7" selection-end-line="227" selection-end-column="7" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
               </folding>
@@ -252,14 +252,7 @@
       <workItem from="1505176483579" duration="768000" />
       <workItem from="1505199672061" duration="33890000" />
       <workItem from="1505310175786" duration="7908000" />
-      <workItem from="1505349254472" duration="47449000" />
-    </task>
-    <task id="LOCAL-00181" summary="Test reply with arabic message">
-      <created>1505403702471</created>
-      <option name="number" value="00181" />
-      <option name="presentableId" value="LOCAL-00181" />
-      <option name="project" value="LOCAL" />
-      <updated>1505403702471</updated>
+      <workItem from="1505349254472" duration="47975000" />
     </task>
     <task id="LOCAL-00182" summary="Test reply with arabic message">
       <created>1505403830389</created>
@@ -597,11 +590,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505454631860</updated>
     </task>
-    <option name="localTasksCounter" value="230" />
+    <task id="LOCAL-00230" summary="Revert to Message Location">
+      <created>1505454969447</created>
+      <option name="number" value="00230" />
+      <option name="presentableId" value="LOCAL-00230" />
+      <option name="project" value="LOCAL" />
+      <updated>1505454969447</updated>
+    </task>
+    <option name="localTasksCounter" value="231" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110544000" />
+    <option name="totallyTimeSpent" value="111070000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -652,7 +652,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Loop columnCarousel" />
     <MESSAGE value="Send five near masjid with loop" />
     <MESSAGE value="Test with Detail Rute" />
     <MESSAGE value="With Direction link" />
@@ -677,7 +676,8 @@
     <MESSAGE value="tes function jadwal shalat" />
     <MESSAGE value="change locationMessage with masjidTerdekat" />
     <MESSAGE value="check user Last Message" />
-    <option name="LAST_COMMIT_MESSAGE" value="check user Last Message" />
+    <MESSAGE value="Revert to Message Location" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert to Message Location" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1078,8 +1078,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="230" column="7" lean-forward="true" selection-start-line="230" selection-start-column="7" selection-end-line="230" selection-end-column="7" />
+        <state relative-caret-position="343">
+          <caret line="227" column="7" lean-forward="true" selection-start-line="227" selection-start-column="7" selection-end-line="227" selection-end-column="7" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
           </folding>
