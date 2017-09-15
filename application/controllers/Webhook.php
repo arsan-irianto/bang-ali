@@ -222,11 +222,8 @@ class Webhook extends CI_Controller {
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
       }
       else{
-        //$this->stickerMessage($event['replyToken'], $userMessage);
-          //$this->oneClickOneAyat($event['replyToken'], $userMessage);
         $this->oneClickOneAyat($event['replyToken'], $userMessage);
-        $this->jadwalShalat($event['replyToken'], $userMessage);
-        //$this->bot->replyMessage($event['replyToken'], 'in else statement');
+        $this->jadwalShalat($event['replyToken'], $event);
       }
 /*      else {
         $message = 'Under Development...';
@@ -294,12 +291,13 @@ class Webhook extends CI_Controller {
     return $detailSurah['surah_number'].":".$randomAyat;
   }
 
-  private function jadwalShalat($replyToken, $message)
+  private function jadwalShalat($replyToken, $event)
   {
-    if(strtolower($message) == 'jadwal shalat')
-    {
-      $textMessageBuilder = new TextMessageBuilder('Share Lokasi kamu dulu ya supaya aku sesuaikan dengan zona waktu di tempat kamu');
-      $this->bot->replyMessage($replyToken, $textMessageBuilder);
+    if($event['message']['type']=='text'){
+    $textMessageBuilder = new TextMessageBuilder('Share Lokasi kamu dulu ya supaya aku sesuaikan dengan zona waktu di tempat kamu');
+    $this->bot->replyMessage($replyToken, $textMessageBuilder);
+    }else{
+      $this->bot->replyMessage($replyToken, 'Message Lokasi');
     }
   }
 }
