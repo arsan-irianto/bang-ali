@@ -92,4 +92,16 @@ class Webhook_m extends CI_Model
     return false;
   }
 
+  // get last events text by user to detect if user share location or not
+  function getLastEventText($user_id, $textMessage){
+    $data = $this->db->like('events', $user_id)
+      ->like('events', $textMessage)
+      ->order_by('id', 'DESC')
+      ->limit(1)
+      ->get('eventlog')
+      ->row();
+
+    if(count($data)>0) return true;
+    else return false;
+  }
 }

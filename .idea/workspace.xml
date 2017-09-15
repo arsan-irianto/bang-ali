@@ -4,6 +4,7 @@
     <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Webhook.php" afterPath="$PROJECT_DIR$/application/controllers/Webhook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Webhook_m.php" afterPath="$PROJECT_DIR$/application/models/Webhook_m.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,8 +28,8 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="224" column="32" lean-forward="false" selection-start-line="224" selection-start-column="32" selection-end-line="224" selection-end-column="32" />
+            <state relative-caret-position="395">
+              <caret line="226" column="92" lean-forward="false" selection-start-line="226" selection-start-column="92" selection-end-line="226" selection-end-column="92" />
               <folding>
                 <element signature="e#141#159#0#PHP" expanded="true" />
               </folding>
@@ -39,8 +40,8 @@
       <file leaf-file-name="Webhook_m.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/Webhook_m.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="97" column="35" lean-forward="false" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -117,6 +118,8 @@
       <find>share</find>
       <find>aku</find>
       <find>$userLocation</find>
+      <find>user</find>
+      <find>webho</find>
     </findStrings>
     <replaceStrings>
       <replace>webhook_m</replace>
@@ -250,14 +253,7 @@
       <workItem from="1505176483579" duration="768000" />
       <workItem from="1505199672061" duration="33890000" />
       <workItem from="1505310175786" duration="7908000" />
-      <workItem from="1505349254472" duration="43308000" />
-    </task>
-    <task id="LOCAL-00176" summary="Test Reply with button template message">
-      <created>1505396634745</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL-00176" />
-      <option name="project" value="LOCAL" />
-      <updated>1505396634745</updated>
+      <workItem from="1505349254472" duration="46608000" />
     </task>
     <task id="LOCAL-00177" summary="Test Reply one click one ayat with multiMessageBuilder">
       <created>1505398741421</created>
@@ -595,11 +591,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505445417790</updated>
     </task>
-    <option name="localTasksCounter" value="225" />
+    <task id="LOCAL-00225" summary="change locationMessage with masjidTerdekat">
+      <created>1505446232804</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1505446232804</updated>
+    </task>
+    <option name="localTasksCounter" value="226" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106403000" />
+    <option name="totallyTimeSpent" value="109703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -650,7 +653,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="send masjid carousel with looping location not looping photo" />
     <MESSAGE value="send masjid carousel with looping location and looping photo" />
     <MESSAGE value="Loop columnCarousel" />
     <MESSAGE value="Send five near masjid with loop" />
@@ -675,7 +677,8 @@
     <MESSAGE value="Tes function jadwal shalat" />
     <MESSAGE value="Revert location message" />
     <MESSAGE value="tes function jadwal shalat" />
-    <option name="LAST_COMMIT_MESSAGE" value="tes function jadwal shalat" />
+    <MESSAGE value="change locationMessage with masjidTerdekat" />
+    <option name="LAST_COMMIT_MESSAGE" value="change locationMessage with masjidTerdekat" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1068,16 +1071,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Webhook_m.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="97" column="35" lean-forward="false" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="224" column="32" lean-forward="false" selection-start-line="224" selection-start-column="32" selection-end-line="224" selection-end-column="32" />
+        <state relative-caret-position="395">
+          <caret line="226" column="92" lean-forward="false" selection-start-line="226" selection-start-column="92" selection-end-line="226" selection-end-column="92" />
           <folding>
             <element signature="e#141#159#0#PHP" expanded="true" />
           </folding>

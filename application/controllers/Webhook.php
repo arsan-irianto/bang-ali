@@ -221,12 +221,13 @@ class Webhook extends CI_Controller {
         $message = 'Silahkan share lokasi kamu ya dengan fitur share location (tombol +, dan pilih location dan klik share location)';
         $textMessageBuilder = new TextMessageBuilder($message);
         $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
-        if($event['message']['type']=='location'){
-          $this->masjidTerdekat($event);
-        }
       }
       else{
         $this->oneClickOneAyat($event['replyToken'], $userMessage);
+        $checkLastEvent = $this->webhook_m->getLastEventText($this->user, strtolower('Masjid Terdekat'));
+        if($checkLastEvent == true){
+          $this->masjidTerdekat($event);
+        }
         $this->jadwalShalat($event['replyToken'], $userMessage);
       }
   }
@@ -301,4 +302,5 @@ class Webhook extends CI_Controller {
       $this->bot->replyMessage($replyToken, $textMessageBuilder);
     }
   }
+
 }
