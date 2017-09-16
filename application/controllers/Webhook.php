@@ -137,9 +137,14 @@ class Webhook extends CI_Controller {
 
   private function locationMessage($event)
   {
+      // Cek jika user mengirimkan event text dengan type location
       $userLocation = $event['message']['type'];
       if($userLocation == 'location')
       {
+        /* Cek jika user mengirimkan event text dengan type location setelah sebelumnya
+        *  mengklik tombol masjid terdekat, jika ya bot akan krimkan lokasi masjid terdekat jika
+        *  tidak  bot akan mengirimkan jadwal shalat sesuai timezone dari lokasi yang dikirimkan
+        */
         $lastEventUser = $this->getBeforeLastEvent($event['source']['userId']);
         if(strtolower($lastEventUser) == 'masjid terdekat'){
           $locationFromUserShared = $event['message']['latitude'] . "," . $event['message']['longitude'];
@@ -274,7 +279,7 @@ class Webhook extends CI_Controller {
     return $detailSurah['surah_number'].":".$randomAyat;
   }
 
-  private function jadwalShalat($replyToken, $message)
+  private function jadwalShalat($replyToken)
   {
     $textMessageBuilder = new TextMessageBuilder('Share Lokasi kamu dulu ya supaya aku sesuaikan dengan zona waktu di tempat kamu');
     $this->bot->replyMessage($replyToken, $textMessageBuilder);
