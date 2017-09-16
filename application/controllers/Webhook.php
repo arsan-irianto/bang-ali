@@ -193,9 +193,12 @@ class Webhook extends CI_Controller {
           $templateMessage = new TemplateMessageBuilder('Gunakan mobile app untuk melihat pesan', $carouselTemplateBuilder);
           $this->bot->replyMessage($event['replyToken'], $templateMessage);
         }
-        else{
+        elseif(strtolower($lastEventUser) == 'jadwal shalat'){
           $textMessageBuilder = new TextMessageBuilder('Tes Reply Jadwal shalat if user click jadwal shalat');
           $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
+        }
+        else{
+          exit();
         }
       }
   }
@@ -288,7 +291,6 @@ class Webhook extends CI_Controller {
   private function getBeforeLastEvent($user_id){
     $lastEvents = json_decode($this->webhook_m->getBeforeLastEventText($user_id), true);
     return $lastEvents['events'][0]['message']['text'];
-    //$lastEvents['events'][0]['message']['text'];
   }
 
 }
