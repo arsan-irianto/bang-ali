@@ -189,8 +189,8 @@ class Webhook extends CI_Controller {
           $this->bot->replyMessage($event['replyToken'], $templateMessage);
         }
         else{
-          $jadwal = "Reply lokasi utk jadwal shalat";
-          $this->bot->replyMessage($event['replyToken'], $jadwal);
+          $textMessageBuilder = new TextMessageBuilder('Tes Reply Jadwal shalat if user click jadwal shalat');
+          $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
         }
       }
   }
