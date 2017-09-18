@@ -15,8 +15,8 @@ use \LINE\LINEBot\MessageBuilder\LocationMessageBuilder;
 use \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder;
 
-class Webhook extends CI_Controller {
-
+class Webhook extends CI_Controller
+{
   private $bot;
   private $events;
   private $signature;
@@ -92,8 +92,7 @@ class Webhook extends CI_Controller {
   private function followCallback($event)
   {
     $res = $this->bot->getProfile($event['source']['userId']);
-    if ($res->isSucceeded())
-    {
+    if ($res->isSucceeded()) {
       $profile = $res->getJSONDecodedBody();
 
       // create welcome message
@@ -139,8 +138,7 @@ class Webhook extends CI_Controller {
   {
       // Cek jika user mengirimkan event text dengan type location
       $userLocation = $event['message']['type'];
-      if($userLocation == 'location')
-      {
+      if($userLocation == 'location') {
         /* Cek jika user mengirimkan event text dengan type location setelah sebelumnya
         *  mengklik tombol masjid terdekat, jika ya bot akan krimkan lokasi masjid terdekat jika
         *  tidak  bot akan mengirimkan jadwal shalat sesuai timezone dari lokasi yang dikirimkan
@@ -160,8 +158,7 @@ class Webhook extends CI_Controller {
           $result = json_decode($returned_content,true);
 
           $columnTemplateBuilders = array();
-          if(is_array($result['results']))
-          {
+          if(is_array($result['results'])) {
             $i=0;
             foreach($result['results'] as $resultItem) if ($i < 5) {
 
@@ -333,7 +330,8 @@ class Webhook extends CI_Controller {
     $this->bot->replyMessage($event['replyToken'], $multiMessageBuilder);
   }
 
-  private function getBeforeLastEvent($user_id){
+  private function getBeforeLastEvent($user_id)
+  {
     $lastEvents = json_decode($this->webhook_m->getBeforeLastEventText($user_id), true);
     return $lastEvents['events'][0]['message']['text'];
   }
@@ -348,7 +346,8 @@ class Webhook extends CI_Controller {
     return $resultTimeZone['timeZoneId'];
   }
 
-  private function getTranslatedDay($dayEnglishName){
+  private function getTranslatedDay($dayEnglishName)
+  {
     switch ($dayEnglishName){
       case "Sunday": return "Ahad";break;
       case "Monday": return "Senin";break;
@@ -360,7 +359,8 @@ class Webhook extends CI_Controller {
     }
   }
 
-  private function getTranslatedMonth($monthEnglishName){
+  private function getTranslatedMonth($monthEnglishName)
+  {
     switch ($monthEnglishName){
       case "January": return "Januari";break;
       case "February": return "Februari";break;

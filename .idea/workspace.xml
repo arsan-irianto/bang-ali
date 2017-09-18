@@ -27,8 +27,8 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-874">
-              <caret line="315" column="65" lean-forward="false" selection-start-line="315" selection-start-column="65" selection-end-line="315" selection-end-column="65" />
+            <state relative-caret-position="78">
+              <caret line="362" column="2" lean-forward="false" selection-start-line="362" selection-start-column="2" selection-end-line="362" selection-end-column="2" />
               <folding>
                 <element signature="e#71#89#0#PHP" expanded="true" />
               </folding>
@@ -228,14 +228,7 @@
       <workItem from="1505310175786" duration="7908000" />
       <workItem from="1505349254472" duration="55925000" />
       <workItem from="1505513048266" duration="15192000" />
-      <workItem from="1505695774430" duration="7396000" />
-    </task>
-    <task id="LOCAL-00228" summary="check user Last Message">
-      <created>1505454547982</created>
-      <option name="number" value="00228" />
-      <option name="presentableId" value="LOCAL-00228" />
-      <option name="project" value="LOCAL" />
-      <updated>1505454547982</updated>
+      <workItem from="1505695774430" duration="10690000" />
     </task>
     <task id="LOCAL-00229" summary="check user Last Message">
       <created>1505454631860</created>
@@ -573,11 +566,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505704657193</updated>
     </task>
-    <option name="localTasksCounter" value="277" />
+    <task id="LOCAL-00277" summary="Add function translate day and month">
+      <created>1505705416542</created>
+      <option name="number" value="00277" />
+      <option name="presentableId" value="LOCAL-00277" />
+      <option name="project" value="LOCAL" />
+      <updated>1505705416542</updated>
+    </task>
+    <option name="localTasksCounter" value="278" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141608000" />
+    <option name="totallyTimeSpent" value="144902000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -628,7 +628,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Test Reply with button template message" />
     <MESSAGE value="Test Reply one click one ayat with multiMessageBuilder" />
     <MESSAGE value="Test reply with arabic message" />
     <MESSAGE value="Reply with dummy ayat and translation" />
@@ -653,7 +652,8 @@
     <MESSAGE value="check if user send masjid terdekat and jadwal shalat" />
     <MESSAGE value="test send from function jadwal shalat" />
     <MESSAGE value="Send from function jadwal shalat after user shared location" />
-    <option name="LAST_COMMIT_MESSAGE" value="Send from function jadwal shalat after user shared location" />
+    <MESSAGE value="Add function translate day and month" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add function translate day and month" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1054,8 +1054,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-874">
-          <caret line="315" column="65" lean-forward="false" selection-start-line="315" selection-start-column="65" selection-end-line="315" selection-end-column="65" />
+        <state relative-caret-position="78">
+          <caret line="362" column="2" lean-forward="false" selection-start-line="362" selection-start-column="2" selection-end-line="362" selection-end-column="2" />
           <folding>
             <element signature="e#71#89#0#PHP" expanded="true" />
           </folding>
