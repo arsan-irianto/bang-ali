@@ -318,7 +318,7 @@ class Webhook extends CI_Controller {
     $messageJadwalShalat.= "Maghrib : ". $waktuShalat['Maghrib']."\n";
     $messageJadwalShalat.= "Isya    : ". $waktuShalat['Isha'];
 
-    $messageInfo = "Jangan lupa shalat tepat waktu dan berjamaah di Masjid ya. Nabi kita Shallallahu ‘alaihi wa sallam bersabda : \n\n";
+    $messageInfo = "Jangan lupa shalat tepat waktu dan berjamaah di masjid ya. Nabi kita Shallallahu ‘alaihi wa sallam bersabda : \n\n";
     $messageHadist = '"'."Barangsiapa yang shalat karena Allah selama 40 hari secara berjama’ah dengan mendapatkan Takbir pertama (takbiratul ihramnya imam), maka ditulis untuknya dua kebebasan, yaitu kebebasan dari api neraka dan kebebasan dari sifat kemunafikan.(HR.Tirmidzi)".'"';
 
     //send message to reply message
