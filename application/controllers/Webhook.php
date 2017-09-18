@@ -122,7 +122,7 @@ class Webhook extends CI_Controller
   }
 
   /* gets the data from a URL */
-  private function get_data($url)
+  private function getData($url)
   {
     $ch = curl_init();
     $timeout = 5;
@@ -153,7 +153,7 @@ class Webhook extends CI_Controller
           $urlMasjidTerdekat .="&key=".$_ENV['GMAPS_API_KEY'];
 
           // get url maps to parse json
-          $returned_content = $this->get_data($urlMasjidTerdekat);
+          $returned_content = $this->getData($urlMasjidTerdekat);
           // Decode google maps json
           $result = json_decode($returned_content,true);
 
@@ -251,7 +251,7 @@ class Webhook extends CI_Controller
       $translationAyat = "https://api.alquran.cloud/ayah/".$getAyat."/id.indonesian";
 
       // get url arabic ayat and Decode $returnedAyat
-      $returnedAyat = $this->get_data($arabicAyat);
+      $returnedAyat = $this->getData($arabicAyat);
       $resultAyat = json_decode($returnedAyat,true);
 
       $surahNumber = $resultAyat['data']['surah']['number'];
@@ -260,7 +260,7 @@ class Webhook extends CI_Controller
       $numberInSurah = $resultAyat['data']['numberInSurah'];
 
       // get url translation ayat and Decode $translationAyat
-      $returnedTranslationAyat = $this->get_data($translationAyat);
+      $returnedTranslationAyat = $this->getData($translationAyat);
       $resultTranslation = json_decode($returnedTranslationAyat,true);
       $translationText = '"'.$resultTranslation['data']['text'].'"';
 
@@ -300,7 +300,7 @@ class Webhook extends CI_Controller
     //$timeStamp = date_timestamp_get(date("m/d/y"));
     $prayerTimeUrl = "http://api.aladhan.com/timings/".$timeStampToday."?latitude=".$latitudeFromUser."&longitude=".$longitudeFromUser."&timezonestring=".$timeZoneString."&method=3";
     // get url prayer time api to parse json
-    $returned_content = $this->get_data($prayerTimeUrl);
+    $returned_content = $this->getData($prayerTimeUrl);
     // Decode google maps json
     $result = json_decode($returned_content,true);
 
@@ -339,7 +339,7 @@ class Webhook extends CI_Controller
     $timeZoneUrl = "https://maps.googleapis.com/maps/api/timezone/json?location=".$latitude.",".$longitude."&timestamp=".$timeStamp."&key=".$_ENV['GMAPS_API_KEY_TIMEZONE'];
 
     // get url timezone Decode $timeZoneUrl
-    $returnedTimeZone = $this->get_data($timeZoneUrl);
+    $returnedTimeZone = $this->getData($timeZoneUrl);
     $resultTimeZone = json_decode($returnedTimeZone,true);
 
     return $resultTimeZone['timeZoneId'];
