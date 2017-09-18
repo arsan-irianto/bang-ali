@@ -306,19 +306,19 @@ class Webhook extends CI_Controller {
     $returned_content = $this->get_data($prayerTimeUrl);
     // Decode google maps json
     $result = json_decode($returned_content,true);
-    //print_r($result);
-    //echo $result['data']['timings']['Fajr'];
-/*    $waktuShalat = $result['data']['timings'];
-    echo "Jadwal Shalat hari ini, tanggal ". date_format($timeStamp,"Y-m-d")."\n";
-    echo $waktuShalat['Fajr']."\n";
-    echo $waktuShalat['Dhuhr']."\n";
-    echo $waktuShalat['Asr']."\n";
-    echo $waktuShalat['Maghrib']."\n";
-    echo $waktuShalat['Isha']."\n";*/
 
-    $feedBack =  new TextMessageBuilder("send from function jadwal shalat");
-    $this->bot->replyMessage($event['replyToken'], $feedBack);
+    // Parse result
+    $waktuShalat = $result['data']['timings'];
+    $messageJadwalShalat = "Jadwal Shalat hari ini, tanggal ". date_format($timeStamp,"Y-m-d")."\n";
+    $messageJadwalShalat.= $waktuShalat['Fajr']."\n";
+    $messageJadwalShalat.= $waktuShalat['Dhuhr']."\n";
+    $messageJadwalShalat.= $waktuShalat['Asr']."\n";
+    $messageJadwalShalat.= $waktuShalat['Maghrib']."\n";
+    $messageJadwalShalat.= $waktuShalat['Isha'];
 
+    //send message to reply message
+    $textMessageBuilder =  new TextMessageBuilder($messageJadwalShalat);
+    $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
   }
 
   private function getBeforeLastEvent($user_id){
@@ -326,7 +326,8 @@ class Webhook extends CI_Controller {
     return $lastEvents['events'][0]['message']['text'];
   }
 
-  public function getDateFromTimeZone(){
+  // Dummy function
+  private function getDateFromTimeZone(){
 
     $d = str_replace('/', ',', date('m/d/Y'));
     $t = str_replace(':', ',', date('h:i'));
@@ -340,7 +341,6 @@ class Webhook extends CI_Controller {
     $y = $fulldate[5];
     //echo date("h-i-s-M-d-Y",mktime($h,$i,$s,$m,$d,$y)) ;
     //echo strtotime(date('m/d/Y').date('h:i'));
-
   }
 
   private function getTimeZoneByLatLong($timeStamp, $latitude, $longitude){
