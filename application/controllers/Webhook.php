@@ -191,8 +191,6 @@ class Webhook extends CI_Controller
           $this->bot->replyMessage($event['replyToken'], $templateMessage);
         }
         elseif(strtolower($lastEventUser) == 'jadwal shalat'){
-          //$textMessageBuilder = new TextMessageBuilder('Tes Reply Jadwal shalat if user click jadwal shalat');
-          //$this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
           $this->jadwalShalat($event);
         }
         else{
@@ -336,7 +334,8 @@ class Webhook extends CI_Controller
     return $lastEvents['events'][0]['message']['text'];
   }
 
-  private function getTimeZoneByLatLong($timeStamp, $latitude, $longitude){
+  private function getTimeZoneByLatLong($timeStamp, $latitude, $longitude)
+  {
     $timeZoneUrl = "https://maps.googleapis.com/maps/api/timezone/json?location=".$latitude.",".$longitude."&timestamp=".$timeStamp."&key=".$_ENV['GMAPS_API_KEY_TIMEZONE'];
 
     // get url timezone Decode $timeZoneUrl
