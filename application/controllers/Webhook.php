@@ -318,18 +318,16 @@ class Webhook extends CI_Controller {
     $messageJadwalShalat.= "Maghrib : ". $waktuShalat['Maghrib']."\n";
     $messageJadwalShalat.= "Isya    : ". $waktuShalat['Isha'];
 
-    $messageInfo = "Jangan lupa shalat tepat waktu dan berjamaah di Masjid ya. Nabi kita Shallallahu ‘alaihi wa sallam bersabda : \n";
+    $messageInfo = "Jangan lupa shalat tepat waktu dan berjamaah di Masjid ya. Nabi kita Shallallahu ‘alaihi wa sallam bersabda : \n\n";
     $messageHadist = '"'."Barangsiapa yang shalat karena Allah selama 40 hari secara berjama’ah dengan mendapatkan Takbir pertama (takbiratul ihramnya imam), maka ditulis untuknya dua kebebasan, yaitu kebebasan dari api neraka dan kebebasan dari sifat kemunafikan.(HR.Tirmidzi)".'"';
 
     //send message to reply message
     $textMessage1 =  new TextMessageBuilder($messageJadwalShalat);
-    $textMessage2 =  new TextMessageBuilder($messageInfo);
-    $textMessage3 = new TextMessageBuilder($messageHadist);
+    $textMessage2 =  new TextMessageBuilder($messageInfo. $messageHadist);
 
     $multiMessageBuilder = new MultiMessageBuilder();
     $multiMessageBuilder->add($textMessage1);
     $multiMessageBuilder->add($textMessage2);
-    $multiMessageBuilder->add($textMessage3);
     $this->bot->replyMessage($event['replyToken'], $multiMessageBuilder);
   }
 
