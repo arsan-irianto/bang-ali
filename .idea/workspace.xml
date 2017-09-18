@@ -27,8 +27,8 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="294" column="31" lean-forward="false" selection-start-line="294" selection-start-column="19" selection-end-line="294" selection-end-column="31" />
+            <state relative-caret-position="343">
+              <caret line="318" column="32" lean-forward="false" selection-start-line="318" selection-start-column="32" selection-end-line="318" selection-end-column="32" />
               <folding>
                 <element signature="e#71#89#0#PHP" expanded="true" />
               </folding>
@@ -228,14 +228,7 @@
       <workItem from="1505310175786" duration="7908000" />
       <workItem from="1505349254472" duration="55925000" />
       <workItem from="1505513048266" duration="15192000" />
-      <workItem from="1505695774430" duration="3613000" />
-    </task>
-    <task id="LOCAL-00218" summary="tes function jadwal shalat">
-      <created>1505443511187</created>
-      <option name="number" value="00218" />
-      <option name="presentableId" value="LOCAL-00218" />
-      <option name="project" value="LOCAL" />
-      <updated>1505443511187</updated>
+      <workItem from="1505695774430" duration="5082000" />
     </task>
     <task id="LOCAL-00219" summary="tes function jadwal shalat">
       <created>1505444204910</created>
@@ -573,11 +566,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505701261916</updated>
     </task>
-    <option name="localTasksCounter" value="267" />
+    <task id="LOCAL-00267" summary="Send from function jadwal shalat after user shared location">
+      <created>1505701631894</created>
+      <option name="number" value="00267" />
+      <option name="presentableId" value="LOCAL-00267" />
+      <option name="project" value="LOCAL" />
+      <updated>1505701631894</updated>
+    </task>
+    <option name="localTasksCounter" value="268" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137825000" />
+    <option name="totallyTimeSpent" value="139294000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -628,7 +628,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Test Reply with Sticker Message" />
     <MESSAGE value="Test Reply with button template message" />
     <MESSAGE value="Test Reply one click one ayat with multiMessageBuilder" />
     <MESSAGE value="Test reply with arabic message" />
@@ -653,7 +652,8 @@
     <MESSAGE value="check if user send masjid terdekat" />
     <MESSAGE value="check if user send masjid terdekat and jadwal shalat" />
     <MESSAGE value="test send from function jadwal shalat" />
-    <option name="LAST_COMMIT_MESSAGE" value="test send from function jadwal shalat" />
+    <MESSAGE value="Send from function jadwal shalat after user shared location" />
+    <option name="LAST_COMMIT_MESSAGE" value="Send from function jadwal shalat after user shared location" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1054,8 +1054,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="294" column="31" lean-forward="false" selection-start-line="294" selection-start-column="19" selection-end-line="294" selection-end-column="31" />
+        <state relative-caret-position="343">
+          <caret line="318" column="32" lean-forward="false" selection-start-line="318" selection-start-column="32" selection-end-line="318" selection-end-column="32" />
           <folding>
             <element signature="e#71#89#0#PHP" expanded="true" />
           </folding>
