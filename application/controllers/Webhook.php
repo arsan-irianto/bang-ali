@@ -194,8 +194,9 @@ class Webhook extends CI_Controller {
           $this->bot->replyMessage($event['replyToken'], $templateMessage);
         }
         elseif(strtolower($lastEventUser) == 'jadwal shalat'){
-          $textMessageBuilder = new TextMessageBuilder('Tes Reply Jadwal shalat if user click jadwal shalat');
-          $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
+          //$textMessageBuilder = new TextMessageBuilder('Tes Reply Jadwal shalat if user click jadwal shalat');
+          //$this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
+          $this->jadwalShalat($event);
         }
         else{
           exit();
@@ -203,6 +204,10 @@ class Webhook extends CI_Controller {
       }
   }
 
+  /**
+   * Function to reply message from different action click
+   * @param $event
+   */
   private function textMessage($event)
   {
     $userMessage = $event['message']['text'];
@@ -217,7 +222,8 @@ class Webhook extends CI_Controller {
         $this->oneClickOneAyat($event['replyToken']);
         break;
       case 'jadwal shalat':
-        $this->jadwalShalat($event['replyToken']);
+        $textMessageBuilder = new TextMessageBuilder('Share Lokasi kamu dulu ya supaya aku sesuaikan dengan zona waktu di tempat kamu');
+        $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
         break;
       case 'feedback':
         $feedBack =  new TextMessageBuilder("kirim email ke arsan.irianto@gmail.com ya, untuk mengirim feedback kamu");
@@ -282,15 +288,69 @@ class Webhook extends CI_Controller {
     return $detailSurah['surah_number'].":".$randomAyat;
   }
 
-  private function jadwalShalat($replyToken)
+  /**
+   * function Get Prayer Time by lat long, timezone after user share location
+   * @param $event
+   */
+  private function jadwalShalat($event)
   {
-    $textMessageBuilder = new TextMessageBuilder('Share Lokasi kamu dulu ya supaya aku sesuaikan dengan zona waktu di tempat kamu');
-    $this->bot->replyMessage($replyToken, $textMessageBuilder);
+    $latitudeFromUser = $event['message']['latitude'];
+    $longitudeFromUser = $event['message']['longitude'];
+
+    $timeStamp = strtotime(date('m/d/Y').date('h:i'));
+    $timeZoneString = $this->getTimeZoneByLatLong($timeStamp, $latitudeFromUser, $longitudeFromUser);
+
+    //$timeStamp = date_timestamp_get(date("m/d/y"));
+    $prayerTimeUrl = "http://api.aladhan.com/timings/".$timeStamp."?latitude=".$latitudeFromUser."&longitude=".$longitudeFromUser."&timezonestring=".$timeZoneString."&method=3";
+    // get url prayer time api to parse json
+    $returned_content = $this->get_data($prayerTimeUrl);
+    // Decode google maps json
+    $result = json_decode($returned_content,true);
+    //print_r($result);
+    //echo $result['data']['timings']['Fajr'];
+/*    $waktuShalat = $result['data']['timings'];
+    echo "Jadwal Shalat hari ini, tanggal ". date_format($timeStamp,"Y-m-d")."\n";
+    echo $waktuShalat['Fajr']."\n";
+    echo $waktuShalat['Dhuhr']."\n";
+    echo $waktuShalat['Asr']."\n";
+    echo $waktuShalat['Maghrib']."\n";
+    echo $waktuShalat['Isha']."\n";*/
+
+    $feedBack =  new TextMessageBuilder("send from function jadwal shalat");
+    $this->bot->replyMessage($event['replyToken'], $feedBack);
+
   }
 
   private function getBeforeLastEvent($user_id){
     $lastEvents = json_decode($this->webhook_m->getBeforeLastEventText($user_id), true);
     return $lastEvents['events'][0]['message']['text'];
+  }
+
+  public function getDateFromTimeZone(){
+
+    $d = str_replace('/', ',', date('m/d/Y'));
+    $t = str_replace(':', ',', date('h:i'));
+    $date = $t.',0,'.$d;
+    $fulldate = explode(',',$date);
+    $h = $fulldate[0];
+    $i = $fulldate[1];
+    $s = $fulldate[2];
+    $m = $fulldate[3];
+    $d =$fulldate[4];
+    $y = $fulldate[5];
+    //echo date("h-i-s-M-d-Y",mktime($h,$i,$s,$m,$d,$y)) ;
+    //echo strtotime(date('m/d/Y').date('h:i'));
+
+  }
+
+  private function getTimeZoneByLatLong($timeStamp, $latitude, $longitude){
+    $timeZoneUrl = "https://maps.googleapis.com/maps/api/timezone/json?location=".$latitude.",".$longitude."&timestamp=".$timeStamp."&key=".$_ENV['GMAPS_API_KEY_TIMEZONE'];
+
+    // get url timezone Decode $timeZoneUrl
+    $returnedTimeZone = $this->get_data($timeZoneUrl);
+    $resultTimeZone = json_decode($returnedTimeZone,true);
+
+    return $resultTimeZone['timeZoneId'];
   }
 
 }
