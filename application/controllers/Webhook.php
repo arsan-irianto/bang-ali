@@ -298,6 +298,8 @@ class Webhook extends CI_Controller {
     $longitudeFromUser = $event['message']['longitude'];
 
     $timeStampToday = getdate();
+    $indoDay = $this->getTranslatedDay($timeStampToday['weekday']);
+    $indoMonth = $this->getTranslatedMonth($timeStampToday['month']);
     $timeZoneString = $this->getTimeZoneByLatLong($timeStampToday[0], $latitudeFromUser, $longitudeFromUser);
 
     //$timeStamp = date_timestamp_get(date("m/d/y"));
@@ -310,8 +312,8 @@ class Webhook extends CI_Controller {
     // Parse result
     $waktuShalat = $result['data']['timings'];
     $messageJadwalShalat = "Jadwal Shalat hari ini, ";
-    $messageJadwalShalat.= $timeStampToday['weekday']." ";
-    $messageJadwalShalat.= $timeStampToday['mday']." ".$timeStampToday['month']." ".$timeStampToday['year']."\n\n";
+    $messageJadwalShalat.= $indoDay." ";
+    $messageJadwalShalat.= $timeStampToday['mday']." ".$indoMonth." ".$timeStampToday['year']."\n\n";
     $messageJadwalShalat.= "Subuh     : ". $waktuShalat['Fajr']."\n";
     $messageJadwalShalat.= "Dzuhur    : ". $waktuShalat['Dhuhr']."\n";
     $messageJadwalShalat.= "Ashar       : ". $waktuShalat['Asr']."\n";
@@ -344,6 +346,35 @@ class Webhook extends CI_Controller {
     $resultTimeZone = json_decode($returnedTimeZone,true);
 
     return $resultTimeZone['timeZoneId'];
+  }
+
+  private function getTranslatedDay($dayEnglishName){
+    switch ($dayEnglishName){
+      case "Sunday": return "Ahad";break;
+      case "Monday": return "Senin";break;
+      case "Tuesday": return "Selasa";break;
+      case "Wednesday": return "Rabu";break;
+      case "Thursday": return "Kamis";break;
+      case "Friday": return "Jumat";break;
+      case "Saturday": return "Sabtu";break;
+    }
+  }
+
+  private function getTranslatedMonth($monthEnglishName){
+    switch ($monthEnglishName){
+      case "January": return "Januari";break;
+      case "February": return "Februari";break;
+      case "March": return "Maret";break;
+      case "April": return "April";break;
+      case "May": return "Mei";break;
+      case "June": return "Juni";break;
+      case "July": return "Juli";break;
+      case "August": return "Agustus";break;
+      case "September": return "September";break;
+      case "October": return "Oktober";break;
+      case "November": return "November";break;
+      case "December": return "Desember";break;
+    }
   }
 
 }
