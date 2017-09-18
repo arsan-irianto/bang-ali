@@ -309,7 +309,7 @@ class Webhook extends CI_Controller {
 
     // Parse result
     $waktuShalat = $result['data']['timings'];
-    $messageJadwalShalat = "Jadwal Shalat hari ini ";
+    $messageJadwalShalat = "Jadwal Shalat hari ini, ";
     $messageJadwalShalat.= $timeStampToday['weekday']." ";
     $messageJadwalShalat.= $timeStampToday['mday']." ".$timeStampToday['month']." ".$timeStampToday['year']."\n";
     $messageJadwalShalat.= "Subuh : ". $waktuShalat['Fajr']."\n";
@@ -318,9 +318,19 @@ class Webhook extends CI_Controller {
     $messageJadwalShalat.= "Maghrib : ". $waktuShalat['Maghrib']."\n";
     $messageJadwalShalat.= "Isya : ". $waktuShalat['Isha'];
 
+    $messageInfo = "Jangan lupa shalat tepat waktu dan berjamaah di Masjid ya. Nabi kita Shallallahu ‘alaihi wa sallam bersabda : \n";
+    $messageHadist = '"'."Barangsiapa yang shalat karena Allah selama 40 hari secara berjama’ah dengan mendapatkan Takbir pertama (takbiratul ihramnya imam), maka ditulis untuknya dua kebebasan, yaitu kebebasan dari api neraka dan kebebasan dari sifat kemunafikan.(HR.Tirmidzi)".'"';
+
     //send message to reply message
-    $textMessageBuilder =  new TextMessageBuilder($messageJadwalShalat);
-    $this->bot->replyMessage($event['replyToken'], $textMessageBuilder);
+    $textMessage1 =  new TextMessageBuilder($messageJadwalShalat);
+    $textMessage2 =  new TextMessageBuilder($messageInfo);
+    $textMessage3 = new TemplateMessageBuilder($messageHadist);
+
+    $multiMessageBuilder = new MultiMessageBuilder();
+    $multiMessageBuilder->add($textMessage1);
+    $multiMessageBuilder->add($textMessage2);
+    $multiMessageBuilder->add($textMessage3);
+    $this->bot->replyMessage($event['replyToken'], $multiMessageBuilder);
   }
 
   private function getBeforeLastEvent($user_id){
