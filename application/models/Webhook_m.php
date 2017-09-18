@@ -3,7 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Webhook_m extends CI_Model
 {
-  function __construct(){
+  function __construct()
+  {
     parent::__construct();
     $this->load->database();
   }
@@ -98,7 +99,8 @@ class Webhook_m extends CI_Model
     return false;
   }
 
-  function getBeforeLastEventText($user_id){
+  function getBeforeLastEventText($user_id)
+  {
     $data = $this->db->query("SELECT events FROM eventlog 
         WHERE events like '%".$user_id."%' ORDER BY id DESC LIMIT 1 OFFSET 1")
     ->row_array();
