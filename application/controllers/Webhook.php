@@ -324,7 +324,7 @@ class Webhook extends CI_Controller {
     //send message to reply message
     $textMessage1 =  new TextMessageBuilder($messageJadwalShalat);
     $textMessage2 =  new TextMessageBuilder($messageInfo);
-    $textMessage3 = new TemplateMessageBuilder($messageHadist);
+    $textMessage3 = new TextMessageBuilder($messageHadist);
 
     $multiMessageBuilder = new MultiMessageBuilder();
     $multiMessageBuilder->add($textMessage1);
