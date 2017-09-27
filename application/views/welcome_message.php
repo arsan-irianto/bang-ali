@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+    <meta name="dicoding:email" content="arsan.irianto@gmail.com">
 	<title>Welcome to CodeIgniter</title>
 
 	<style type="text/css">

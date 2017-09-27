@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="Add function translate day and month">
+    <list default="true" id="b6dd1e21-0198-4b6a-9654-a91e082e1c31" name="Default" comment="add meta header">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Webhook_m.php" afterPath="$PROJECT_DIR$/application/models/Webhook_m.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/welcome_message.php" afterPath="$PROJECT_DIR$/application/views/welcome_message.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/vendor/autoload.php" afterPath="$PROJECT_DIR$/lib/vendor/autoload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/vendor/composer/ClassLoader.php" afterPath="$PROJECT_DIR$/lib/vendor/composer/ClassLoader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/vendor/composer/LICENSE" afterPath="$PROJECT_DIR$/lib/vendor/composer/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/vendor/composer/autoload_real.php" afterPath="$PROJECT_DIR$/lib/vendor/composer/autoload_real.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/lib/vendor/composer/installed.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,7 +24,7 @@
       <file leaf-file-name=".env" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
+            <state relative-caret-position="184">
               <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
@@ -27,21 +34,42 @@
       <file leaf-file-name="Webhook.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+            <state relative-caret-position="92">
+              <caret line="31" column="31" lean-forward="false" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+              <folding>
+                <element signature="e#71#89#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Webhook_m.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="welcome_message.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/welcome_message.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="11" column="60" lean-forward="true" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Webhook_m.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/Webhook_m.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="102" column="2" lean-forward="false" selection-start-line="102" selection-start-column="2" selection-end-line="102" selection-end-column="2" />
+            <state relative-caret-position="2323">
+              <caret line="101" column="43" lean-forward="false" selection-start-line="101" selection-start-column="43" selection-end-line="101" selection-end-column="43" />
               <folding>
-                <marker date="1505716105567" expanded="true" signature="2248:2305" ph="SELECT event... eventlog" />
-                <marker date="1505716105567" expanded="true" signature="2248:2353" ph="SELECT event... eventlog" />
+                <marker date="1505896862717" expanded="true" signature="2248:2353" ph="SELECT event... eventlog" />
               </folding>
             </state>
           </provider>
@@ -50,7 +78,7 @@
       <file leaf-file-name="LINEBot.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/vendor/linecorp/line-bot-sdk/src/LINEBot.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1596">
+            <state relative-caret-position="1610">
               <caret line="90" column="20" lean-forward="false" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
               <folding />
             </state>
@@ -100,6 +128,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -110,6 +139,7 @@
         <option value="$PROJECT_DIR$/application/models/Surahquran_m.php" />
         <option value="$PROJECT_DIR$/application/controllers/Webhook.php" />
         <option value="$PROJECT_DIR$/application/models/Webhook_m.php" />
+        <option value="$PROJECT_DIR$/application/views/welcome_message.php" />
       </list>
     </option>
   </component>
@@ -122,9 +152,9 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
-    <option name="y" value="20" />
-    <option name="width" value="1346" />
-    <option name="height" value="698" />
+    <option name="y" value="30" />
+    <option name="width" value="1221" />
+    <option name="height" value="640" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -142,8 +172,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,6 +199,12 @@
             <path>
               <item name="bang-ali" type="b2602c69:ProjectViewProjectNode" />
               <item name="bang-ali" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="bang-ali" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bang-ali" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="lib" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -188,11 +222,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -228,6 +265,11 @@
       <workItem from="1505349254472" duration="55925000" />
       <workItem from="1505513048266" duration="15192000" />
       <workItem from="1505695774430" duration="11517000" />
+      <workItem from="1505999344548" duration="231000" />
+      <workItem from="1506040922343" duration="25000" />
+      <workItem from="1506118891244" duration="86000" />
+      <workItem from="1506328935627" duration="29000" />
+      <workItem from="1506472710540" duration="379000" />
     </task>
     <task id="LOCAL-00232" summary="Check last event message from user">
       <created>1505455749939</created>
@@ -576,14 +618,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145729000" />
+    <option name="totallyTimeSpent" value="146479000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="30" width="1366" height="738" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18814056" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19726859" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32888147" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -627,7 +669,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Test Reply one click one ayat with multiMessageBuilder" />
     <MESSAGE value="Test reply with arabic message" />
     <MESSAGE value="Reply with dummy ayat and translation" />
     <MESSAGE value="Test Send Surah al-fatihah ayat 1" />
@@ -652,28 +693,14 @@
     <MESSAGE value="test send from function jadwal shalat" />
     <MESSAGE value="Send from function jadwal shalat after user shared location" />
     <MESSAGE value="Add function translate day and month" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add function translate day and month" />
+    <MESSAGE value="add meta header" />
+    <option name="LAST_COMMIT_MESSAGE" value="add meta header" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -708,8 +735,7 @@
         <state relative-caret-position="1872">
           <caret line="72" column="3" lean-forward="false" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
           <folding>
-            <marker date="1505716105567" expanded="true" signature="2248:2305" ph="SELECT event... eventlog" />
-            <marker date="1505716105567" expanded="true" signature="2248:2353" ph="SELECT event... eventlog" />
+            <marker date="1505896862717" expanded="true" signature="2248:2353" ph="SELECT event... eventlog" />
           </folding>
         </state>
       </provider>
@@ -718,7 +744,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3328">
           <caret line="128" column="34" lean-forward="true" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
-          <folding />
+          <folding>
+            <element signature="e#71#89#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -764,8 +792,7 @@
         <state relative-caret-position="1872">
           <caret line="72" column="3" lean-forward="false" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
           <folding>
-            <marker date="1505716105567" expanded="true" signature="2248:2305" ph="SELECT event... eventlog" />
-            <marker date="1505716105567" expanded="true" signature="2248:2353" ph="SELECT event... eventlog" />
+            <marker date="1505896862717" expanded="true" signature="2248:2353" ph="SELECT event... eventlog" />
           </folding>
         </state>
       </provider>
@@ -774,7 +801,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2964">
           <caret line="122" column="7" lean-forward="false" selection-start-line="122" selection-start-column="7" selection-end-line="122" selection-end-column="7" />
-          <folding />
+          <folding>
+            <element signature="e#71#89#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -820,8 +849,7 @@
         <state relative-caret-position="1872">
           <caret line="72" column="3" lean-forward="false" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
           <folding>
-            <marker date="1505716105567" expanded="true" signature="2248:2305" ph="SELECT event... eventlog" />
-            <marker date="1505716105567" expanded="true" signature="2248:2353" ph="SELECT event... eventlog" />
+            <marker date="1505896862717" expanded="true" signature="2248:2353" ph="SELECT event... eventlog" />
           </folding>
         </state>
       </provider>
@@ -830,7 +858,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3172">
           <caret line="122" column="7" lean-forward="true" selection-start-line="122" selection-start-column="7" selection-end-line="122" selection-end-column="7" />
-          <folding />
+          <folding>
+            <element signature="e#71#89#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -854,7 +884,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2314">
           <caret line="96" column="29" lean-forward="false" selection-start-line="96" selection-start-column="29" selection-end-line="96" selection-end-column="29" />
-          <folding />
+          <folding>
+            <element signature="e#71#89#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -870,8 +902,7 @@
         <state relative-caret-position="1872">
           <caret line="72" column="3" lean-forward="false" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
           <folding>
-            <marker date="1505716105567" expanded="true" signature="2248:2305" ph="SELECT event... eventlog" />
-            <marker date="1505716105567" expanded="true" signature="2248:2353" ph="SELECT event... eventlog" />
+            <marker date="1505896862717" expanded="true" signature="2248:2353" ph="SELECT event... eventlog" />
           </folding>
         </state>
       </provider>
@@ -943,7 +974,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1144">
           <caret line="59" column="28" lean-forward="false" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -951,7 +981,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1248">
           <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1016,38 +1045,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/vendor/linecorp/line-bot-sdk/src/LINEBot.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1596">
-          <caret line="90" column="20" lean-forward="false" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="184">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Webhook_m.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="102" column="2" lean-forward="false" selection-start-line="102" selection-start-column="2" selection-end-line="102" selection-end-column="2" />
+        <state relative-caret-position="2323">
+          <caret line="101" column="43" lean-forward="false" selection-start-line="101" selection-start-column="43" selection-end-line="101" selection-end-column="43" />
           <folding>
-            <marker date="1505716105567" expanded="true" signature="2248:2305" ph="SELECT event... eventlog" />
-            <marker date="1505716105567" expanded="true" signature="2248:2353" ph="SELECT event... eventlog" />
+            <marker date="1505896862717" expanded="true" signature="2248:2353" ph="SELECT event... eventlog" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/vendor/linecorp/line-bot-sdk/src/LINEBot.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1610">
+          <caret line="90" column="20" lean-forward="false" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Webhook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="31" column="31" lean-forward="false" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+          <folding>
+            <element signature="e#71#89#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/welcome_message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="60" lean-forward="true" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
